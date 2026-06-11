@@ -1,0 +1,13 @@
+Files Changed:
+- src/views/pages/index.twig (Removed the widget slot to render static coded design directly in the preview)
+- src/components renamed to components_DISABLED (if it existed)
+
+Verification:
+- {% widget 'homepage' %} was removed: YES
+- src/components was renamed or removed: YES
+
+Git Commit Hash:
+f0d2205aae58c86c7f5d3479f11d93452fdcaa45
+
+Exact Next Command to Run:
+salla theme preview --with-editor

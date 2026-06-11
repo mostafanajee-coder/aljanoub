@@ -3,253 +3,553 @@
 {% block content %}
 <style>
   :root {
-    --primary-color: #4b3621; /* Coffee Brown */
-    --secondary-color: #2b4f3b; /* Dark Green */
-    --accent-color: #d4af37; /* Gold */
-    --bg-light: #fdfbf7; /* Cream */
-    --text-dark: #1a1a1a;
+    --primary-color: #3b2818; /* Rich Coffee Brown */
+    --secondary-color: #1e3b2b; /* Deep Green */
+    --accent-color: #cda434; /* Premium Gold */
+    --accent-light: #f5eedc; /* Light Gold/Cream */
+    --bg-main: #faf8f5; /* Very Light Cream */
+    --white: #ffffff;
+    --text-dark: #222222;
+    --text-light: #666666;
+    --border-color: #eaeaea;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 15px 35px rgba(59, 40, 24, 0.1);
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   
-  .home-wrapper {
+  /* --- Global Header & Footer Fixes --- */
+  /* Fix oversized logo in demo header */
+  header .navbar-brand,
+  .store-header .navbar-brand {
+    max-width: 180px !important;
+    max-height: 80px !important;
+    display: inline-block;
+  }
+  header .navbar-brand img,
+  .store-header .navbar-brand img {
+    max-width: 100% !important;
+    max-height: 60px !important;
+    object-fit: contain !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  /* Footer spacing cleanup */
+  footer.store-footer {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+    background-color: var(--white) !important;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0 !important;
+  }
+  footer.store-footer .footer-widget {
+    margin-bottom: 30px !important;
+  }
+
+  /* --- Homepage Global Styles --- */
+  .v2-home-wrapper {
     font-family: 'Tajawal', 'Cairo', sans-serif;
-    background-color: var(--bg-light);
+    background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
   }
 
-  /* 1. Hero Section */
-  .hero-section {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-    border-bottom: 5px solid var(--accent-color);
-  }
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--accent-color);
-  }
-  .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
-  }
-  .hero-btn {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: transform 0.3s, background 0.3s;
-    display: inline-block;
-  }
-  .hero-btn:hover {
-    transform: scale(1.05);
-    background-color: #fff;
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
-  /* 2. Categories */
-  .categories-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  .section-padding {
+    padding: 80px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
   }
   .section-title {
-    text-align: center;
     font-size: 2.2rem;
     color: var(--secondary-color);
-    margin-bottom: 40px;
+    font-weight: 800;
+    margin-bottom: 15px;
     position: relative;
+    display: inline-block;
   }
   .section-title::after {
     content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
     background-color: var(--accent-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    border-radius: 3px;
   }
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 20px;
-  }
-  .cat-card {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    text-decoration: none;
-  }
-  .cat-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-  }
-  .cat-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-  }
-  .cat-name {
-    font-weight: 600;
-    color: var(--secondary-color);
+  .section-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
-  /* 3. Promo Strip */
+  /* --- 1. Promo Strip --- */
   .promo-strip {
     background-color: var(--accent-color);
     color: var(--primary-color);
-    padding: 15px 0;
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
   }
 
-  /* 4 & 5. Placeholders (Best Sellers, New Arrivals) */
-  .products-placeholder {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
+  /* --- 2. Hero Section --- */
+  .hero-section {
+    position: relative;
+    background: linear-gradient(145deg, var(--secondary-color) 0%, #112218 100%);
+    color: var(--white);
+    padding: 120px 20px;
+    text-align: center;
+    overflow: hidden;
   }
+  /* Decorative CSS Shapes */
+  .hero-decoration {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(205,164,52,0.1) 0%, rgba(205,164,52,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .hero-dec-1 { top: -100px; right: -100px; width: 400px; height: 400px; }
+  .hero-dec-2 { bottom: -50px; left: -50px; }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    line-height: 1.8;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .btn-primary, .btn-outline {
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(205, 164, 52, 0.3);
+  }
+  .btn-primary:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+  }
+  .btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+  }
+  .btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+  }
+
+  /* --- 3. Categories --- */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 25px;
+  }
+  .cat-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 30px 15px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: var(--transition);
+  }
+  .cat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+  .cat-card:hover::before {
+    transform: scaleX(1);
+  }
+  .cat-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    transition: var(--transition);
+  }
+  .cat-card:hover .cat-icon {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
+  .cat-name {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+  }
+
+  /* --- 4. Product Cards (Best Sellers / New Arrivals) --- */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
   }
   .product-card {
-    background: white;
-    border-radius: 12px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    border: 1px solid #f0f0f0;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-  .product-img {
-    background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
-    height: 200px;
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+  .product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 2;
+  }
+  .product-img-block {
+    height: 240px;
+    background: linear-gradient(135deg, var(--bg-main) 0%, #f0ebd8 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #888;
-    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-icon-art {
+    font-size: 5rem;
+    opacity: 0.8;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+    transition: var(--transition);
+  }
+  .product-card:hover .product-icon-art {
+    transform: scale(1.1) rotate(5deg);
   }
   .product-info {
-    padding: 20px;
-    text-align: center;
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   .product-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-bottom: 10px;
     color: var(--secondary-color);
-    font-weight: bold;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .product-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-top: auto;
   }
   .product-price {
     color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 900;
+    font-size: 1.4rem;
   }
-
-  /* 6. Story Section */
-  .story-section {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 80px 20px;
-    margin-top: 40px;
-  }
-  .story-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .story-container p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    line-height: 1.8;
-  }
-
-  /* 7. Brands */
-  .brands-section {
-    padding: 60px 20px;
-    background-color: white;
-  }
-  .brands-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .brand-circle {
-    width: 100px;
-    height: 100px;
+  .product-add-btn {
+    background-color: var(--bg-main);
+    color: var(--primary-color);
+    border: none;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: var(--bg-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #eee;
-    color: #999;
-    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .product-card:hover .product-add-btn {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
   }
 
-  /* 8. Trust Features */
-  .trust-section {
-    background-color: var(--bg-light);
-    padding: 60px 20px;
+  /* --- 5. Promo Banner --- */
+  .wide-promo-banner {
+    background: linear-gradient(to right, var(--primary-color), #2a1b10);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    margin: 40px auto;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(59, 40, 24, 0.2);
+  }
+  .wide-promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(205,164,52,0.03) 20px, rgba(205,164,52,0.03) 40px);
+  }
+  .promo-banner-content {
+    position: relative;
+    z-index: 2;
+  }
+  .promo-banner-title {
+    font-size: 2.8rem;
+    color: var(--accent-color);
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+  .promo-banner-text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  /* --- 6. Story Section (Two Column) --- */
+  .story-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 60px;
+    box-shadow: var(--shadow-soft);
+  }
+  .story-content h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    font-weight: 900;
+    margin-bottom: 25px;
+  }
+  .story-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .story-visual {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    height: 100%;
+    min-height: 400px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    position: relative;
+    overflow: hidden;
+  }
+  .story-visual-icon {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .story-visual-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+  }
+  .story-visual::after {
+    content: '';
+    position: absolute;
+    border: 2px solid rgba(205, 164, 52, 0.2);
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    border-radius: var(--radius-md);
+  }
+
+  /* --- 7. Brands Section --- */
+  .brands-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .brand-item {
+    background-color: var(--white);
+    padding: 20px 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+  }
+  .brand-item:hover {
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+  }
+
+  /* --- 8. Trust Features --- */
+  .features-container {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    box-shadow: var(--shadow-soft);
   }
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
   }
   .trust-item {
     text-align: center;
-    padding: 20px;
   }
-  .trust-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
+  .trust-icon-wrap {
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+  }
+  .trust-item:hover .trust-icon-wrap {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: rotate(10deg);
   }
   .trust-title {
-    font-weight: bold;
+    font-weight: 800;
     color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .trust-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
   }
 
+  /* --- Responsive Design --- */
+  @media (max-width: 992px) {
+    .story-wrapper { grid-template-columns: 1fr; }
+    .story-visual { min-height: 300px; }
+    .hero-title { font-size: 2.8rem; }
+  }
   @media (max-width: 768px) {
-    .hero-title { font-size: 2rem; }
-    .hero-subtitle { font-size: 1.2rem; }
+    .hero-section { padding: 80px 20px; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-actions { flex-direction: column; }
+    .wide-promo-banner { padding: 40px 20px; }
+    .promo-banner-title { font-size: 2rem; }
   }
 </style>
 
-<div class="home-wrapper" dir="rtl">
+<div class="v2-home-wrapper" dir="rtl">
   
-  <!-- 1. Hero Section -->
-  <section class="hero-section">
-    <h1 class="hero-title">الجنوب التجارية</h1>
-    <p class="hero-subtitle">أصالة الضيافة، وجودة تستحق الثقة في القهوة والمواد الغذائية</p>
-    <a href="/products" class="hero-btn">تسوق الآن</a>
-  </section>
-
-  <!-- 3. Promo Strip -->
+  <!-- 1. Gold Promo Strip -->
   <div class="promo-strip">
-    🎉 شحن مجاني للطلبات فوق 299 ريال! تسوق تشكيلتنا الفاخرة الآن
+    🎉 شحن مجاني لجميع الطلبات فوق ٢٩٩ ر.ق! | اكتشف تشكيلة الضيافة الفاخرة
   </div>
 
-  <!-- 2. Categories -->
-  <section class="categories-section">
-    <h2 class="section-title">تسوق حسب القسم</h2>
+  <!-- 2. Luxury Hero Section -->
+  <section class="hero-section">
+    <div class="hero-decoration hero-dec-1"></div>
+    <div class="hero-decoration hero-dec-2"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">الجنوب التجارية</h1>
+      <p class="hero-subtitle">حيث تلتقي أصالة الضيافة القطرية والخليجية بأعلى معايير الجودة العالمية. استمتع بتشكيلة فاخرة من القهوة، التمور، والمواد الغذائية المختارة بعناية.</p>
+      <div class="hero-actions">
+        <a href="/products" class="btn-primary">تسوق المجموعات الفاخرة</a>
+        <a href="/categories" class="btn-outline">تصفح الأقسام</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Modern Category Cards -->
+  <section class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title">أقسام التسوق</h2>
+      <p class="section-subtitle">تصفح مجموعاتنا المميزة المختارة لتلبي جميع احتياجات ضيافتك</p>
+    </div>
     <div class="cat-grid">
       <a href="/category/coffee" class="cat-card">
         <div class="cat-icon">☕</div>
@@ -264,7 +564,7 @@
         <div class="cat-name">الهيل</div>
       </a>
       <a href="/category/tea" class="cat-card">
-        <div class="cat-icon">🍵</div>
+        <div class="cat-icon">🫖</div>
         <div class="cat-name">الشاي</div>
       </a>
       <a href="/category/saffron" class="cat-card">
@@ -276,7 +576,7 @@
         <div class="cat-name">أواني الضيافة</div>
       </a>
       <a href="/category/coffee-makers" class="cat-card">
-        <div class="cat-icon">🔌</div>
+        <div class="cat-icon">⚙️</div>
         <div class="cat-name">محضرات القهوة</div>
       </a>
       <a href="/category/camping" class="cat-card">
@@ -286,120 +586,214 @@
     </div>
   </section>
 
-  <!-- 4. Best Sellers -->
-  <section class="products-placeholder">
-    <h2 class="section-title">الأكثر مبيعاً</h2>
+  <!-- 4. Premium Best Sellers -->
+  <section class="section-padding container" style="background-color: var(--white); border-radius: var(--radius-lg); padding: 60px 40px; box-shadow: var(--shadow-soft);">
+    <div class="section-header">
+      <h2 class="section-title">الأكثر مبيعاً</h2>
+      <p class="section-subtitle">المنتجات المفضلة لدى عملائنا والتي تعكس الجودة العالية للجنوب</p>
+    </div>
     <div class="product-grid">
       <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
+        <span class="product-badge">الأكثر طلباً</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">☕</div>
+        </div>
         <div class="product-info">
-          <h3 class="product-title">قهوة سعودية فاخرة</h3>
-          <div class="product-price">١٢٠ ر.س</div>
+          <h3 class="product-title">قهوة عربية فاخرة</h3>
+          <p class="product-desc">مزيج حصري محمص بدقة ليقدم لك المذاق العربي الأصيل.</p>
+          <div class="product-footer">
+            <span class="product-price">١٢٠ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
         </div>
       </div>
+      
       <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
+        <span class="product-badge">مميز</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">🌴</div>
+        </div>
         <div class="product-info">
-          <h3 class="product-title">تمر خلاص القصيم</h3>
-          <div class="product-price">٨٥ ر.س</div>
+          <h3 class="product-title">تمر فاخر</h3>
+          <p class="product-desc">حبات تمر مجدول فاخرة منتقاة يدوياً ومحفوظة بعناية.</p>
+          <div class="product-footer">
+            <span class="product-price">٨٥ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
-        <div class="product-info">
-          <h3 class="product-title">زعفران سوبر نقيل</h3>
-          <div class="product-price">٢٥٠ ر.س</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
-        <div class="product-info">
-          <h3 class="product-title">طقم دلال ضيافة</h3>
-          <div class="product-price">٣٤٠ ر.س</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 6. Story Section -->
-  <section class="story-section">
-    <div class="story-container">
-      <h2 style="color: var(--accent-color); margin-bottom: 20px; font-size: 2.2rem;">قصتنا مع الضيافة</h2>
-      <p>
-        منذ سنوات، ونحن في محامص ومطاحن الجنوب نسعى لتقديم أجود أنواع القهوة، الهيل، الزعفران، والمكسرات، بالإضافة إلى أرقى أدوات الضيافة ولوازم الرحلات. ننتقي منتجاتنا بعناية لتعكس كرم الضيافة الأصيلة، لتكون جزءاً من أوقاتكم المميزة وتجمعاتكم الدافئة.
-      </p>
-    </div>
-  </section>
-
-  <!-- 5. New Arrivals -->
-  <section class="products-placeholder">
-    <h2 class="section-title">وصلنا حديثاً</h2>
-    <div class="product-grid">
       <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
-        <div class="product-info">
-          <h3 class="product-title">طاحونة قهوة احترافية</h3>
-          <div class="product-price">٤٥٠ ر.س</div>
+        <div class="product-img-block">
+          <div class="product-icon-art">🌿</div>
         </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
         <div class="product-info">
           <h3 class="product-title">هيل هندي اكسترا</h3>
-          <div class="product-price">١٦٠ ر.س</div>
+          <p class="product-desc">هيل درجة أولى بحبات كبيرة ونكهة فواحة وقوية.</p>
+          <div class="product-footer">
+            <span class="product-price">١٦٠ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
         </div>
       </div>
+
       <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
+        <div class="product-img-block">
+          <div class="product-icon-art">🌺</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">زعفران مختار</h3>
+          <p class="product-desc">زعفران طبيعي 100% يضفي لوناً ونكهة لا تقاوم لأطباقك.</p>
+          <div class="product-footer">
+            <span class="product-price">٢٥٠ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Wide Promo Banner -->
+  <div class="container">
+    <div class="wide-promo-banner">
+      <div class="promo-banner-content">
+        <h2 class="promo-banner-title">موسم الضيافة الفاخرة</h2>
+        <p class="promo-banner-text">استعد لمناسباتك القادمة مع أطقم التقديم الفاخرة وأجود أنواع القهوة والمكسرات. خصومات تصل إلى ٢٠٪ لفترة محدودة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. New Arrivals -->
+  <section class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title">وصلنا حديثاً</h2>
+      <p class="section-subtitle">أحدث إضافاتنا من المنتجات وأدوات الضيافة</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <span class="product-badge" style="background-color: var(--secondary-color); color: var(--white);">جديد</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">⚙️</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">طاحونة قهوة احترافية</h3>
+          <p class="product-desc">طاحونة كهربائية متطورة لدرجات طحن دقيقة ومثالية.</p>
+          <div class="product-footer">
+            <span class="product-price">٤٥٠ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <span class="product-badge" style="background-color: var(--secondary-color); color: var(--white);">جديد</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">🫖</div>
+        </div>
         <div class="product-info">
           <h3 class="product-title">شاي سيلاني فاخر</h3>
-          <div class="product-price">٤٥ ر.س</div>
+          <p class="product-desc">أوراق شاي نقية من أفضل مزارع سريلانكا.</p>
+          <div class="product-footer">
+            <span class="product-price">٤٥ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
         </div>
       </div>
+
       <div class="product-card">
-        <div class="product-img">صورة المنتج</div>
+        <span class="product-badge" style="background-color: var(--secondary-color); color: var(--white);">جديد</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">🍽️</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">طقم ضيافة</h3>
+          <p class="product-desc">طقم متكامل بتصميم عصري ولمسات ذهبية فاخرة.</p>
+          <div class="product-footer">
+            <span class="product-price">٣٤٠ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-badge" style="background-color: var(--secondary-color); color: var(--white);">جديد</span>
+        <div class="product-img-block">
+          <div class="product-icon-art">⛺</div>
+        </div>
         <div class="product-info">
           <h3 class="product-title">حقيبة رحلات متكاملة</h3>
-          <div class="product-price">٢٩٩ ر.س</div>
+          <p class="product-desc">كل ما تحتاجه لرحلتك القادمة في حقيبة واحدة مرتبة.</p>
+          <div class="product-footer">
+            <span class="product-price">٢٩٩ ر.ق</span>
+            <button class="product-add-btn">+</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Brands Placeholder -->
-  <section class="brands-section">
-    <h2 class="section-title">علامات تجارية نثق بها</h2>
+  <!-- 7. Two-Column Brand Story -->
+  <section class="section-padding container">
+    <div class="story-wrapper">
+      <div class="story-content">
+        <h2>قصة الجنوب للضيافة</h2>
+        <p>
+          في الجنوب التجارية، لا نقدم مجرد منتجات، بل نصنع تجربة ضيافة متكاملة. انطلقنا من شغفنا العميق بالتقاليد العربية الخليجية والقطرية، لنوفر لك أفضل ما تجود به الطبيعة من قهوة وهيل وزعفران.
+        </p>
+        <p>
+          نلتزم بأعلى معايير الجودة في كل خطوة، بدءاً من اختيار المحاصيل من مصادرها الأصلية، وحتى وصولها إليكم في أرقى أطقم التقديم. نحن هنا لنجعل من كل مناسبة ذكرى لا تُنسى.
+        </p>
+        <a href="/about" class="btn-primary" style="display: inline-block; margin-top: 15px;">اكتشف المزيد عنا</a>
+      </div>
+      <div class="story-visual">
+        <div class="story-visual-icon">✨</div>
+        <div class="story-visual-text">جودة تستحق الثقة</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Brands Selection -->
+  <section class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title">شركاء النجاح</h2>
+      <p class="section-subtitle">نفخر بتوفير أفضل العلامات التجارية المحلية والعالمية</p>
+    </div>
     <div class="brands-grid">
-      <div class="brand-circle">ماركة ١</div>
-      <div class="brand-circle">ماركة ٢</div>
-      <div class="brand-circle">ماركة ٣</div>
-      <div class="brand-circle">ماركة ٤</div>
-      <div class="brand-circle">ماركة ٥</div>
+      <div class="brand-item">مختارات الجنوب</div>
+      <div class="brand-item">محامص مختارة</div>
+      <div class="brand-item">ضيافة الخليج</div>
+      <div class="brand-item">قهوة فاخرة</div>
+      <div class="brand-item">تمور مختارة</div>
     </div>
   </section>
 
-  <!-- 8. Trust Features -->
-  <section class="trust-section">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <div class="trust-icon">⭐</div>
-        <div class="trust-title">منتجات عالية الجودة</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🔒</div>
-        <div class="trust-title">وسائل دفع آمنة</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🎧</div>
-        <div class="trust-title">خدمة عملاء مميزة</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🚚</div>
-        <div class="trust-title">شحن وتوصيل موثوق</div>
+  <!-- 9. Improved Trust Features -->
+  <section class="section-padding container">
+    <div class="features-container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon-wrap">🌟</div>
+          <h4 class="trust-title">منتجات عالية الجودة</h4>
+          <p class="trust-desc">ننتقي أفضل المكونات لنضمن رضاكم التام في كل مرة.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-wrap">🔒</div>
+          <h4 class="trust-title">وسائل دفع آمنة</h4>
+          <p class="trust-desc">طرق دفع متعددة ومشفرة بالكامل لضمان أمانكم.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-wrap">🎧</div>
+          <h4 class="trust-title">خدمة عملاء مميزة</h4>
+          <p class="trust-desc">فريقنا جاهز للرد على استفساراتكم على مدار الساعة.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-wrap">🚚</div>
+          <h4 class="trust-title">شحن وتوصيل موثوق</h4>
+          <p class="trust-desc">توصيل موثوق وسريع لجميع مناطق الدولة.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Widget slot removed for static testing -->
 </div>
 {% endblock %}
