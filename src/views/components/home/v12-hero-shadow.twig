@@ -24,41 +24,136 @@
 | benefit_4_text            | string | Benefit 4 text                                                   |
 | benefit_4_icon            | string | Benefit 4 icon                                                   |
 #}
-<!-- V12C-HF1 shadow hero component only. Do not replace the visible static hero until V12D. -->
+<!-- V12C-HF2 shadow hero component only. Do not replace the visible static hero until V12D. -->
 {% if enabled|default(true) %}
 <style>
-.alj-v12-hero-shadow-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.alj-v12-hero-shadow-inner {
-  padding: 20px;
-}
+  .alj-v12-hero-shadow-container {
+    --primary-color: #3b2818;
+    --secondary-color: #1e3b2b;
+    --accent-color: #cda434;
+    --accent-light: #fdfaf3;
+    --accent-glow: rgba(205, 164, 52, 0.15);
+    --bg-main: #fcfbfa;
+    --bg-alt: #f4f1eb;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --border-color: #f0ebe4;
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 15px 40px rgba(30, 59, 43, 0.08);
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --transition: all 0.3s ease;
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-main);
+  }
+
+  .alj-v12-hero-shadow-wrapper {
+    background: linear-gradient(180deg, var(--white) 0%, var(--bg-main) 100%);
+    padding: 40px 20px 50px; position: relative; overflow: hidden;
+  }
+  .alj-v12-hero-shadow-inner {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+    max-width: 1320px; margin: 0 auto; position: relative; z-index: 2;
+  }
+  .alj-v12-hero-shadow-badge {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light);
+    color: var(--accent-color); padding: 8px 16px; border-radius: 30px; font-weight: 800;
+    font-size: 0.85rem; margin-bottom: 20px; border: 1px solid rgba(205,164,52,0.3);
+  }
+  .alj-v12-hero-shadow-title { font-size: 3.8rem; color: var(--secondary-color); font-weight: 900; line-height: 1.1; margin-top: 0; margin-bottom: 20px; }
+  .alj-v12-hero-shadow-title span { color: var(--accent-color); display: block; font-size: 2.8rem; }
+  .alj-v12-hero-shadow-desc { font-size: 1.15rem; color: var(--text-light); margin-top: 0; margin-bottom: 30px; line-height: 1.8; max-width: 90%; }
+  
+  .alj-v12-hero-shadow-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+  .alj-v12-hero-shadow-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; text-align: center; }
+  .alj-v12-hero-shadow-btn-primary { background: var(--secondary-color); color: var(--white); box-shadow: var(--shadow-md); }
+  .alj-v12-hero-shadow-btn-primary:hover { background: var(--primary-color); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .alj-v12-hero-shadow-btn-outline { background: transparent; color: var(--secondary-color); border: 2px solid var(--border-color); }
+  .alj-v12-hero-shadow-btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+  .alj-v12-hero-shadow-visual-area { position: relative; height: 500px; display: flex; align-items: center; justify-content: center; }
+  .alj-v12-hero-shadow-bg-glow { position: absolute; width: 450px; height: 450px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); border-radius: 50%; z-index: 1; }
+  .alj-v12-hero-shadow-card-main {
+    position: absolute; z-index: 3; background: var(--white); border-radius: var(--radius-lg); padding: 25px;
+    box-shadow: var(--shadow-hover); border: 1px solid var(--white); text-align: center;
+    width: 280px; display: flex; flex-direction: column; align-items: center; gap: 15px; box-sizing: border-box;
+  }
+  .alj-v12-hero-shadow-art-coffee { width: 140px; height: 140px; background: radial-gradient(circle at top left, #5c3a21, #2c1b10); border-radius: 50%; border: 6px solid var(--bg-main); box-shadow: 0 10px 20px rgba(0,0,0,0.1); position: relative; }
+  .alj-v12-hero-shadow-art-coffee::after { content: ''; position: absolute; right: -20px; top: 35px; width: 35px; height: 60px; border: 6px solid var(--bg-main); border-radius: 20px; z-index: -1; }
+  .alj-v12-hero-shadow-vc-title { font-weight: 900; color: var(--secondary-color); font-size: 1.2rem; }
+  .alj-v12-hero-shadow-vc-sub { color: var(--accent-color); font-size: 0.9rem; font-weight: 700; }
+  
+  .alj-v12-hero-shadow-card-float1 { position: absolute; top: 15%; right: 0; z-index: 2; background: var(--white); padding: 15px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); animation: alj-v12-float 6s ease-in-out infinite; width: 180px; text-align: center; box-sizing: border-box; }
+  .alj-v12-hero-shadow-art-dates { width: 80px; height: 60px; background: #8b5a2b; border-radius: 40px 40px 10px 10px; margin: 0 auto 10px; position: relative; }
+  .alj-v12-hero-shadow-art-dates::before { content: '🌰'; font-size: 2rem; position: absolute; top: -15px; left: 20px; }
+  
+  .alj-v12-hero-shadow-card-float2 { position: absolute; bottom: 15%; left: 0; z-index: 4; background: var(--white); padding: 15px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); animation: alj-v12-float 5s ease-in-out infinite 1s; display: flex; align-items: center; gap: 15px; box-sizing: border-box; }
+  .alj-v12-hero-shadow-art-saffron { width: 50px; height: 50px; background: var(--accent-light); border: 2px solid var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-sizing: border-box; }
+
+  /* --- Benefits Row --- */
+  .alj-v12-hero-shadow-benefits-row {
+    background: var(--white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+  }
+  .alj-v12-hero-shadow-benefits-inner { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+  .alj-v12-hero-shadow-benefit-item { display: flex; align-items: center; gap: 10px; color: var(--text-dark); font-weight: 700; font-size: 1rem; }
+  .alj-v12-hero-shadow-benefit-icon { color: var(--accent-color); font-size: 1.4rem; }
+
+  @keyframes alj-v12-float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .alj-v12-hero-shadow-title { font-size: 3rem; } .alj-v12-hero-shadow-title span { font-size: 2.2rem; }
+  }
+  @media (max-width: 850px) {
+    .alj-v12-hero-shadow-inner { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+    .alj-v12-hero-shadow-content { text-align: center; }
+    .alj-v12-hero-shadow-desc { margin: 0 auto 30px; }
+    .alj-v12-hero-shadow-actions { justify-content: center; }
+    .alj-v12-hero-shadow-visual-area { height: 400px; transform: scale(0.9); }
+    .alj-v12-hero-shadow-benefits-inner { flex-direction: column; align-items: center; gap: 10px; }
+  }
+  @media (max-width: 600px) {
+    .alj-v12-hero-shadow-wrapper { padding: 25px 20px 35px; }
+    .alj-v12-hero-shadow-badge { font-size: 0.75rem; padding: 6px 12px; margin-bottom: 12px; }
+    .alj-v12-hero-shadow-title { font-size: 2.1rem; margin-bottom: 12px; } .alj-v12-hero-shadow-title span { font-size: 1.5rem; }
+    .alj-v12-hero-shadow-desc { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; max-width: 100%; color: var(--text-light); }
+    .alj-v12-hero-shadow-btn { 
+      box-sizing: border-box; width: 100%; max-width: calc(100% - 32px); 
+      margin: 0 auto 10px auto !important; padding: 15px 20px; 
+      font-size: 1rem; border-radius: 999px; min-height: 54px; 
+    }
+    .alj-v12-hero-shadow-visual-area { height: 240px; transform: scale(0.6); transform-origin: top center; margin-top: -10px; }
+  }
 </style>
-<section class="alj-v12-hero-shadow-wrapper" dir="rtl">
+
+<div class="alj-v12-hero-shadow-container" dir="rtl">
+  <section class="alj-v12-hero-shadow-wrapper">
     <div class="alj-v12-hero-shadow-inner">
       <div class="alj-v12-hero-shadow-content">
         <div class="alj-v12-hero-shadow-badge">🌟 {{ badge_text|default('الخيار الأول للضيافة القطرية') }}</div>
         <h2 class="alj-v12-hero-shadow-title">{{ main_title|default('الجنوب التجارية') }}<span>{{ accent_title|default('جودة تليق بك') }}</span></h2>
         <p class="alj-v12-hero-shadow-desc">{{ description|default('استكشف عالمنا من القهوة الفاخرة، والتمور المنتقاة، وأرقى مستلزمات الضيافة التي تعكس كرمك وأصالتك بأعلى المعايير.') }}</p>
         <div class="alj-v12-hero-shadow-actions">
-          <a href="{{ primary_button_url|default('javascript:void(0)') }}" class="btn btn-primary">{{ primary_button_text|default('تسوق المجموعات') }}</a>
-          <a href="{{ secondary_button_url|default('javascript:void(0)') }}" class="btn btn-outline">{{ secondary_button_text|default('اكتشف العروض') }}</a>
+          <a href="{{ primary_button_url|default('javascript:void(0)') }}" class="alj-v12-hero-shadow-btn alj-v12-hero-shadow-btn-primary">{{ primary_button_text|default('تسوق المجموعات') }}</a>
+          <a href="{{ secondary_button_url|default('javascript:void(0)') }}" class="alj-v12-hero-shadow-btn alj-v12-hero-shadow-btn-outline">{{ secondary_button_text|default('اكتشف العروض') }}</a>
         </div>
       </div>
       <div class="alj-v12-hero-shadow-visual-area">
-        <div class="alj-v12-hero-shadow-visual-bg-glow"></div>
-        <div class="alj-v12-hero-shadow-visual-card-main">
-          <div class="alj-v12-hero-shadow-art-item-hero-coffee"></div>
+        <div class="alj-v12-hero-shadow-bg-glow"></div>
+        <div class="alj-v12-hero-shadow-card-main">
+          <div class="alj-v12-hero-shadow-art-coffee"></div>
           <div class="alj-v12-hero-shadow-vc-title">{{ main_card_title|default('قهوة عربية') }}</div>
           <div class="alj-v12-hero-shadow-vc-sub">{{ main_card_caption|default('تحميص طازج') }}</div>
         </div>
-        <div class="alj-v12-hero-shadow-visual-card-float1">
-          <div class="alj-v12-hero-shadow-art-item-dates"></div>
+        <div class="alj-v12-hero-shadow-card-float1">
+          <div class="alj-v12-hero-shadow-art-dates"></div>
           <div class="alj-v12-hero-shadow-vc-title" style="font-size:1rem;">{{ top_card_title|default('تمور ملكية') }}</div>
         </div>
-        <div class="alj-v12-hero-shadow-visual-card-float2">
-          <div class="alj-v12-hero-shadow-art-item-saffron">🌺</div>
+        <div class="alj-v12-hero-shadow-card-float2">
+          <div class="alj-v12-hero-shadow-art-saffron">🌺</div>
           <div>
             <div class="alj-v12-hero-shadow-vc-title" style="font-size:1rem;">{{ side_card_title|default('زعفران نقيل') }}</div>
             <div class="alj-v12-hero-shadow-vc-sub" style="font-size:0.8rem;">{{ side_card_caption|default('أصلي ١٠٠٪') }}</div>
@@ -66,15 +161,16 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<!-- Benefits Row Shadow -->
-<div class="alj-v12-hero-shadow-benefits-row">
-  <div class="alj-v12-hero-shadow-benefits-inner">
-    <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_1_icon|default('🔥') }}</span> {{ benefit_1_text|default('تحميص مختار') }}</div>
-    <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_2_icon|default('✨') }}</span> {{ benefit_2_text|default('منتجات أصلية') }}</div>
-    <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_3_icon|default('🚚') }}</span> {{ benefit_3_text|default('توصيل موثوق') }}</div>
-    <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_4_icon|default('🔒') }}</span> {{ benefit_4_text|default('دفع آمن') }}</div>
+  <!-- Benefits Row Shadow -->
+  <div class="alj-v12-hero-shadow-benefits-row">
+    <div class="alj-v12-hero-shadow-benefits-inner">
+      <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_1_icon|default('🔥') }}</span> {{ benefit_1_text|default('تحميص مختار') }}</div>
+      <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_2_icon|default('✨') }}</span> {{ benefit_2_text|default('منتجات أصلية') }}</div>
+      <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_3_icon|default('🚚') }}</span> {{ benefit_3_text|default('توصيل موثوق') }}</div>
+      <div class="alj-v12-hero-shadow-benefit-item"><span class="alj-v12-hero-shadow-benefit-icon">{{ benefit_4_icon|default('🔒') }}</span> {{ benefit_4_text|default('دفع آمن') }}</div>
+    </div>
   </div>
 </div>
 {% endif %}
