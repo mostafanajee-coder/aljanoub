@@ -196,7 +196,7 @@
   
   .p-visual { height: 220px; background: var(--bg-alt); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--border-color); }
   .p-visual::after { content: ''; position: absolute; width: 140px; height: 140px; background: var(--white); border-radius: 50%; opacity: 0.5; filter: blur(15px); }
-  .art-box { width: 110px; height: 130px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--white); }
+  .art-box { width: 110px; height: 130px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1), inset 0 2px 5px rgba(255,255,255,0.2); position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
   .art-coffee-bag { background: linear-gradient(135deg, #2c1b10, #4a2c11); border-radius: 5px 5px 15px 15px; }
   .art-dates-box { background: linear-gradient(135deg, #a67c00, #bf953f); height: 70px; width: 130px; }
   .art-cardamom-jar { background: linear-gradient(to bottom, #d4ebd0, #8cb585); width: 80px; border-radius: 30px; }
@@ -272,69 +272,69 @@
     .f-payments { justify-content: center; }
   }
   @media (max-width: 600px) {
-    .section-padding { padding: 30px 0; }
-    .section-padding-sm { padding: 20px 0; }
-    .section-title { font-size: 1.6rem; }
+    .section-padding { padding: 25px 0; }
+    .section-padding-sm { padding: 15px 0; }
+    .section-title { font-size: 1.5rem; }
     
     /* Header Mobile Polish */
     .top-strip { font-size: 0.75rem; padding: 6px 0; }
-    .main-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 10px 0; }
+    .main-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 10px 0 0; }
     .logo-block { grid-column: 1; margin-bottom: 0; }
     .logo-text span { display: none; }
-    .logo-text h1 { font-size: 1.1rem; }
-    .logo-icon { width: 35px; height: 35px; font-size: 1.2rem; border-radius: 8px; }
-    .header-actions { grid-column: 2; justify-content: flex-end; width: auto; margin-top: 0; }
-    .action-btn { width: 38px; height: 38px; font-size: 1rem; }
-    .search-bar { grid-column: 1 / -1; width: 100%; display: flex; padding: 10px 15px; font-size: 0.85rem; border-radius: 12px; }
-    .nav-links { display: flex; grid-column: 1 / -1; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 10px; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+    .logo-text h1 { font-size: 1.15rem; }
+    .logo-icon { width: 38px; height: 38px; font-size: 1.3rem; border-radius: 10px; }
+    .header-actions { grid-column: 2; justify-content: flex-end; width: auto; margin-top: 0; gap: 10px; }
+    .action-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+    .search-bar { grid-column: 1 / -1; width: 100%; display: flex; padding: 12px 15px; font-size: 0.9rem; border-radius: 12px; margin-top: 5px; }
+    .nav-links { display: flex; grid-column: 1 / -1; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); padding-top: 10px; }
     .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { font-size: 0.85rem; padding: 4px 10px; background: var(--bg-alt); border-radius: 20px; }
+    .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; }
     
     /* Hero Mobile Polish */
-    .hero-wrapper { padding: 20px 15px 30px; }
-    .hero-badge { font-size: 0.75rem; padding: 6px 12px; }
-    .hero-title { font-size: 2.2rem; margin-bottom: 15px; } .hero-title span { font-size: 1.6rem; }
-    .hero-desc { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; max-width: 100%; }
-    .btn { width: 100%; max-width: 100%; margin-right: 0 !important; margin-bottom: 10px; padding: 12px 20px; font-size: 1rem; }
-    .hero-visual-area { height: 280px; transform: scale(0.65); transform-origin: top center; margin-top: -20px; }
+    .hero-wrapper { padding: 15px 15px 25px; }
+    .hero-badge { font-size: 0.75rem; padding: 6px 12px; margin-bottom: 12px; }
+    .hero-title { font-size: 2.1rem; margin-bottom: 12px; } .hero-title span { font-size: 1.5rem; }
+    .hero-desc { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; max-width: 100%; }
+    .btn { width: 100%; max-width: 100%; margin-right: 0 !important; margin-bottom: 10px; padding: 14px 20px; font-size: 1rem; }
+    .hero-visual-area { height: 240px; transform: scale(0.6); transform-origin: top center; margin-top: -10px; }
     
     /* Product Grid Mobile Polish (2 columns, compact) */
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .p-visual { height: 140px; }
-    .art-box { transform: scale(0.6); }
-    .p-info { padding: 10px; }
-    .p-title { font-size: 0.85rem; }
-    .p-desc { display: none; /* Hide descriptions on mobile for compactness */ }
-    .p-rate { font-size: 0.7rem; margin-bottom: 10px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .p-visual { height: 160px; }
+    .art-box { transform: scale(0.75); }
+    .p-info { padding: 12px; }
+    .p-title { font-size: 0.9rem; line-height: 1.3; }
+    .p-desc { display: none; }
+    .p-rate { font-size: 0.7rem; margin-bottom: 8px; }
     .p-footer { flex-direction: column; align-items: flex-start; gap: 5px; border-top: none; padding-top: 0; }
-    .p-price { font-size: 1.1rem; }
-    .p-add-btn { width: 100%; justify-content: center; padding: 6px; font-size: 0.8rem; margin-top: 5px; border-radius: 8px; }
+    .p-price { font-size: 1.2rem; }
+    .p-add-btn { width: 100%; justify-content: center; padding: 10px; font-size: 0.85rem; margin-top: 8px; border-radius: 10px; }
     .p-badge { font-size: 0.65rem; padding: 2px 6px; top: 8px; right: 8px; }
     
     /* Categories Mobile Polish (2 columns) */
-    .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .cat-card { padding: 15px 10px; }
-    .cat-icon-area { width: 50px; height: 50px; font-size: 1.5rem; margin-bottom: 10px; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .cat-card { padding: 12px 10px; }
+    .cat-icon-area { width: 45px; height: 45px; font-size: 1.4rem; margin-bottom: 8px; }
     .cat-name { font-size: 0.9rem; }
     
     /* Promo Banner & Brands */
-    .promo-banner { padding: 30px 15px; margin-top: 0; }
-    .promo-title { font-size: 1.5rem; margin-bottom: 10px; }
-    .promo-text { font-size: 0.95rem; margin-bottom: 20px; }
+    .promo-banner { padding: 25px 15px; margin-top: 0; }
+    .promo-title { font-size: 1.4rem; margin-bottom: 10px; }
+    .promo-text { font-size: 0.9rem; margin-bottom: 15px; }
     .brands-grid { gap: 10px; }
-    .brand-card { flex: 1 1 130px; padding: 15px 5px; }
-    .brand-icon { font-size: 1.5rem; margin-bottom: 5px; }
+    .brand-card { flex: 1 1 130px; padding: 12px 5px; }
+    .brand-icon { font-size: 1.4rem; margin-bottom: 5px; }
     .brand-name { font-size: 0.85rem; }
     
     /* Footer Mobile Polish */
-    .alj-store-footer { padding: 40px 15px 15px; margin-top: 20px; }
-    .f-grid { grid-template-columns: 1fr; gap: 25px; }
-    .f-logo { font-size: 1.5rem; margin-bottom: 10px; }
-    .f-col h4 { font-size: 1rem; margin-bottom: 10px; color: var(--accent-color); }
-    .f-desc { font-size: 0.85rem; margin-bottom: 15px; max-width: 100%; }
+    .alj-store-footer { padding: 30px 15px 15px; margin-top: 20px; }
+    .f-grid { grid-template-columns: 1fr; gap: 20px; }
+    .f-logo { font-size: 1.4rem; margin-bottom: 10px; }
+    .f-col h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--accent-color); }
+    .f-desc { font-size: 0.85rem; margin-bottom: 10px; max-width: 100%; line-height: 1.6; }
     .f-links a { font-size: 0.85rem; }
-    .f-contact p { font-size: 0.85rem; margin-bottom: 8px; }
-    .f-bottom { margin-top: 30px; flex-direction: column-reverse; gap: 15px; }
+    .f-contact p { font-size: 0.85rem; margin-bottom: 6px; }
+    .f-bottom { margin-top: 20px; flex-direction: column-reverse; gap: 15px; padding-top: 15px; }
   }
   @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
 </style>

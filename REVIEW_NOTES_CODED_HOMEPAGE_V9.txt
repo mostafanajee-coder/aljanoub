@@ -1,0 +1,24 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V9 improvements:
+- Mobile header final layout: Logo left, actions right. Search bar full-width on row 2. Nav links horizontally scrollable on row 3.
+- Mobile hero reduced height: Compact padding and text for better screen usage.
+- Product visual premium polish: Replaced emoji-like box shadows with deeper, softer shadows and an inset translucent white border for a glassy luxury effect on the art boxes.
+- Mobile product readability: Adjusted 2-column layout to feature larger price tags, better-scaled visuals, and a more touch-friendly "Add to Cart" button.
+- Mobile footer cleanup: Visually shorter, grouped elements tightly, reduced extraneous margins.
+
+Mobile header final status: Clean grid layout without horizontal overflow.
+Mobile product readability status: Premium 2-column view with strong hierarchy.
+Mobile footer cleanup status: Compacted.
+Desktop preservation status: Maintained premium look.
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
