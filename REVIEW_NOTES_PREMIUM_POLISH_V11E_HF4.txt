@@ -1,4 +1,4 @@
-Phase name: V11E-HF4 Runtime Artifact Suppression + Nav Final Hard Fix
+﻿Phase name: V11E-HF4 Runtime Artifact Suppression + Nav Final Hard Fix
 Files changed:
 - src/views/pages/index.twig
 - VISUAL_DIRECTOR_AUDIT_V11E_HF4.md
@@ -28,6 +28,6 @@ Twig tag cleanup status: Clean.
 After-footer artifact status: Suppressed via MutationObserver + CSS + aggressive inline styles.
 
 Git commit hash:
-[PENDING]
+555d8f5
 
 Ready for V11F Final Static Lock Review: Yes.
