@@ -1,0 +1,21 @@
+﻿Phase: V12C-HF2 Hero Shadow Visual Parity Fix
+
+Files changed:
+- src/views/components/home/v12-hero-shadow.twig (Added full scoped visual CSS mapping)
+- DYNAMIC_HERO_SHADOW_AUDIT_V12C_HF2.md (Created)
+- REVIEW_NOTES_DYNAMIC_HERO_SHADOW_V12C_HF2.txt (Created)
+
+Preview status: PASS
+Editor component visibility status: PASS
+Hero fields status: PASS
+Standalone visual review status: PASS (Component looks identical to static prototype)
+Real storefront visual regression status: PASS (Homepage visually unchanged)
+Search status: PASS
+Runtime isolation status: PASS
+Footer artifact status: PASS
+
+Final Git Commit:
+ea3dd36 Improve dynamic hero shadow visual parity v12c hf2
+
+Next recommended phase:
+V12D Safe Hero Replacement Test
