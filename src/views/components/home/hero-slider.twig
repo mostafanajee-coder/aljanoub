@@ -1,0 +1,24 @@
+<section class="relative w-full h-[500px] md:h-[600px] bg-coffee-dark">
+    <salla-slider type="carousel" auto-play class="h-full w-full">
+        {% for slide in component.slides %}
+            <div class="h-full w-full relative flex items-center justify-center">
+                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-multiply">
+                <div class="relative z-10 text-center px-4 max-w-3xl">
+                    <h2 class="text-4xl md:text-6xl font-bold text-gold mb-4">{{ slide.title }}</h2>
+                    <p class="text-lg md:text-xl text-cream mb-8">{{ slide.description }}</p>
+                    {% if slide.button_text %}
+                        <a href="{{ slide.link }}" class="inline-block px-8 py-3 bg-gold text-coffee-dark font-bold rounded hover:bg-cream transition-colors duration-300">{{ slide.button_text }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="h-full w-full relative flex items-center justify-center bg-coffee-medium">
+                <div class="relative z-10 text-center px-4 max-w-3xl">
+                    <h2 class="text-4xl md:text-6xl font-bold text-gold mb-4">أصالة القهوة</h2>
+                    <p class="text-lg md:text-xl text-cream mb-8">مذاق لا يُنسى من محلات الجنوب</p>
+                    <a href="/products" class="inline-block px-8 py-3 bg-gold text-coffee-dark font-bold rounded hover:bg-cream transition-colors duration-300">تصفح المنتجات</a>
+                </div>
+            </div>
+        {% endfor %}
+    </salla-slider>
+</section>
