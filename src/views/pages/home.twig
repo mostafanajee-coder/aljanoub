@@ -1,16 +1,14 @@
-﻿{% extends 'layouts/master.twig' %}
+﻿{% extends "layouts.master" %}
 
 {% block content %}
-  <section style="padding:60px 20px;background:#ffffff;">
-    <div style="padding:40px;border:3px dashed #2563eb;text-align:center;background:#fff;border-radius:20px;margin:40px auto;max-width:900px;">
-      <h1 style="font-size:32px;font-weight:700;color:#1d4ed8;margin-bottom:12px;">
-        ALJANOUB HOME PAGE IS RENDERING
+  <section style="padding:80px 20px;background:#ffffff;min-height:500px;">
+    <div style="padding:45px;border:4px dashed #2563eb;text-align:center;background:#fff;border-radius:24px;margin:40px auto;max-width:1000px;">
+      <h1 style="font-size:36px;font-weight:800;color:#1d4ed8;margin-bottom:14px;">
+        ALJANOUB HOME PAGE IS WORKING
       </h1>
-      <p style="font-size:18px;color:#444;">
-        This message is coming from src/views/pages/home.twig
+      <p style="font-size:20px;color:#333;">
+        This message is rendered from src/views/pages/home.twig
       </p>
     </div>
   </section>
-
-  {% widget 'homepage' %}
 {% endblock %}
