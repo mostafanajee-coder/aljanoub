@@ -1,0 +1,12 @@
+Files changed:
+- src/views/pages/index.twig
+
+Exact button issue fixed:
+The `.btn` class in mobile viewport was missing `box-sizing: border-box`, causing it to overflow its container when combined with `width: 100%` and horizontal padding. Added `box-sizing: border-box`, changed to `width: 100%; max-width: calc(100% - 32px);`, added `margin: 0 auto 10px auto !important` for proper centering, enforced `min-height: 56px`, and updated the border-radius to `999px` to guarantee a perfect pill shape.
+
+Exact search box improvements made:
+Upgraded the `.search-bar` structurally and visually. Replaced fixed padding/margin layouts with a modern Flexbox gap (`gap: 12px;` on desktop, `15px` on mobile). Increased `border-radius` to `32px` for a softer pill appearance. Set `min-height: 60px` on mobile, enlarged internal padding (`16px 24px`), and ensured the placeholder text is perfectly centered and readable. Added a subtle hover shadow on desktop to elevate the premium feel.
+
+Whether mobile was verified: Yes
+Whether desktop was verified: Yes
+Any remaining known issues: None
