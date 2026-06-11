@@ -6,21 +6,24 @@
     --primary-color: #3b2818; /* Rich Coffee Brown */
     --secondary-color: #1e3b2b; /* Deep Green */
     --accent-color: #cda434; /* Premium Gold */
-    --accent-light: #f5eedc; /* Light Gold/Cream */
-    --bg-main: #faf8f5; /* Very Light Cream */
+    --accent-light: #fdfaf3; /* Very Light Gold/Cream */
+    --accent-glow: rgba(205, 164, 52, 0.2);
+    --bg-main: #fcfbfa; /* Slightly warmer white/cream */
+    --bg-alt: #f4f1eb; /* Soft contrast background */
     --white: #ffffff;
-    --text-dark: #222222;
-    --text-light: #666666;
-    --border-color: #eaeaea;
-    --shadow-soft: 0 8px 25px rgba(0, 0, 0, 0.04);
-    --shadow-hover: 0 15px 35px rgba(30, 59, 43, 0.1);
+    --text-dark: #1a1a1a;
+    --text-light: #5a5a5a;
+    --border-color: #e8e4df;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 15px 40px rgba(30, 59, 43, 0.08);
+    --shadow-gold: 0 10px 25px rgba(205, 164, 52, 0.15);
     --radius-md: 12px;
     --radius-lg: 20px;
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   
-  /* --- 1. Temporary Hiding of Salla Demo Artifacts --- */
-  /* Temporary for coded concept preview only. */
+  /* --- Temporary Hiding of Salla Demo Artifacts --- */
   header, .store-header, 
   footer, .store-footer, 
   .salla-demo-ribbon, 
@@ -30,101 +33,96 @@
   .twilight-toolbar {
     display: none !important;
   }
-  
-  /* Reset body padding if Salla theme added any for fixed header */
-  body {
-    padding-top: 0 !important;
-  }
+  body { padding-top: 0 !important; }
 
-  /* --- Homepage Global Styles --- */
-  .v4-home-wrapper {
+  /* --- Global Settings --- */
+  .v5-home-wrapper {
     font-family: 'Tajawal', 'Cairo', sans-serif;
     background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
   }
-
   .container {
-    max-width: 1300px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
   }
-
-  .section-padding {
-    padding: 70px 0;
-  }
-
+  .section-padding { padding: 60px 0; }
+  
   .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--secondary-color);
     font-weight: 900;
-    margin-bottom: 15px;
-    position: relative;
+    margin-bottom: 10px;
     display: inline-block;
   }
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
+  .title-accent {
+    display: block;
+    width: 50px;
+    height: 3px;
     background-color: var(--accent-color);
+    margin: 15px auto 0;
     border-radius: 4px;
   }
   .section-subtitle {
     color: var(--text-light);
-    font-size: 1.15rem;
-    max-width: 600px;
-    margin: 15px auto 0;
+    font-size: 1.1rem;
+    max-width: 550px;
+    margin: 10px auto 0;
   }
 
-  /* --- Custom V4 Concept Header --- */
+  /* --- V5 Concept Header --- */
   .concept-header {
     background-color: var(--white);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 3px solid var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
   }
   .concept-top-bar {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    font-size: 0.9rem;
+    background-color: var(--primary-color);
+    color: var(--accent-light);
+    font-size: 0.85rem;
+    font-weight: 700;
     padding: 8px 0;
     text-align: center;
+    letter-spacing: 0.5px;
   }
   .concept-nav-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    height: 80px;
   }
   .concept-logo {
     font-size: 1.8rem;
     font-weight: 900;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
-  .concept-logo span {
-    color: var(--accent-color);
+  .concept-logo span { color: var(--accent-color); }
+  .concept-logo-icon {
+    width: 35px; height: 35px;
+    background: linear-gradient(135deg, var(--accent-color), #f3d47c);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 1.2rem;
+    box-shadow: var(--shadow-gold);
   }
   .concept-links {
     display: flex;
     gap: 25px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
   }
   .concept-links a {
     text-decoration: none;
@@ -132,6 +130,7 @@
     font-weight: 700;
     font-size: 1.05rem;
     transition: var(--transition);
+    padding: 5px 0;
   }
   .concept-links a:hover {
     color: var(--accent-color);
@@ -142,1101 +141,748 @@
     gap: 15px;
   }
   .concept-search-pill {
-    background-color: var(--bg-main);
+    background-color: var(--bg-alt);
     border-radius: 50px;
-    padding: 8px 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     color: var(--text-light);
     font-size: 0.9rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid transparent;
+    transition: var(--transition);
+    cursor: text;
+  }
+  .concept-search-pill:hover {
+    border-color: var(--border-color);
+    background-color: var(--white);
   }
   .concept-icon-btn {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--bg-main);
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
-    color: var(--primary-color);
+    color: var(--text-dark);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: var(--transition);
+    position: relative;
   }
   .concept-icon-btn:hover {
-    background-color: var(--accent-light);
+    border-color: var(--accent-color);
     color: var(--accent-color);
   }
+  .cart-badge {
+    position: absolute;
+    top: -5px; right: -5px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+  }
 
-  /* --- V4 Two-Column Hero Section --- */
+  /* --- V5 Luxury Hero Section --- */
   .hero-section {
     position: relative;
-    background: linear-gradient(135deg, #112218 0%, var(--secondary-color) 100%);
-    color: var(--white);
-    padding: 90px 20px;
+    background: var(--bg-main);
+    padding: 60px 20px 80px;
     overflow: hidden;
   }
-  .hero-decoration-glow {
+  .hero-bg-accent {
     position: absolute;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(205,164,52,0.12) 0%, rgba(205,164,52,0) 65%);
+    top: -100px; left: -100px;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     border-radius: 50%;
-    top: 50%;
-    left: -150px;
-    transform: translateY(-50%);
     z-index: 1;
-  }
-  .hero-pattern {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(var(--accent-color) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.05;
-    z-index: 1;
+    opacity: 0.6;
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
     align-items: center;
     position: relative;
     z-index: 2;
   }
-  .hero-content {
-    text-align: right;
+  .hero-content { text-align: right; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center; gap: 8px;
+    background-color: var(--white);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm);
   }
   .hero-title {
     font-size: 4rem;
     font-weight: 900;
-    color: var(--white);
+    color: var(--secondary-color);
     margin-bottom: 20px;
-    line-height: 1.2;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    line-height: 1.15;
   }
   .hero-title span {
-    color: var(--accent-color);
+    color: var(--primary-color);
     display: block;
-    font-size: 3.2rem;
-    margin-top: 10px;
+    font-size: 3rem;
   }
   .hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    color: #f0f0f0;
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    color: var(--text-light);
     line-height: 1.8;
-    max-width: 90%;
   }
-  .hero-actions {
-    display: flex;
-    gap: 20px;
-  }
-  .btn-primary, .btn-outline {
-    padding: 16px 40px;
+  .hero-actions { display: flex; gap: 15px; }
+  .btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 15px 35px;
     border-radius: 50px;
-    font-weight: 800;
-    font-size: 1.15rem;
+    font-weight: 800; font-size: 1.1rem;
     text-decoration: none;
     transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-primary {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(205, 164, 52, 0.3);
+    box-shadow: var(--shadow-md);
   }
   .btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+  }
+  .btn-secondary {
     background-color: var(--white);
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+    color: var(--secondary-color);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 800; font-size: 1.1rem;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
   }
-  .btn-outline {
-    background-color: rgba(255,255,255,0.05);
-    color: var(--white);
-    border: 2px solid var(--accent-color);
-    backdrop-filter: blur(5px);
-  }
-  .btn-outline:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+  .btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
   }
   
-  /* Hero Visual Card */
-  .hero-visual {
+  /* Hero Visual Composition */
+  .hero-composition {
     position: relative;
-    height: 480px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(205, 164, 52, 0.4);
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 0 40px rgba(205,164,52,0.1);
+    height: 550px;
+    display: flex; align-items: center; justify-content: center;
   }
-  .hero-visual-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .shape-coffee {
+  .comp-bg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 9rem;
-    color: var(--accent-color);
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
-    animation: float 6s ease-in-out infinite;
+    width: 400px; height: 400px;
+    background: linear-gradient(135deg, var(--white), var(--bg-alt));
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--white);
   }
-  .shape-badge {
+  .comp-card {
     position: absolute;
     background: var(--white);
-    color: var(--primary-color);
-    padding: 16px 28px;
-    border-radius: 40px;
-    font-weight: 900;
-    font-size: 1.1rem;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border: 2px solid var(--accent-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: var(--transition);
   }
-  .shape-badge-1 { top: 50px; right: -30px; animation: float 5s ease-in-out infinite 1s; }
-  .shape-badge-2 { bottom: 70px; left: -40px; animation: float 7s ease-in-out infinite 2s; }
+  .comp-card:hover { transform: translateY(-10px) scale(1.05); z-index: 10; }
   
-  @keyframes float {
-    0% { transform: translate(-50%, -50%) translateY(0px); }
-    50% { transform: translate(-50%, -50%) translateY(-20px); }
-    100% { transform: translate(-50%, -50%) translateY(0px); }
+  /* Composition Pieces */
+  .comp-main {
+    width: 260px; height: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background: linear-gradient(to bottom, var(--white), #f9f6f0);
+  }
+  .comp-main .art-coffee {
+    width: 140px; height: 140px;
+    background: radial-gradient(circle at 30% 30%, #5c3a21, var(--primary-color));
+    border-radius: 50%;
+    border: 8px solid var(--white);
+    box-shadow: 0 15px 25px rgba(59,40,24,0.3);
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .comp-main .art-coffee::after { /* cup handle */
+    content: ''; position: absolute;
+    right: -25px; top: 35px; width: 40px; height: 60px;
+    border: 8px solid var(--white); border-radius: 20px; z-index: -1;
+  }
+  
+  .comp-float-1 {
+    width: 180px; height: 200px;
+    top: 10%; right: 0; z-index: 2;
+    animation: float 8s ease-in-out infinite;
+  }
+  .comp-float-1 .art-dates {
+    width: 100px; height: 80px;
+    background: #4a2c11; border-radius: 50px 50px 10px 10px;
+    position: relative; margin-bottom: 15px;
+  }
+  .comp-float-1 .art-dates::before { /* dates inside */
+    content: '🌰'; font-size: 2.5rem; position: absolute; top: -20px; left: 15px;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
   }
 
-  /* --- Responsive Categories --- */
+  .comp-float-2 {
+    width: 200px; height: 140px;
+    bottom: 10%; left: 0; z-index: 4;
+    animation: float 6s ease-in-out infinite 1s;
+    flex-direction: row; gap: 15px; padding: 15px;
+  }
+  .comp-float-2 .art-saffron {
+    width: 60px; height: 60px;
+    background: var(--accent-light); border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  .comp-label {
+    font-weight: 800; color: var(--secondary-color); font-size: 1.1rem;
+    text-align: center;
+  }
+  .comp-sub { font-size: 0.85rem; color: var(--accent-color); font-weight: 700; }
+
+  /* --- Premium Category Grid --- */
   .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
   }
   .cat-card {
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: 35px 20px;
+    padding: 30px 20px;
     text-align: center;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
     border: 1px solid var(--border-color);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cat-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), #f3d47c);
-    transform: scaleX(0);
-    transition: var(--transition);
+    text-decoration: none; display: block;
   }
   .cat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: transparent;
-  }
-  .cat-card:hover::after {
-    transform: scaleX(1);
-  }
-  .cat-icon-wrap {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--bg-main), #f0ebd8);
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 2.6rem;
-    color: var(--primary-color);
-    transition: var(--transition);
-  }
-  .cat-card:hover .cat-icon-wrap {
-    background: var(--accent-light);
+    transform: translateY(-5px); box-shadow: var(--shadow-md);
     border-color: var(--accent-color);
-    color: var(--secondary-color);
-    transform: scale(1.1) rotate(5deg);
   }
-  .cat-name {
-    font-weight: 900;
-    color: var(--secondary-color);
-    font-size: 1.15rem;
+  .cat-icon-area {
+    width: 80px; height: 80px; margin: 0 auto 15px;
+    background: var(--bg-alt); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem; transition: var(--transition);
   }
+  .cat-card:hover .cat-icon-area {
+    background: var(--accent-light); color: var(--accent-color);
+    transform: scale(1.1);
+  }
+  .cat-name { font-weight: 800; color: var(--secondary-color); font-size: 1.1rem; }
 
   /* --- Premium Product Cards --- */
   .product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;
   }
   .product-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    background: var(--white); border-radius: var(--radius-lg);
+    overflow: hidden; box-shadow: var(--shadow-sm);
+    transition: var(--transition); border: 1px solid var(--border-color);
+    display: flex; flex-direction: column; position: relative;
   }
   .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--accent-light);
+    transform: translateY(-8px); box-shadow: var(--shadow-hover);
   }
-  .product-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    z-index: 2;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  .p-badge {
+    position: absolute; top: 15px; right: 15px;
+    background: var(--accent-color); color: var(--white);
+    padding: 5px 12px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 800; z-index: 2;
   }
-  .product-img-block {
-    height: 280px;
-    background: radial-gradient(circle, var(--white) 0%, #f4eee1 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
+  .p-badge.new { background: var(--secondary-color); }
+  
+  /* CSS-only Product Visuals */
+  .p-visual {
+    height: 240px; background: var(--bg-alt);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
   }
-  .product-img-block::before {
-    content: '';
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: var(--white);
-    border-radius: 50%;
-    opacity: 0.7;
-    box-shadow: 0 0 40px rgba(205,164,52,0.1);
+  .p-visual::after { /* soft spotlight */
+    content: ''; position: absolute; width: 150px; height: 150px;
+    background: var(--white); border-radius: 50%; filter: blur(20px); opacity: 0.6;
   }
-  .product-icon-art {
-    font-size: 6.5rem;
-    z-index: 1;
-    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.15));
-    transition: var(--transition);
+  .art-box {
+    width: 120px; height: 140px; border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: var(--white);
   }
-  .product-card:hover .product-icon-art {
-    transform: scale(1.15) translateY(-5px);
-  }
-  .product-info {
-    padding: 30px 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .product-title {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    font-weight: 900;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .product-rating {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-  }
-  .product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-  }
-  .product-price-block {
-    display: flex;
-    flex-direction: column;
-  }
-  .product-price {
-    color: var(--primary-color);
-    font-weight: 900;
-    font-size: 1.5rem;
-  }
-  .product-price span {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-weight: 700;
-    margin-right: 4px;
-  }
-  .product-add-btn {
-    background-color: var(--bg-main);
-    color: var(--secondary-color);
-    border: 2px solid var(--border-color);
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 800;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-  }
-  .product-card:hover .product-add-btn {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    border-color: var(--accent-color);
-    box-shadow: 0 5px 15px rgba(205, 164, 52, 0.3);
+  .art-coffee-bag { background: linear-gradient(135deg, #2c1b10, #4a2c11); border-radius: 5px 5px 15px 15px; }
+  .art-dates-box { background: linear-gradient(135deg, #a67c00, #bf953f); height: 80px; width: 140px; }
+  .art-cardamom-jar { background: linear-gradient(to bottom, #d4ebd0, #8cb585); width: 90px; border-radius: 40px; }
+  .art-saffron-tin { background: linear-gradient(135deg, #e31b23, #a10f16); width: 100px; height: 100px; border-radius: 50%; }
+  .art-grinder { background: linear-gradient(135deg, #333, #111); width: 90px; height: 160px; border-radius: 10px; }
+  .art-tea { background: linear-gradient(135deg, #2b4522, #1a2e13); }
+  .art-hospitality { background: linear-gradient(135deg, #f0f0f0, #d4d4d4); border-radius: 50%; width: 130px; height: 130px; border: 4px solid var(--accent-color);}
+  .art-camping { background: linear-gradient(135deg, #8b7355, #5c4a3d); border-radius: 20px; height: 110px; width: 150px; }
+
+  .p-label {
+    position: absolute; bottom: 20px; background: rgba(255,255,255,0.9);
+    padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: var(--text-dark);
   }
 
-  /* --- Wide Promo Banner --- */
-  .promo-banner-wrapper {
-    padding: 30px 0;
+  .p-info { padding: 25px 20px; display: flex; flex-direction: column; flex-grow: 1; }
+  .p-title { font-size: 1.15rem; color: var(--text-dark); font-weight: 800; margin-bottom: 8px; line-height: 1.4; }
+  .p-rate { color: var(--accent-color); font-size: 0.85rem; margin-bottom: 15px; }
+  .p-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; }
+  .p-price { color: var(--secondary-color); font-weight: 900; font-size: 1.4rem; }
+  .p-price span { font-size: 0.85rem; color: var(--text-light); }
+  .p-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg-alt); color: var(--secondary-color);
+    display: flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer; transition: var(--transition);
+    font-size: 1.1rem;
   }
-  .wide-promo-banner {
-    background: linear-gradient(135deg, #2a1b10 0%, var(--primary-color) 100%);
+  .product-card:hover .p-btn { background: var(--secondary-color); color: var(--white); transform: scale(1.1); }
+
+  /* --- Luxury Promo Banner --- */
+  .promo-section { padding: 20px 0; }
+  .promo-banner {
+    background: var(--primary-color);
     border-radius: var(--radius-lg);
-    padding: 80px 50px;
+    padding: 70px 40px;
     text-align: center;
     color: var(--white);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(59, 40, 24, 0.3);
-    border: 2px solid rgba(205, 164, 52, 0.3);
+    box-shadow: var(--shadow-md);
   }
-  .wide-promo-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(205,164,52,0.15) 0%, transparent 60%);
-    animation: rotateBg 25s linear infinite;
+  .promo-pattern {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(205,164,52,0.15) 2px, transparent 2px);
+    background-size: 40px 40px; opacity: 0.5;
   }
-  @keyframes rotateBg {
-    100% { transform: rotate(360deg); }
+  .promo-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+  .promo-title { font-size: 2.8rem; color: var(--accent-color); font-weight: 900; margin-bottom: 20px; }
+  .promo-text { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; line-height: 1.7; }
+  .promo-btn {
+    background: var(--accent-color); color: var(--white);
+    padding: 14px 40px; border-radius: 50px; font-weight: 800; font-size: 1.1rem;
+    display: inline-block; text-decoration: none; transition: var(--transition);
   }
-  .promo-banner-content {
-    position: relative;
-    z-index: 2;
-    max-width: 850px;
-    margin: 0 auto;
-  }
-  .promo-banner-title {
-    font-size: 3.2rem;
-    color: var(--accent-color);
-    font-weight: 900;
-    margin-bottom: 25px;
-    line-height: 1.2;
-  }
-  .promo-banner-text {
-    font-size: 1.3rem;
-    opacity: 0.95;
-    margin-bottom: 35px;
-    line-height: 1.8;
-  }
-  .promo-banner-btn {
-    background-color: var(--white);
-    color: var(--primary-color);
-    padding: 16px 45px;
-    border-radius: 50px;
-    font-weight: 900;
-    font-size: 1.15rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: var(--transition);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-  .promo-banner-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--white);
-    transform: translateY(-3px);
-  }
+  .promo-btn:hover { background: var(--white); color: var(--primary-color); }
 
   /* --- Story Section --- */
-  .story-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 0;
-    background-color: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
+  .story-container {
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--white); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm); overflow: hidden; border: 1px solid var(--border-color);
   }
-  .story-content {
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .story-text { padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+  .story-text h2 { font-size: 2.5rem; color: var(--secondary-color); font-weight: 900; margin-bottom: 20px; }
+  .story-text h2 span { color: var(--accent-color); }
+  .story-text p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 20px; }
+  
+  .story-img {
+    background: linear-gradient(135deg, var(--bg-alt), #e5e0d8);
+    display: flex; align-items: center; justify-content: center; position: relative; min-height: 400px;
   }
-  .story-content h2 {
-    font-size: 2.8rem;
-    color: var(--secondary-color);
-    font-weight: 900;
-    margin-bottom: 30px;
-    position: relative;
+  .story-seal {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: var(--white); border: 4px solid var(--accent-color);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-md); position: relative;
   }
-  .story-content h2::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 5px;
-    background-color: var(--accent-color);
-    margin-top: 15px;
-    border-radius: 3px;
+  .story-seal::before {
+    content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border: 1px dashed var(--accent-color); border-radius: 50%; animation: rotateBg 20s linear infinite;
   }
-  .story-content p {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    line-height: 1.9;
-    margin-bottom: 25px;
-  }
-  .story-visual {
-    background: linear-gradient(135deg, var(--accent-light), #e3dac1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 50px;
-  }
-  .story-visual-card {
-    background: var(--white);
-    padding: 50px;
-    border-radius: 50%;
-    width: 320px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-    border: 3px solid var(--accent-color);
-    position: relative;
-    z-index: 2;
-  }
-  .story-visual-card::before {
-    content: '';
-    position: absolute;
-    top: -15px; left: -15px; right: -15px; bottom: -15px;
-    border: 1px dashed var(--accent-color);
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: rotateBg 30s linear infinite;
-  }
-  .story-visual-icon {
-    font-size: 6rem;
-    margin-bottom: 15px;
-  }
-  .story-visual-text {
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: var(--primary-color);
-  }
+  .seal-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+  .seal-text { font-weight: 900; color: var(--secondary-color); font-size: 1.2rem; }
 
-  /* --- Premium Brand Cards --- */
-  .brands-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 25px;
+  /* --- Brands Section --- */
+  .brands-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .brand-box {
+    background: var(--white); border: 1px solid var(--border-color);
+    border-radius: var(--radius-md); padding: 30px 15px;
+    text-align: center; transition: var(--transition); position: relative; overflow: hidden;
   }
-  .brand-card {
-    background: linear-gradient(to bottom, var(--white), var(--bg-main));
-    padding: 35px 20px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--border-color);
-    text-align: center;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .brand-box::before {
+    content: ''; position: absolute; top: 0; right: 0; width: 30px; height: 30px;
+    background: var(--accent-color); transform: translate(50%, -50%) rotate(45deg);
   }
-  .brand-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-  }
-  .brand-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    filter: drop-shadow(0 5px 10px rgba(205,164,52,0.2));
-  }
-  .brand-name {
-    font-weight: 900;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-  }
+  .brand-box:hover { border-color: var(--accent-color); box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+  .brand-ico { font-size: 2.2rem; margin-bottom: 10px; color: var(--primary-color); }
+  .brand-txt { font-weight: 800; color: var(--text-dark); font-size: 1rem; }
 
-  /* --- Trust Features (Compact & Premium) --- */
-  .features-container {
-    background-color: var(--secondary-color);
-    border-radius: var(--radius-lg);
-    padding: 60px 50px;
-    color: var(--white);
-    box-shadow: 0 20px 40px rgba(30, 59, 43, 0.2);
-    position: relative;
-    overflow: hidden;
+  /* --- Trust Section --- */
+  .trust-wrap {
+    background: var(--secondary-color); border-radius: var(--radius-lg);
+    padding: 40px; color: var(--white); margin-bottom: 40px;
   }
-  .features-container::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23cda434" fill-opacity="0.1"/></svg>');
-    opacity: 0.5;
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .trust-box { display: flex; align-items: center; gap: 15px; }
+  .t-icon {
+    width: 60px; height: 60px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: var(--accent-color); flex-shrink: 0;
   }
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    position: relative;
-    z-index: 2;
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .trust-icon-wrap {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, rgba(205,164,52,0.2), rgba(205,164,52,0.05));
-    border-radius: 16px;
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--accent-color);
-    border: 1px solid rgba(205, 164, 52, 0.4);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-  .trust-content {
-    text-align: right;
-  }
-  .trust-title {
-    font-weight: 900;
-    font-size: 1.15rem;
-    margin-bottom: 6px;
-    color: var(--white);
-  }
-  .trust-desc {
-    font-size: 0.9rem;
-    color: #d0d0d0;
-  }
+  .t-info h4 { font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
+  .t-info p { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 
-  /* --- Custom V4 Concept Footer --- */
+  /* --- Concept Footer --- */
   .concept-footer {
-    background-color: #111a14;
-    color: var(--white);
-    padding: 80px 20px 40px;
-    border-top: 5px solid var(--accent-color);
+    background: var(--white); border-top: 1px solid var(--border-color);
+    padding: 60px 20px 20px;
   }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 50px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-  .footer-col h4 {
-    color: var(--accent-color);
-    font-size: 1.4rem;
-    font-weight: 900;
-    margin-bottom: 25px;
-  }
-  .footer-logo {
-    font-size: 2.2rem;
-    font-weight: 900;
-    color: var(--white);
-    margin-bottom: 20px;
-    display: inline-block;
-    text-decoration: none;
-  }
-  .footer-logo span { color: var(--accent-color); }
-  .footer-desc {
-    color: #a0a0a0;
-    line-height: 1.8;
-    margin-bottom: 25px;
-  }
-  .footer-links {
-    list-style: none;
-    padding: 0; margin: 0;
-  }
-  .footer-links li { margin-bottom: 15px; }
-  .footer-links a {
-    color: #d0d0d0;
-    text-decoration: none;
-    transition: var(--transition);
-  }
-  .footer-links a:hover {
-    color: var(--accent-color);
-    padding-right: 5px;
-  }
-  .footer-contact p {
-    color: #d0d0d0;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .footer-bottom {
-    max-width: 1300px;
-    margin: 50px auto 0;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    color: #888;
-    font-size: 0.9rem;
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; max-width: 1280px; margin: 0 auto; }
+  .f-col h4 { font-size: 1.2rem; font-weight: 900; color: var(--secondary-color); margin-bottom: 20px; }
+  .f-logo { font-size: 2rem; font-weight: 900; color: var(--secondary-color); text-decoration: none; display: inline-block; margin-bottom: 15px; }
+  .f-logo span { color: var(--accent-color); }
+  .f-desc { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+  .f-links { list-style: none; padding: 0; margin: 0; }
+  .f-links li { margin-bottom: 12px; }
+  .f-links a { color: var(--text-light); text-decoration: none; transition: var(--transition); font-weight: 600; font-size: 0.95rem; }
+  .f-links a:hover { color: var(--accent-color); padding-right: 5px; }
+  .f-contact p { color: var(--text-light); margin-bottom: 12px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .f-bottom {
+    max-width: 1280px; margin: 40px auto 0; padding-top: 20px;
+    border-top: 1px solid var(--border-color); text-align: center;
+    color: var(--text-light); font-size: 0.9rem; font-weight: 600;
   }
 
-  /* --- Responsive Breakpoints --- */
-  @media (max-width: 1200px) {
+  /* --- Responsive --- */
+  @media (max-width: 1100px) {
+    .hero-title { font-size: 3rem; } .hero-title span { font-size: 2.2rem; }
+    .hero-composition { transform: scale(0.85); transform-origin: left center; }
     .product-grid { grid-template-columns: repeat(3, 1fr); }
+    .cat-grid { grid-template-columns: repeat(4, 1fr); } /* keep 4 on tablet if possible */
     .brands-grid { grid-template-columns: repeat(3, 1fr); }
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  
-  @media (max-width: 992px) {
+  @media (max-width: 850px) {
     .concept-links { display: none; }
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
     .hero-content { text-align: center; }
     .hero-actions { justify-content: center; }
-    .hero-visual { height: 400px; max-width: 500px; margin: 0 auto; }
+    .hero-composition { transform: scale(0.9); transform-origin: center; height: 400px; }
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
-    .story-wrapper { grid-template-columns: 1fr; }
-    .story-visual { min-height: 350px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .story-container { grid-template-columns: 1fr; }
+    .story-img { min-height: 300px; }
   }
-
-  @media (max-width: 768px) {
-    .section-padding { padding: 50px 0; }
-    .hero-section { padding: 60px 20px; }
-    .hero-title { font-size: 2.8rem; }
+  @media (max-width: 500px) {
     .hero-actions { flex-direction: column; }
-    .wide-promo-banner { padding: 60px 20px; }
-    .promo-banner-title { font-size: 2.4rem; }
-    .story-content { padding: 40px 20px; }
-    .story-content h2 { font-size: 2.2rem; }
+    .hero-composition { transform: scale(0.7); height: 320px; }
     .brands-grid { grid-template-columns: repeat(2, 1fr); }
     .trust-grid { grid-template-columns: 1fr; }
-    .trust-item { flex-direction: column; text-align: center; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .product-img-block { height: 200px; }
-    .product-icon-art { font-size: 4.5rem; }
-    .product-info { padding: 20px 15px; }
     .footer-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 480px) {
-    .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .product-grid { grid-template-columns: 1fr; }
+  
+  @keyframes rotateBg { 100% { transform: rotate(360deg); } }
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
   }
 </style>
 
-<div class="v4-home-wrapper" dir="rtl">
+<div class="v5-home-wrapper" dir="rtl">
 
-  <!-- Concept Header -->
+  <!-- V5 Header -->
   <header class="concept-header">
-    <div class="concept-top-bar">
-      ✨ شحن مجاني للطلبات فوق ٢٩٩ ر.ق داخل الدوحة
-    </div>
+    <div class="concept-top-bar">✨ شحن مجاني للطلبات فوق ٢٩٩ ر.ق داخل الدوحة</div>
     <div class="container concept-nav-wrapper">
-      <a href="#" class="concept-logo">الجنوب <span>للضيافة</span></a>
+      <a href="#" class="concept-logo"><div class="concept-logo-icon">ج</div>الجنوب <span>للضيافة</span></a>
       <ul class="concept-links">
         <li><a href="#">الرئيسية</a></li>
         <li><a href="#">القهوة</a></li>
         <li><a href="#">التمور</a></li>
-        <li><a href="#">الهيل والزعفران</a></li>
-        <li><a href="#">أواني الضيافة</a></li>
-        <li><a href="#">لوازم الرحلات</a></li>
+        <li><a href="#">الزعفران</a></li>
+        <li><a href="#">الضيافة</a></li>
+        <li><a href="#">الرحلات</a></li>
       </ul>
       <div class="concept-actions">
-        <div class="concept-search-pill">🔍 ابحث عن منتج...</div>
+        <div class="concept-search-pill">🔍 ابحث...</div>
         <a href="#" class="concept-icon-btn">👤</a>
-        <a href="#" class="concept-icon-btn">🛒</a>
+        <a href="#" class="concept-icon-btn">🛒<span class="cart-badge">2</span></a>
       </div>
     </div>
   </header>
 
-  <!-- V4 Luxury Hero Section -->
+  <!-- V5 Hero -->
   <section class="hero-section">
-    <div class="hero-decoration-glow"></div>
-    <div class="hero-pattern"></div>
-    <div class="hero-grid container">
-      
+    <div class="hero-bg-accent"></div>
+    <div class="container hero-grid">
       <div class="hero-content">
-        <h1 class="hero-title">الجنوب للضيافة<span>جودة تليق بك</span></h1>
-        <p class="hero-subtitle">استكشف عالمنا من القهوة الفاخرة، والتمور المنتقاة، وأرقى مستلزمات الضيافة القطرية والخليجية التي تعكس كرمك وأصالتك بأعلى المعايير.</p>
+        <div class="hero-badge">🌟 الخيار الأول للضيافة القطرية</div>
+        <h1 class="hero-title">الجنوب التجارية<span>جودة تليق بك</span></h1>
+        <p class="hero-subtitle">استكشف عالمنا من القهوة الفاخرة، والتمور المنتقاة، وأرقى مستلزمات الضيافة التي تعكس كرمك وأصالتك بأعلى المعايير.</p>
         <div class="hero-actions">
-          <a href="/products" class="btn-primary">تسوق المجموعات الفاخرة</a>
-          <a href="/categories" class="btn-outline">اكتشف العروض</a>
+          <a href="#" class="btn-primary">تسوق المجموعات</a>
+          <a href="#" class="btn-secondary">اكتشف العروض</a>
         </div>
       </div>
-      
-      <div class="hero-visual">
-        <div class="hero-visual-inner">
-          <div class="shape-coffee">☕</div>
-          <div class="shape-badge shape-badge-1"><span>🌴</span> تمور ملكية</div>
-          <div class="shape-badge shape-badge-2"><span>🌿</span> هيل اكسترا</div>
+      <div class="hero-composition">
+        <div class="comp-bg"></div>
+        <div class="comp-card comp-main">
+          <div class="art-coffee"></div>
+          <div class="comp-label">قهوة عربية</div>
+          <div class="comp-sub">تحميص طازج</div>
+        </div>
+        <div class="comp-card comp-float-1">
+          <div class="art-dates"></div>
+          <div class="comp-label">تمور ملكية</div>
+          <div class="comp-sub">منتقاة بعناية</div>
+        </div>
+        <div class="comp-card comp-float-2">
+          <div class="art-saffron">🌺</div>
+          <div>
+            <div class="comp-label" style="text-align:right;">زعفران سوبر</div>
+            <div class="comp-sub">أصلي ١٠٠٪</div>
+          </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Responsive Category Grid -->
+  <!-- V5 Categories -->
   <section class="section-padding container">
     <div class="section-header">
-      <h2 class="section-title">أقسام التسوق</h2>
-      <p class="section-subtitle">تصفح مجموعاتنا المميزة المختارة لتلبي جميع احتياجات ضيافتك</p>
+      <h2 class="section-title">أقسام التسوق<span class="title-accent"></span></h2>
     </div>
     <div class="cat-grid">
-      <a href="/category/coffee" class="cat-card">
-        <div class="cat-icon-wrap">☕</div>
-        <div class="cat-name">القهوة</div>
-      </a>
-      <a href="/category/dates" class="cat-card">
-        <div class="cat-icon-wrap">🌴</div>
-        <div class="cat-name">التمور</div>
-      </a>
-      <a href="/category/cardamom" class="cat-card">
-        <div class="cat-icon-wrap">🌿</div>
-        <div class="cat-name">الهيل</div>
-      </a>
-      <a href="/category/tea" class="cat-card">
-        <div class="cat-icon-wrap">🫖</div>
-        <div class="cat-name">الشاي</div>
-      </a>
-      <a href="/category/saffron" class="cat-card">
-        <div class="cat-icon-wrap">🌺</div>
-        <div class="cat-name">الزعفران</div>
-      </a>
-      <a href="/category/hospitality" class="cat-card">
-        <div class="cat-icon-wrap">🍽️</div>
-        <div class="cat-name">أواني الضيافة</div>
-      </a>
-      <a href="/category/coffee-makers" class="cat-card">
-        <div class="cat-icon-wrap">⚙️</div>
-        <div class="cat-name">محضرات القهوة</div>
-      </a>
-      <a href="/category/camping" class="cat-card">
-        <div class="cat-icon-wrap">⛺</div>
-        <div class="cat-name">لوازم الرحلات</div>
-      </a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">☕</div><div class="cat-name">القهوة</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">🌴</div><div class="cat-name">التمور</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">🌿</div><div class="cat-name">الهيل</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">🫖</div><div class="cat-name">الشاي</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">🌺</div><div class="cat-name">الزعفران</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">🍽️</div><div class="cat-name">أواني الضيافة</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">⚙️</div><div class="cat-name">محضرات القهوة</div></a>
+      <a href="#" class="cat-card"><div class="cat-icon-area">⛺</div><div class="cat-name">لوازم الرحلات</div></a>
     </div>
   </section>
 
-  <!-- Premium Best Sellers -->
-  <section class="section-padding container">
+  <!-- V5 Best Sellers -->
+  <section class="section-padding container" style="padding-top: 10px;">
     <div class="section-header">
-      <h2 class="section-title">الأكثر مبيعاً</h2>
-      <p class="section-subtitle">المنتجات المفضلة لدى عملائنا والتي تعكس الجودة العالية</p>
+      <h2 class="section-title">الأكثر مبيعاً<span class="title-accent"></span></h2>
     </div>
     <div class="product-grid">
       <div class="product-card">
-        <span class="product-badge" style="background: var(--accent-color); color: var(--primary-color);">الأكثر طلباً</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">☕</div>
-        </div>
-        <div class="product-info">
-          <div class="product-rating">★★★★★</div>
-          <h3 class="product-title">قهوة عربية فاخرة</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">١٢٠ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge">الأكثر طلباً</span>
+        <div class="p-visual"><div class="art-box art-coffee-bag">☕</div><div class="p-label">٢٥٠ جرام</div></div>
+        <div class="p-info">
+          <div class="p-title">قهوة عربية فاخرة</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">١٢٠ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-      
       <div class="product-card">
-        <span class="product-badge">مميز</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">🌴</div>
-        </div>
-        <div class="product-info">
-          <div class="product-rating">★★★★★</div>
-          <h3 class="product-title">تمر فاخر</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٨٥ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge" style="background:var(--primary-color);">مميز</span>
+        <div class="p-visual"><div class="art-box art-dates-box">🌴</div><div class="p-label">١ كيلو</div></div>
+        <div class="p-info">
+          <div class="p-title">تمر خلاص فاخر</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٨٥ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-
       <div class="product-card">
-        <div class="product-img-block">
-          <div class="product-icon-art">🌿</div>
-        </div>
-        <div class="product-info">
-          <div class="product-rating">★★★★☆</div>
-          <h3 class="product-title">هيل هندي اكسترا</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">١٦٠ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <div class="p-visual"><div class="art-box art-cardamom-jar">🌿</div><div class="p-label">درجة أولى</div></div>
+        <div class="p-info">
+          <div class="p-title">هيل هندي اكسترا</div>
+          <div class="p-rate">★★★★☆</div>
+          <div class="p-footer">
+            <div class="p-price">١٦٠ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-
       <div class="product-card">
-        <span class="product-badge" style="background: var(--primary-color);">نادر</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">🌺</div>
-        </div>
-        <div class="product-info">
-          <div class="product-rating">★★★★★</div>
-          <h3 class="product-title">زعفران مختار</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٢٥٠ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge new">نادر</span>
+        <div class="p-visual"><div class="art-box art-saffron-tin">🌺</div><div class="p-label">٥ جرام</div></div>
+        <div class="p-info">
+          <div class="p-title">زعفران نقيل مختار</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٢٥٠ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Wide Promo Banner -->
-  <div class="promo-banner-wrapper container">
-    <div class="wide-promo-banner">
-      <div class="promo-banner-content">
-        <h2 class="promo-banner-title">موسم الضيافة الفاخرة</h2>
-        <p class="promo-banner-text">استعد لمناسباتك القادمة مع أطقم التقديم الفاخرة وأجود أنواع القهوة والمكسرات. خصومات حصرية تصل إلى ٢٠٪ لفترة محدودة على مجموعات الضيافة.</p>
-        <a href="/offers" class="promo-banner-btn">تصفح عروض الموسم</a>
+  <!-- V5 Promo -->
+  <div class="promo-section container">
+    <div class="promo-banner">
+      <div class="promo-pattern"></div>
+      <div class="promo-content">
+        <h2 class="promo-title">موسم الضيافة الفاخرة</h2>
+        <p class="promo-text">استعد لمناسباتك القادمة مع أطقم التقديم الفاخرة وأجود أنواع القهوة والمكسرات. خصومات حصرية تصل إلى ٢٠٪ لفترة محدودة.</p>
+        <a href="#" class="promo-btn">تصفح العروض الآن</a>
       </div>
     </div>
   </div>
 
-  <!-- New Arrivals -->
+  <!-- V5 New Arrivals -->
   <section class="section-padding container">
     <div class="section-header">
-      <h2 class="section-title">وصلنا حديثاً</h2>
-      <p class="section-subtitle">أحدث الإضافات المميزة من أواني الضيافة وأجهزة التحضير</p>
+      <h2 class="section-title">وصلنا حديثاً<span class="title-accent"></span></h2>
     </div>
     <div class="product-grid">
       <div class="product-card">
-        <span class="product-badge">جديد</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">⚙️</div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">طاحونة قهوة احترافية</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٤٥٠ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge new">جديد</span>
+        <div class="p-visual"><div class="art-box art-grinder">⚙️</div></div>
+        <div class="p-info">
+          <div class="p-title">طاحونة قهوة احترافية</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٤٥٠ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-      
       <div class="product-card">
-        <span class="product-badge">جديد</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">🫖</div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">شاي سيلاني فاخر</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٤٥ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge new">جديد</span>
+        <div class="p-visual"><div class="art-box art-tea">🫖</div><div class="p-label">شاي أسود</div></div>
+        <div class="p-info">
+          <div class="p-title">شاي سيلاني فاخر</div>
+          <div class="p-rate">★★★★☆</div>
+          <div class="p-footer">
+            <div class="p-price">٤٥ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-
       <div class="product-card">
-        <span class="product-badge">جديد</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">🍽️</div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">طقم ضيافة</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٣٤٠ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge new">جديد</span>
+        <div class="p-visual"><div class="art-box art-hospitality">🍽️</div></div>
+        <div class="p-info">
+          <div class="p-title">طقم ضيافة ملكي (١٢ قطعة)</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٣٤٠ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
-
       <div class="product-card">
-        <span class="product-badge">جديد</span>
-        <div class="product-img-block">
-          <div class="product-icon-art">⛺</div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">حقيبة رحلات متكاملة</h3>
-          <div class="product-footer">
-            <div class="product-price-block">
-              <span class="product-price">٢٩٩ <span>ر.ق</span></span>
-            </div>
-            <button class="product-add-btn">🛒 أضف للسلة</button>
+        <span class="p-badge new">جديد</span>
+        <div class="p-visual"><div class="art-box art-camping">⛺</div></div>
+        <div class="p-info">
+          <div class="p-title">حقيبة رحلات متكاملة</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٢٩٩ <span>ر.ق</span></div>
+            <button class="p-btn">+</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Premium Brand Story -->
-  <section class="section-padding container">
-    <div class="story-wrapper">
-      <div class="story-content">
-        <h2>أصالة الماضي، وتطلعات الحاضر</h2>
-        <p>
-          في الجنوب التجارية، نصنع تجربة ضيافة متكاملة. انطلقنا من شغفنا العميق بالتقاليد العربية الخليجية والقطرية، لنوفر لك أفضل ما تجود به الطبيعة من قهوة وهيل وزعفران.
-        </p>
-        <p>
-          نلتزم بأعلى معايير الجودة في كل خطوة، بدءاً من اختيار المحاصيل من مصادرها الأصلية، وحتى وصولها إليكم في أرقى أطقم التقديم، لنجعل من كل مناسبة ذكرى لا تُنسى.
-        </p>
-        <div>
-          <a href="/about" class="btn-primary" style="margin-top: 15px;">تعرف على رحلتنا</a>
-        </div>
+  <!-- V5 Story -->
+  <section class="section-padding container" style="padding-top: 10px;">
+    <div class="story-container">
+      <div class="story-text">
+        <h2>أصالة الماضي،<br><span>وتطلعات الحاضر</span></h2>
+        <p>في الجنوب التجارية، نصنع تجربة ضيافة متكاملة. انطلقنا من شغفنا العميق بالتقاليد العربية الخليجية والقطرية، لنوفر لك أفضل ما تجود به الطبيعة.</p>
+        <p>نلتزم بأعلى معايير الجودة في كل خطوة، بدءاً من اختيار المحاصيل من مصادرها الأصلية، وحتى وصولها إليكم في أرقى أطقم التقديم.</p>
       </div>
-      <div class="story-visual">
-        <div class="story-visual-card">
-          <div class="story-visual-icon">✨</div>
-          <div class="story-visual-text">جودة تستحق الثقة</div>
+      <div class="story-img">
+        <div class="story-seal">
+          <div class="seal-icon">✨</div>
+          <div class="seal-text">جودة تستحق الثقة</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Premium Brands Section -->
-  <section class="section-padding container">
-    <div class="section-header">
-      <h2 class="section-title">شركاء النجاح</h2>
-      <p class="section-subtitle">نفخر بالتعاون مع أفضل العلامات التجارية لتوفير الجودة التي تستحقها</p>
-    </div>
+  <!-- V5 Brands -->
+  <section class="section-padding container" style="padding-top: 20px;">
     <div class="brands-grid">
-      <div class="brand-card">
-        <div class="brand-icon">🌟</div>
-        <div class="brand-name">مختارات الجنوب</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-icon">☕</div>
-        <div class="brand-name">محامص مختارة</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-icon">👑</div>
-        <div class="brand-name">ضيافة الخليج</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-icon">✨</div>
-        <div class="brand-name">قهوة فاخرة</div>
-      </div>
-      <div class="brand-card">
-        <div class="brand-icon">🌴</div>
-        <div class="brand-name">تمور مختارة</div>
-      </div>
+      <div class="brand-box"><div class="brand-ico">🌟</div><div class="brand-txt">مختارات الجنوب</div></div>
+      <div class="brand-box"><div class="brand-ico">☕</div><div class="brand-txt">محامص مختارة</div></div>
+      <div class="brand-box"><div class="brand-ico">👑</div><div class="brand-txt">ضيافة الخليج</div></div>
+      <div class="brand-box"><div class="brand-ico">✨</div><div class="brand-txt">قهوة فاخرة</div></div>
+      <div class="brand-box"><div class="brand-ico">🌴</div><div class="brand-txt">تمور مختارة</div></div>
     </div>
   </section>
 
-  <!-- Compact Trust Features -->
-  <section class="section-padding container" style="padding-bottom: 80px;">
-    <div class="features-container">
+  <!-- V5 Trust -->
+  <section class="container">
+    <div class="trust-wrap">
       <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-icon-wrap">🌟</div>
-          <div class="trust-content">
-            <h4 class="trust-title">منتجات عالية الجودة</h4>
-            <p class="trust-desc">مكونات منتقاة بعناية فائقة</p>
-          </div>
+        <div class="trust-box">
+          <div class="t-icon">🌟</div>
+          <div class="t-info"><h4>جودة مضمونة</h4><p>مكونات منتقاة بعناية</p></div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon-wrap">🔒</div>
-          <div class="trust-content">
-            <h4 class="trust-title">وسائل دفع آمنة</h4>
-            <p class="trust-desc">تشفير كامل لحماية مدفوعاتك</p>
-          </div>
+        <div class="trust-box">
+          <div class="t-icon">🔒</div>
+          <div class="t-info"><h4>دفع آمن</h4><p>حماية وتشفير ١٠٠٪</p></div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon-wrap">🎧</div>
-          <div class="trust-content">
-            <h4 class="trust-title">خدمة عملاء مميزة</h4>
-            <p class="trust-desc">دعم متواصل على مدار الساعة</p>
-          </div>
+        <div class="trust-box">
+          <div class="t-icon">🎧</div>
+          <div class="t-info"><h4>دعم متواصل</h4><p>خدمة عملاء مميزة</p></div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon-wrap">🚚</div>
-          <div class="trust-content">
-            <h4 class="trust-title">شحن وتوصيل موثوق</h4>
-            <p class="trust-desc">توصيل سريع لجميع المناطق</p>
-          </div>
+        <div class="trust-box">
+          <div class="t-icon">🚚</div>
+          <div class="t-info"><h4>توصيل سريع</h4><p>شحن لجميع المناطق</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Concept Footer -->
+  <!-- V5 Footer -->
   <footer class="concept-footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <a href="#" class="footer-logo">الجنوب <span>للضيافة</span></a>
-        <p class="footer-desc">وجهتك الأولى لتسوق أرقى منتجات الضيافة من القهوة، التمور، والمستلزمات الفاخرة التي تعكس أصالة التراث القطري والخليجي.</p>
+    <div class="footer-grid">
+      <div class="f-col">
+        <a href="#" class="f-logo">الجنوب <span>للضيافة</span></a>
+        <p class="f-desc">وجهتك الأولى لتسوق أرقى منتجات الضيافة من القهوة، التمور، والمستلزمات الفاخرة التي تعكس أصالة التراث القطري والخليجي.</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>روابط سريعة</h4>
-        <ul class="footer-links">
+        <ul class="f-links">
           <li><a href="#">من نحن</a></li>
           <li><a href="#">سياسة الخصوصية</a></li>
           <li><a href="#">الشروط والأحكام</a></li>
-          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">تتبع الطلب</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>أقسام المتجر</h4>
-        <ul class="footer-links">
+        <ul class="f-links">
           <li><a href="#">القهوة والتمور</a></li>
           <li><a href="#">أواني الضيافة</a></li>
-          <li><a href="#">محضرات القهوة</a></li>
           <li><a href="#">لوازم الرحلات</a></li>
+          <li><a href="#">عروض الموسم</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>تواصل معنا</h4>
-        <div class="footer-contact">
+        <div class="f-contact">
           <p>📞 +974 1234 5678</p>
           <p>✉️ info@aljanoubstores.com.qa</p>
           <p>📍 الدوحة، قطر</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      جميع الحقوق محفوظة © 2026 الجنوب التجارية
-    </div>
+    <div class="f-bottom">جميع الحقوق محفوظة © 2026 الجنوب التجارية</div>
   </footer>
 
 </div>

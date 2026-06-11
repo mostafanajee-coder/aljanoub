@@ -1,0 +1,25 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V5 visual improvements:
+- Hero Visual Upgrade: Replaced simple cards with a complex CSS composition featuring a central coffee cup, floating dates bowl, and saffron tin. Added subtle background gradients, radial glows, and rotating animations for a premium feel.
+- Header Polish: Added a custom logo icon, updated navigation layout, added a cart badge, and improved search pill interaction.
+- Product Visuals: Replaced flat emoji placeholders with custom CSS illustrations (coffee bags, dates boxes, cardamom jars, saffron tins, grinders, tea, hospitality sets, and camping gear). Added beautiful gradients and labels for each product type.
+- Category Grid: Refined the hover interactions and spacing for a softer, more elegant look.
+- Spacing & Rhythm: Tightened section paddings and standardized title/subtitle spacing to avoid large empty gaps.
+- Promo Banner: Upgraded with a luxurious dark coffee/gold style, background pattern, and a clean call-to-action button.
+- Story Section: Added a rotating dashed border seal to the visual card for a more branded storytelling aesthetic.
+- Brands & Trust Sections: Transformed plain text boxes into premium partner cards with gold accents, and tightly packed the Trust Features into a sleek horizontal row.
+- Footer: Improved column hierarchy, refined colors, and added quick links.
+
+Status Check:
+- Default Salla demo artifacts are HIDDEN.
+- Homepage widget slot `{% widget 'homepage' %}` is STILL REMOVED.
+- `src/components` is INACTIVE (`components_DISABLED`).
+- Standalone HTML/PNG/PDF generated successfully with UTF-8 encoding.
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next Manual Test Command:
+salla theme preview --with-editor
