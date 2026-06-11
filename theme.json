@@ -2,17 +2,8 @@
   "name": "aljanoub",
   "version": "1.0.0",
   "components": [
-    { "name": "hero-slider", "title": "بنر القهوة الرئيسي" },
-    { "name": "features", "title": "مميزات المتجر" },
-    { "name": "category-grid", "title": "شبكة التصنيفات" }
-  ],
-  "views": {
-    "homepage": {
-      "components": [
-        { "name": "hero-slider" },
-        { "name": "features" },
-        { "name": "category-grid" }
-      ]
-    }
-  }
+    { "name": "hero-slider", "title": "بنر القهوة الرئيسي", "schema": "src/components/hero-slider/schema.json" },
+    { "name": "features", "title": "مميزات المتجر", "schema": "src/components/features/schema.json" },
+    { "name": "category-grid", "title": "شبكة التصنيفات", "schema": "src/components/category-grid/schema.json" }
+  ]
 }
