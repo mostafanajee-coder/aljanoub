@@ -1,23 +1,23 @@
-﻿Phase name: V12A Dynamic Component Probe / Safe Salla Editor Detection Test
+Phase: V12A Dynamic Component Probe
 
-Files changed:
-- src/views/components/home/v12-probe.twig (created)
-- twilight.json (added component-v12-probe feature and v12-probe component schema)
-- DYNAMIC_COMPONENT_PROBE_AUDIT_V12A.md (created)
-- REVIEW_NOTES_DYNAMIC_PROBE_V12A.txt (created)
+Status:
+* Probe component was created.
+* twilight.json was updated to register the probe.
+* index.twig was not changed.
+* Locked static homepage remained preserved.
+* Salla preview compiled successfully.
+* Search remained writable.
+* Footer remained clean.
+* Editor did not detect the probe.
 
-Preview status: Compiles cleanly, Theme ID valid, GitHub linked.
+Root Cause:
+The Salla editor does not expose homepage components because src/views/pages/index.twig does not contain the {% component home %} directive.
 
-Editor detection status: Editor still says "Ù„Ø§ ÙŠØ­ØªÙˆÙŠ Ù‡Ø°Ø§ Ø§Ù„Ø«ÙŠÙ… Ø¹Ù„Ù‰ Ø¹Ù†Ø§ØµØ± Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ØªØ®ØµÙŠØµ ÙÙŠ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©".
+Important Finding:
+theme.json exists in the project. However, theme.json alone is not enough for editor detection. The homepage rendering path must include {% component home %} for Salla editor components to become visible.
 
-Root cause: index.twig does not contain {% component home %}; therefore Salla editor does not expose home components.
+Next Recommended Phase:
+V12B Safe Homepage Component Integration.
 
-Search status: PASS â€” writable, not disabled.
-Runtime isolation status: PASS â€” MutationObserver active.
-Footer artifact status: PASS â€” aggressive CSS + JS suppression works.
-
-Git commit hash:
-ed67809 Clean up v12a probe documentation
-
-Next recommended phase:
-V12B Safe Homepage Component Integration
+Final Git Commit:
+PUT_FINAL_COMMIT_HASH_HERE
