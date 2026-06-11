@@ -1,0 +1,22 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V7 improvements:
+- Header and Footer visibility fix
+- Mobile QA (Header stacking, Hero scaling, Category and Product Grid scaling)
+- Replaced `<header>` and `<footer>` tags with `.alj-store-header` and `.alj-store-footer` `<div>` tags to bypass global element suppression.
+- Suppressed generic Salla UI classes specifically (`.store-header`, `.store-footer`, `.salla-demo-ribbon`, `#twilight-toolbar`, etc.) instead of hiding all headers and footers.
+
+Header visibility fix status: Fixed
+Footer visibility fix status: Fixed
+Mobile QA status: Applied responsive constraints down to 600px width.
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview

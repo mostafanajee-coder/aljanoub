@@ -24,9 +24,9 @@
     --transition: all 0.3s ease;
   }
   
-  /* --- Temporary Hiding of Salla Demo Artifacts --- */
-  header, .store-header, 
-  footer, .store-footer, 
+  /* --- Temporary suppression of default Salla demo artifacts for coded concept preview only --- */
+  .store-header, 
+  .store-footer, 
   .salla-demo-ribbon, 
   .demo-badge, 
   .demo-notice,
@@ -34,17 +34,21 @@
   .twilight-toolbar {
     display: none !important;
   }
+  /* If Salla theme still injects generic header/footer without classes, hide them based on position/DOM only if needed.
+     But we'll avoid global element selectors. */
+  body > header, body > footer { display: none !important; }
+  
   body { padding-top: 0 !important; }
 
   /* --- Global Settings --- */
-  .v6-home-wrapper {
+  .v7-home-wrapper {
     font-family: 'Tajawal', 'Cairo', sans-serif;
     background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
   }
-  .container { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 20px; width: 100%; }
   .section-padding { padding: 50px 0; }
   .section-padding-sm { padding: 30px 0; }
   
@@ -59,12 +63,13 @@
   }
   .section-subtitle { color: var(--text-light); font-size: 1.05rem; margin-top: 10px; }
 
-  /* --- V6 Storefront Header --- */
-  .store-nav-wrapper {
+  /* --- V7 Storefront Header --- */
+  .alj-store-header {
     background: var(--white);
     position: sticky; top: 0; z-index: 100;
     box-shadow: 0 2px 20px rgba(0,0,0,0.04);
     border-bottom: 2px solid var(--accent-color);
+    display: block !important;
   }
   .top-strip {
     background: var(--secondary-color); color: var(--white);
@@ -72,21 +77,21 @@
   }
   .main-header-inner {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 0;
+    padding: 15px 0; flex-wrap: wrap; gap: 15px;
   }
   .logo-block { display: flex; align-items: center; gap: 15px; text-decoration: none; }
   .logo-icon {
     width: 45px; height: 45px; background: var(--accent-color); color: var(--white);
     display: flex; align-items: center; justify-content: center; border-radius: 12px;
-    font-size: 1.5rem; font-weight: 900; box-shadow: var(--shadow-sm);
+    font-size: 1.5rem; font-weight: 900; box-shadow: var(--shadow-sm); flex-shrink: 0;
   }
   .logo-text h1 { margin: 0; font-size: 1.5rem; color: var(--secondary-color); font-weight: 900; line-height: 1.1; }
   .logo-text span { display: block; font-size: 0.8rem; color: var(--text-light); font-weight: 600; }
   
-  .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  .nav-links { display: flex; gap: 15px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; justify-content: center; }
   .nav-links a {
-    text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 1rem;
-    padding: 5px 10px; border-radius: var(--radius-sm); transition: var(--transition);
+    text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.95rem;
+    padding: 5px 8px; border-radius: var(--radius-sm); transition: var(--transition);
   }
   .nav-links a:hover { background: var(--bg-alt); color: var(--accent-color); }
 
@@ -94,7 +99,7 @@
   .search-bar {
     display: flex; align-items: center; background: var(--bg-alt);
     border-radius: 50px; padding: 8px 20px; border: 1px solid var(--border-color);
-    width: 280px; color: var(--text-light); font-size: 0.9rem; transition: var(--transition);
+    width: 250px; color: var(--text-light); font-size: 0.9rem; transition: var(--transition);
   }
   .search-bar:hover { border-color: var(--accent-color); background: var(--white); }
   .search-bar span { margin-right: 10px; color: var(--text-muted); }
@@ -103,7 +108,7 @@
     width: 42px; height: 42px; background: var(--white); border: 1px solid var(--border-color);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     color: var(--text-dark); font-size: 1.1rem; text-decoration: none; transition: var(--transition);
-    position: relative;
+    position: relative; flex-shrink: 0;
   }
   .action-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
   .cart-count {
@@ -112,7 +117,7 @@
     display: flex; align-items: center; justify-content: center; font-weight: bold;
   }
 
-  /* --- V6 Premium Hero --- */
+  /* --- V7 Premium Hero --- */
   .hero-wrapper {
     background: linear-gradient(180deg, var(--white) 0%, var(--bg-main) 100%);
     padding: 40px 20px 50px; position: relative; overflow: hidden;
@@ -130,10 +135,11 @@
   .hero-title span { color: var(--accent-color); display: block; font-size: 2.8rem; }
   .hero-desc { font-size: 1.15rem; color: var(--text-light); margin-bottom: 30px; line-height: 1.8; max-width: 90%; }
   
-  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; }
+  .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; text-align: center; }
   .btn-primary { background: var(--secondary-color); color: var(--white); box-shadow: var(--shadow-md); }
   .btn-primary:hover { background: var(--primary-color); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-  .btn-outline { background: transparent; color: var(--secondary-color); border: 2px solid var(--border-color); margin-right: 15px; }
+  .btn-outline { background: transparent; color: var(--secondary-color); border: 2px solid var(--border-color); }
   .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color); }
 
   .hero-visual-area { position: relative; height: 500px; display: flex; align-items: center; justify-content: center; }
@@ -169,6 +175,7 @@
   .cat-card {
     background: var(--white); border-radius: var(--radius-md); padding: 25px 15px; text-align: center;
     border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); text-decoration: none; transition: var(--transition);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
   .cat-card:hover { border-color: var(--accent-color); transform: translateY(-3px); box-shadow: var(--shadow-md); }
   .cat-icon-area { width: 70px; height: 70px; margin: 0 auto 15px; background: var(--bg-alt); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; transition: var(--transition); }
@@ -203,10 +210,10 @@
   .p-title { font-size: 1.1rem; color: var(--secondary-color); font-weight: 800; margin-bottom: 5px; line-height: 1.4; }
   .p-desc { font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.5; flex-grow: 1; }
   .p-rate { color: var(--accent-color); font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px; }
-  .p-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: auto; }
+  .p-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: auto; flex-wrap: wrap; gap: 10px; }
   .p-price { color: var(--secondary-color); font-weight: 900; font-size: 1.3rem; }
   .p-price span { font-size: 0.8rem; color: var(--text-light); }
-  .p-add-btn { background: var(--bg-alt); color: var(--secondary-color); border: none; padding: 8px 15px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 5px; }
+  .p-add-btn { background: var(--bg-alt); color: var(--secondary-color); border: none; padding: 8px 15px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
   .product-card:hover .p-add-btn { background: var(--secondary-color); color: var(--white); }
 
   /* --- Dark Promo Banner --- */
@@ -218,20 +225,20 @@
 
   /* --- Brands --- */
   .brands-grid { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
-  .brand-card { flex: 1; min-width: 150px; background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 25px 10px; text-align: center; transition: var(--transition); }
+  .brand-card { flex: 1 1 150px; min-width: 130px; background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 25px 10px; text-align: center; transition: var(--transition); display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .brand-card:hover { border-color: var(--accent-color); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
   .brand-icon { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
   .brand-name { font-weight: 800; font-size: 0.95rem; color: var(--secondary-color); }
 
   /* --- Footer --- */
-  .store-footer-custom { background: #131c16; color: var(--white); padding: 60px 20px 20px; border-top: 4px solid var(--accent-color); margin-top: 40px; }
+  .alj-store-footer { background: #131c16; color: var(--white); padding: 60px 20px 20px; border-top: 4px solid var(--accent-color); margin-top: 40px; display: block !important; }
   .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; max-width: 1320px; margin: 0 auto; }
   .f-col h4 { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 20px; }
   .f-logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 900; color: var(--white); text-decoration: none; margin-bottom: 15px; }
   .f-logo span { color: var(--accent-color); }
-  .f-logo-icon { width: 35px; height: 35px; background: var(--accent-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; }
+  .f-logo-icon { width: 35px; height: 35px; background: var(--accent-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; flex-shrink: 0; }
   .f-desc { color: #a0a0a0; font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; max-width: 90%; }
-  .f-socials { display: flex; gap: 10px; }
+  .f-socials { display: flex; gap: 10px; flex-wrap: wrap; }
   .f-social { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: var(--transition); border: 1px solid rgba(255,255,255,0.1); }
   .f-social:hover { background: var(--accent-color); border-color: var(--accent-color); }
   .f-links { list-style: none; padding: 0; margin: 0; }
@@ -239,8 +246,8 @@
   .f-links a { color: #a0a0a0; text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
   .f-links a:hover { color: var(--accent-color); padding-right: 5px; }
   .f-contact p { color: #a0a0a0; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-  .f-bottom { max-width: 1320px; margin: 50px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #888; }
-  .f-payments { display: flex; gap: 10px; }
+  .f-bottom { max-width: 1320px; margin: 50px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #888; flex-wrap: wrap; gap: 15px; }
+  .f-payments { display: flex; gap: 10px; flex-wrap: wrap; }
   .f-pay-icon { background: var(--white); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: var(--primary-color); }
 
   /* --- Responsive --- */
@@ -261,22 +268,28 @@
     .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .benefits-inner { flex-direction: column; align-items: center; gap: 10px; }
-    .f-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    .f-bottom { flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
+    .f-payments { justify-content: center; }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     .search-bar { display: none; }
+    .main-header-inner { justify-content: center; flex-direction: column; gap: 10px; }
+    .header-actions { width: 100%; justify-content: center; margin-top: 5px; }
     .hero-title { font-size: 2.4rem; } .hero-title span { font-size: 1.8rem; }
     .hero-visual-area { transform: scale(0.7); height: 320px; }
+    .btn { width: 100%; max-width: 280px; margin-right: 0 !important; margin-bottom: 10px; }
     .product-grid { grid-template-columns: 1fr; }
     .f-grid { grid-template-columns: 1fr; }
+    .promo-banner { padding: 40px 20px; }
+    .promo-title { font-size: 1.8rem; }
   }
   @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
 </style>
 
-<div class="v6-home-wrapper" dir="rtl">
+<div class="v7-home-wrapper" dir="rtl">
 
-  <!-- V6 Storefront Header -->
-  <header class="store-nav-wrapper">
+  <!-- V7 Storefront Header (DIV instead of HEADER to avoid suppression) -->
+  <div class="alj-store-header">
     <div class="top-strip">
       ✨ شحن مجاني للطلبات فوق ٢٩٩ ر.ق داخل الدوحة
     </div>
@@ -302,9 +315,9 @@
         <a href="#" class="action-btn">🛒<div class="cart-count">2</div></a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <!-- V6 Premium Hero -->
+  <!-- V7 Premium Hero -->
   <section class="hero-wrapper">
     <div class="hero-inner">
       <div class="hero-content">
@@ -514,8 +527,8 @@
     </div>
   </section>
 
-  <!-- Custom Store Footer -->
-  <footer class="store-footer-custom">
+  <!-- Custom Store Footer (DIV instead of FOOTER to avoid suppression) -->
+  <div class="alj-store-footer">
     <div class="f-grid">
       <div class="f-col">
         <a href="#" class="f-logo"><div class="f-logo-icon">ج</div>الجنوب <span>التجارية</span></a>
@@ -562,7 +575,7 @@
         <span class="f-pay-icon">APPLE PAY</span>
       </div>
     </div>
-  </footer>
+  </div>
 
 </div>
 {% endblock %}

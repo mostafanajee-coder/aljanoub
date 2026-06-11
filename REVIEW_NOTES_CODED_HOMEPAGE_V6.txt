@@ -1,12 +1,12 @@
-Files changed:
+﻿Files changed:
 - src/views/pages/index.twig
 
 Main V6 storefront realism improvements:
-- Storefront Header: Replaced the landing-page style navigation with a complete, structured storefront header. Added the subtitle "للقهوة والضيافة والمواد الغذائية", a styled search pill, and realistic cart/account icons. The navigation links are better integrated.
-- Benefits Row: Added a slim, elegant benefits row right below the hero section highlighting "تحميص مختار", "منتجات أصلية", "توصيل موثوق", and "دفع آمن".
+- Storefront Header: Replaced the landing-page style navigation with a complete, structured storefront header. Added the subtitle "Ù„Ù„Ù‚Ù‡ÙˆØ© ÙˆØ§Ù„Ø¶ÙŠØ§ÙØ© ÙˆØ§Ù„Ù…ÙˆØ§Ø¯ Ø§Ù„ØºØ°Ø§Ø¦ÙŠØ©", a styled search pill, and realistic cart/account icons. The navigation links are better integrated.
+- Benefits Row: Added a slim, elegant benefits row right below the hero section highlighting "ØªØ­Ù…ÙŠØµ Ù…Ø®ØªØ§Ø±", "Ù…Ù†ØªØ¬Ø§Øª Ø£ØµÙ„ÙŠØ©", "ØªÙˆØµÙŠÙ„ Ù…ÙˆØ«ÙˆÙ‚", and "Ø¯ÙØ¹ Ø¢Ù…Ù†".
 - Hero Polish: Refined top/bottom margins so the hero flows seamlessly into the benefits row. The visual composition is slightly more balanced.
-- Product Card Realism: Added deeper shadows, descriptive text (mini-descriptions) for every product, and an explicit "Add to Cart" button (أضف 🛒).
-- Footer: Implemented a proper, full-width custom store footer. Includes columns for "روابط سريعة", "خدمة العملاء", and "تواصل معنا" along with social icons and payment badges (Visa, Mada, Apple Pay).
+- Product Card Realism: Added deeper shadows, descriptive text (mini-descriptions) for every product, and an explicit "Add to Cart" button (Ø£Ø¶Ù ðŸ›’).
+- Footer: Implemented a proper, full-width custom store footer. Includes columns for "Ø±ÙˆØ§Ø¨Ø· Ø³Ø±ÙŠØ¹Ø©", "Ø®Ø¯Ù…Ø© Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡", and "ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§" along with social icons and payment badges (Visa, Mada, Apple Pay).
 
 Status Check:
 - Default Salla demo artifacts are HIDDEN via CSS.
@@ -15,7 +15,7 @@ Status Check:
 - Standalone HTML/PNG/PDF generated successfully with UTF-8 encoding.
 
 Git Commit Hash:
-[To be added automatically by Git]
+3770dcb6fceb86336dea3cf1d067fd8b189c8d31
 
 Next Manual Test Command:
 salla theme preview --with-editor
