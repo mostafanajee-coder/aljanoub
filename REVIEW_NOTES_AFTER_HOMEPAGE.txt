@@ -1,0 +1,23 @@
+Files Changed:
+- src/views/pages/index.twig (Replaced with new custom homepage)
+
+Design Sections Added:
+1. Luxury Hero Section (Gradient background, title, subtitle, CTA button)
+2. Promo Strip (Free shipping announcement)
+3. Categories Grid (Coffee, Dates, Cardamom, Tea, Saffron, Hospitality, Coffee Makers, Camping)
+4. Best Sellers Placeholder (4 cards with visual placeholders)
+5. Story Section (Coffee and hospitality brand story)
+6. New Arrivals Placeholder (4 cards with visual placeholders)
+7. Brands Section Placeholder (5 circular brand blocks)
+8. Trust Features (High Quality, Secure Payment, Excellent Support, Reliable Shipping)
+
+Warnings/Issues:
+- No warnings. The design uses inline CSS to ensure it doesn't break global stylesheets or other pages.
+- Salla widget slot `{% widget 'homepage' %}` is preserved at the bottom.
+- The new homepage uses `{% extends "layouts.master" %}` and `{% block content %}` as required.
+
+Git Commit Hash:
+689baf762e1eb6a855de130f39dd5f4942d9fffe
+
+Next Commands to Run:
+salla theme preview --with-editor
