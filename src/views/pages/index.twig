@@ -1,16 +1,406 @@
-﻿{% extends "layouts.master" %}
+{% extends "layouts.master" %}
 
 {% block content %}
-  <section style="padding:80px 20px;background:#ffffff;min-height:320px;">
-    <div style="padding:45px;border:4px dashed #16a34a;text-align:center;background:#fff;border-radius:24px;margin:40px auto;max-width:1000px;">
-      <h1 style="font-size:36px;font-weight:800;color:#166534;margin-bottom:14px;">
-        ALJANOUB INDEX PAGE IS WORKING
-      </h1>
-      <p style="font-size:20px;color:#333;">
-        This message is rendered from src/views/pages/index.twig
+<style>
+  :root {
+    --primary-color: #4b3621; /* Coffee Brown */
+    --secondary-color: #2b4f3b; /* Dark Green */
+    --accent-color: #d4af37; /* Gold */
+    --bg-light: #fdfbf7; /* Cream */
+    --text-dark: #1a1a1a;
+  }
+  
+  .home-wrapper {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* 1. Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--accent-color);
+  }
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+  .hero-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    display: inline-block;
+  }
+  .hero-btn:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+  }
+
+  /* 2. Categories */
+  .categories-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+  }
+  .cat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    text-decoration: none;
+  }
+  .cat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+  }
+  .cat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+  .cat-name {
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+
+  /* 3. Promo Strip */
+  .promo-strip {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* 4 & 5. Placeholders (Best Sellers, New Arrivals) */
+  .products-placeholder {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    border: 1px solid #f0f0f0;
+  }
+  .product-img {
+    background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: bold;
+  }
+  .product-info {
+    padding: 20px;
+    text-align: center;
+  }
+  .product-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+  .product-price {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  /* 6. Story Section */
+  .story-section {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 80px 20px;
+    margin-top: 40px;
+  }
+  .story-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .story-container p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.8;
+  }
+
+  /* 7. Brands */
+  .brands-section {
+    padding: 60px 20px;
+    background-color: white;
+  }
+  .brands-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .brand-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #eee;
+    color: #999;
+    font-weight: bold;
+  }
+
+  /* 8. Trust Features */
+  .trust-section {
+    background-color: var(--bg-light);
+    padding: 60px 20px;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .trust-item {
+    text-align: center;
+    padding: 20px;
+  }
+  .trust-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+  }
+  .trust-title {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+  }
+</style>
+
+<div class="home-wrapper" dir="rtl">
+  
+  <!-- 1. Hero Section -->
+  <section class="hero-section">
+    <h1 class="hero-title">الجنوب التجارية</h1>
+    <p class="hero-subtitle">أصالة الضيافة، وجودة تستحق الثقة في القهوة والمواد الغذائية</p>
+    <a href="/products" class="hero-btn">تسوق الآن</a>
+  </section>
+
+  <!-- 3. Promo Strip -->
+  <div class="promo-strip">
+    🎉 شحن مجاني للطلبات فوق 299 ريال! تسوق تشكيلتنا الفاخرة الآن
+  </div>
+
+  <!-- 2. Categories -->
+  <section class="categories-section">
+    <h2 class="section-title">تسوق حسب القسم</h2>
+    <div class="cat-grid">
+      <a href="/category/coffee" class="cat-card">
+        <div class="cat-icon">☕</div>
+        <div class="cat-name">القهوة</div>
+      </a>
+      <a href="/category/dates" class="cat-card">
+        <div class="cat-icon">🌴</div>
+        <div class="cat-name">التمور</div>
+      </a>
+      <a href="/category/cardamom" class="cat-card">
+        <div class="cat-icon">🌿</div>
+        <div class="cat-name">الهيل</div>
+      </a>
+      <a href="/category/tea" class="cat-card">
+        <div class="cat-icon">🍵</div>
+        <div class="cat-name">الشاي</div>
+      </a>
+      <a href="/category/saffron" class="cat-card">
+        <div class="cat-icon">🌺</div>
+        <div class="cat-name">الزعفران</div>
+      </a>
+      <a href="/category/hospitality" class="cat-card">
+        <div class="cat-icon">🍽️</div>
+        <div class="cat-name">أواني الضيافة</div>
+      </a>
+      <a href="/category/coffee-makers" class="cat-card">
+        <div class="cat-icon">🔌</div>
+        <div class="cat-name">محضرات القهوة</div>
+      </a>
+      <a href="/category/camping" class="cat-card">
+        <div class="cat-icon">⛺</div>
+        <div class="cat-name">لوازم الرحلات</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. Best Sellers -->
+  <section class="products-placeholder">
+    <h2 class="section-title">الأكثر مبيعاً</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">قهوة سعودية فاخرة</h3>
+          <div class="product-price">١٢٠ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">تمر خلاص القصيم</h3>
+          <div class="product-price">٨٥ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">زعفران سوبر نقيل</h3>
+          <div class="product-price">٢٥٠ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">طقم دلال ضيافة</h3>
+          <div class="product-price">٣٤٠ ر.س</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Story Section -->
+  <section class="story-section">
+    <div class="story-container">
+      <h2 style="color: var(--accent-color); margin-bottom: 20px; font-size: 2.2rem;">قصتنا مع الضيافة</h2>
+      <p>
+        منذ سنوات، ونحن في محامص ومطاحن الجنوب نسعى لتقديم أجود أنواع القهوة، الهيل، الزعفران، والمكسرات، بالإضافة إلى أرقى أدوات الضيافة ولوازم الرحلات. ننتقي منتجاتنا بعناية لتعكس كرم الضيافة الأصيلة، لتكون جزءاً من أوقاتكم المميزة وتجمعاتكم الدافئة.
       </p>
     </div>
   </section>
 
+  <!-- 5. New Arrivals -->
+  <section class="products-placeholder">
+    <h2 class="section-title">وصلنا حديثاً</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">طاحونة قهوة احترافية</h3>
+          <div class="product-price">٤٥٠ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">هيل هندي اكسترا</h3>
+          <div class="product-price">١٦٠ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">شاي سيلاني فاخر</h3>
+          <div class="product-price">٤٥ ر.س</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">صورة المنتج</div>
+        <div class="product-info">
+          <h3 class="product-title">حقيبة رحلات متكاملة</h3>
+          <div class="product-price">٢٩٩ ر.س</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Brands Placeholder -->
+  <section class="brands-section">
+    <h2 class="section-title">علامات تجارية نثق بها</h2>
+    <div class="brands-grid">
+      <div class="brand-circle">ماركة ١</div>
+      <div class="brand-circle">ماركة ٢</div>
+      <div class="brand-circle">ماركة ٣</div>
+      <div class="brand-circle">ماركة ٤</div>
+      <div class="brand-circle">ماركة ٥</div>
+    </div>
+  </section>
+
+  <!-- 8. Trust Features -->
+  <section class="trust-section">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">⭐</div>
+        <div class="trust-title">منتجات عالية الجودة</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-title">وسائل دفع آمنة</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🎧</div>
+        <div class="trust-title">خدمة عملاء مميزة</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-title">شحن وتوصيل موثوق</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Salla Visual Builder Slot -->
   {% widget 'homepage' %}
+</div>
 {% endblock %}
