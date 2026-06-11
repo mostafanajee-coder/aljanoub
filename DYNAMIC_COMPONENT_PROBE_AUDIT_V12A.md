@@ -12,7 +12,7 @@ V12A Dynamic Component Probe / Safe Salla Editor Detection Test
 | `src/views/components/home/` | **EXISTS.** Contains 19 existing Salla Twilight home components. |
 | `src/views/layouts/master.twig` | Uses `{% component 'header.header' %}` and `{% component 'footer.footer' %}`. No widget calls. |
 | `twilight.json` | Contains `features` array (component feature flags) and `components` array (full component definitions with fields, keys, paths). |
-| `theme.json` | Does not exist in project root. |
+| `theme.json` | **EXISTS.** Contains a simple `views.home` array listing sections. Actual Salla editor home component detection still depends on adding `{% component home %}` to the homepage rendering path. |
 
 ## Existing Component Structure
 
