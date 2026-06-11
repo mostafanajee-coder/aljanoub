@@ -1,4 +1,4 @@
-Phase: V12A Dynamic Component Probe
+﻿Phase: V12A Dynamic Component Probe
 
 Status:
 * Probe component was created.
@@ -20,4 +20,4 @@ Next Recommended Phase:
 V12B Safe Homepage Component Integration.
 
 Final Git Commit:
-PUT_FINAL_COMMIT_HASH_HERE
+742009a Fix v12a documentation encoding
