@@ -1,0 +1,21 @@
+Phase name: V11E-HF3 Nav Rail Final + Missing Reports Fix
+Files changed:
+- src/views/pages/index.twig
+- VISUAL_DIRECTOR_AUDIT_V11E_HF3.md
+- REVIEW_NOTES_PREMIUM_POLISH_V11E_HF3.txt
+
+Visual changes summary:
+- Mobile nav clipping is entirely eliminated using "Strategy B — Premium Fade Rail". The `.nav-links` horizontal scrolling container is now wrapped inside `.nav-rail-wrapper` which projects a smooth visual gradient over the absolute left and right edges. The internal scroll padding prevents text from resting beneath the opaque edge, creating a dynamic, intentional fade as users scroll, without abruptly cutting text.
+
+Search input preservation status: Yes, perfectly preserved.
+Runtime isolation status: Yes, fully intact.
+Salla preview status: Yes, compiles cleanly.
+Desktop review artifact status: Generated.
+Mobile review artifact status: Generated.
+Twig tag cleanup status: Yes, the HTML is clean.
+Mobile nav clipping status: Fixed.
+
+Git commit hash:
+[To be added automatically by Git]
+
+Ready for V11F Final Static Lock Review: Yes, fully ready for V12.
