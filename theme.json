@@ -1,5 +1,11 @@
 {
   "name": "aljanoub",
+  "version": "1.0.0",
+  "components": [
+    { "name": "hero-slider", "title": "بنر القهوة الرئيسي" },
+    { "name": "features", "title": "مميزات المتجر" },
+    { "name": "category-grid", "title": "شبكة التصنيفات" }
+  ],
   "views": {
     "homepage": {
       "components": [
