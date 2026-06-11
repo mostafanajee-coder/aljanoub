@@ -1,0 +1,14 @@
+{% extends 'layouts/master.twig' %}
+
+{% block content %}
+  {# Temporary visible block to confirm the theme preview is rendering correctly. #}
+  <section class="container mx-auto px-4 py-10">
+    <div class="rounded-2xl border border-dashed border-primary p-8 text-center bg-white">
+      <h1 class="text-3xl font-bold mb-3">ثيم الجنوب يعمل الآن</h1>
+      <p class="text-gray-600">إذا ظهر هذا النص داخل محرر سلة، فالمعاينة سليمة. بعدها أضف عناصر الصفحة من زر: إضافة عنصر جديد.</p>
+    </div>
+  </section>
+
+  {# Salla homepage visual builder slot. Add homepage sections from the editor sidebar. #}
+  {% widget 'homepage' %}
+{% endblock %}

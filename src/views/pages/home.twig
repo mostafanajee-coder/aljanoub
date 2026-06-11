@@ -1,16 +1,6 @@
-{% extends "layouts.master" %}
+{% extends 'layouts/master.twig' %}
+
 {% block content %}
-    {# Premium Coffee Theme Assembly #}
-    {% include 'components.home.hero-slider' %}
-    {% include 'components.home.features' %}
-    {% include 'components.home.category-grid' %}
-    
-    {# Dynamic Builder Components #}
-    <div class="bg-cream/5 py-12">
-        <div class="container mx-auto px-4">
-            {% for component in components %}
-                {% component component.name with { component: component } %}
-            {% endfor %}
-        </div>
-    </div>
+  {# Keep this page safe. Do not include non-existing component paths here. #}
+  {% widget 'homepage' %}
 {% endblock %}

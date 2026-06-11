@@ -1,0 +1,16 @@
+Current issue: Salla theme editor opens but the preview canvas is blank.
+Current editor URL uses assets_url localhost and ws_port.
+Commands used:
+  npm install --legacy-peer-deps
+  npm run watch
+  salla theme preview --with-editor
+
+Environment:
+Node version: v22.22.0
+npm version: 11.6.4
+Salla CLI version: 3.2.30
+
+Terminal errors from last run:
+webpack 5.107.2 compiled with 6 warnings in 8677 ms
+ERROR Error: Command failed: pnpm run watch css/line-clamp` plugin is now included by default.
+warn - Remove it from the `plugins` array in your configuration to eliminate this warning.
