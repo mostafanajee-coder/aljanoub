@@ -1,0 +1,24 @@
+Files changed:
+- src/views/pages/index.twig
+
+Exact mobile header/search issue fixed:
+The mobile search box was visually squeezed because it was trapped inside a flex container (`.header-actions`) alongside the account and cart icons. It was not successfully breaking onto a new full-width line. 
+
+Exact CSS/HTML changes made for search:
+1. CSS Grid Restructuring: Converted `.main-header-inner` to a CSS Grid layout using `grid-template-areas`.
+2. Display Contents: Applied `display: contents;` to `.header-actions` so its children (the search bar and action buttons) participate directly in the parent grid.
+3. Grid Areas: Assigned `.search-bar` to `grid-area: search`, forcing it to span the entire second row (`"search search search"`). The logo, account, and cart icons cleanly populate the first row. The horizontal scrolling nav chips safely populate the third row.
+4. Search Box Tuning: Shrank the placeholder text to "ابحث في المتجر" for an optimal fit on narrow viewports, explicitly enforced `min-width: 0` on the text node to prevent flex blowouts, and added standard `role="search"` markup.
+
+Whether promo button remained fixed: Yes
+Whether runtime isolation remained intact: Yes
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview

@@ -307,24 +307,33 @@
     
     /* Header Mobile Polish */
     .top-strip { font-size: 0.75rem; padding: 6px 0; }
-    .main-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 10px 0 0; }
-    .logo-block { grid-column: 1; margin-bottom: 0; }
+    .main-header-inner { 
+      display: grid; grid-template-columns: 1fr auto auto; 
+      grid-template-areas: 
+        "logo account cart"
+        "search search search"
+        "nav nav nav";
+      gap: 12px; align-items: center; padding: 10px 0 0; 
+    }
+    .logo-block { grid-area: logo; margin-bottom: 0; min-width: 0; }
     .logo-text span { display: none; }
     .logo-text h1 { font-size: 1.15rem; }
     .logo-icon { width: 38px; height: 38px; font-size: 1.3rem; border-radius: 10px; }
-    .header-actions { grid-column: 2; justify-content: flex-end; width: auto; margin-top: 0; gap: 10px; }
+    .header-actions { display: contents; }
     .action-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+    .header-actions .action-btn:nth-of-type(1) { grid-area: account; }
+    .header-actions .action-btn:nth-of-type(2) { grid-area: cart; }
     .search-bar { 
-      grid-column: 1 / -1; width: 100%; max-width: 100%; min-height: 54px; height: 54px;
+      grid-area: search; width: 100%; max-width: 100%; min-height: 54px; height: 54px;
       padding: 0 18px; border-radius: 999px; display: flex; align-items: center;
       justify-content: flex-start; gap: 10px; box-sizing: border-box;
       overflow: hidden; direction: rtl; text-align: right;
       font-size: 0.95rem; line-height: 1; white-space: nowrap;
-      margin-top: 10px; background: var(--bg-alt); border: 1px solid var(--border-color);
+      margin-top: 5px; background: var(--bg-alt); border: 1px solid var(--border-color);
     }
     .search-bar .search-icon { flex: 0 0 auto; font-size: 1.15rem; line-height: 1; }
-    .search-bar .search-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-links { display: flex; grid-column: 1 / -1; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); padding-top: 10px; }
+    .search-bar .search-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1 1 auto; min-width: 0; }
+    .nav-links { grid-area: nav; display: flex; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); padding-top: 10px; }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; }
     
@@ -405,7 +414,10 @@
         <li><a href="#">لوازم الرحلات</a></li>
       </ul>
       <div class="header-actions">
-        <div class="search-bar"><span class="search-icon">🔍</span> <span class="search-text">ابحث عن القهوة والتمور...</span></div>
+        <div class="search-bar" role="search" aria-label="بحث في المتجر">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <span class="search-text">ابحث في المتجر</span>
+        </div>
         <a href="#" class="action-btn">👤</a>
         <a href="#" class="action-btn">🛒<div class="cart-count">2</div></a>
       </div>
