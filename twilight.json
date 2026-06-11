@@ -1277,6 +1277,96 @@
                         "ar": "وصف البطاقة الجانبية"
                     },
                     "value": "أصلي ١٠٠٪"
+                },
+                {
+                    "id": "primary_button_url",
+                    "type": "string",
+                    "label": {
+                        "en": "Primary Button URL",
+                        "ar": "رابط الزر الأساسي"
+                    },
+                    "value": "javascript:void(0)"
+                },
+                {
+                    "id": "secondary_button_url",
+                    "type": "string",
+                    "label": {
+                        "en": "Secondary Button URL",
+                        "ar": "رابط الزر الثانوي"
+                    },
+                    "value": "javascript:void(0)"
+                },
+                {
+                    "id": "benefit_1_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 1 Text",
+                        "ar": "الميزة الأولى"
+                    },
+                    "value": "تحميص مختار"
+                },
+                {
+                    "id": "benefit_1_icon",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 1 Icon",
+                        "ar": "أيقونة الميزة الأولى"
+                    },
+                    "value": "🔥"
+                },
+                {
+                    "id": "benefit_2_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 2 Text",
+                        "ar": "الميزة الثانية"
+                    },
+                    "value": "منتجات أصلية"
+                },
+                {
+                    "id": "benefit_2_icon",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 2 Icon",
+                        "ar": "أيقونة الميزة الثانية"
+                    },
+                    "value": "✨"
+                },
+                {
+                    "id": "benefit_3_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 3 Text",
+                        "ar": "الميزة الثالثة"
+                    },
+                    "value": "توصيل موثوق"
+                },
+                {
+                    "id": "benefit_3_icon",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 3 Icon",
+                        "ar": "أيقونة الميزة الثالثة"
+                    },
+                    "value": "🚚"
+                },
+                {
+                    "id": "benefit_4_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 4 Text",
+                        "ar": "الميزة الرابعة"
+                    },
+                    "value": "دفع آمن"
+                },
+                {
+                    "id": "benefit_4_icon",
+                    "type": "text",
+                    "label": {
+                        "en": "Benefit 4 Icon",
+                        "ar": "أيقونة الميزة الرابعة"
+                    },
+                    "value": "🔒"
                 }
             ]
         }

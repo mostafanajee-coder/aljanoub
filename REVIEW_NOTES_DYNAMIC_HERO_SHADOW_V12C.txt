@@ -1,4 +1,4 @@
-﻿Phase: V12C Hero Dynamic Component â€” Shadow Build / Editor Fields Test
+Phase: V12C Hero Dynamic Component - Shadow Build / Editor Fields Test
 
 Files changed:
 - src/views/components/home/v12-hero-shadow.twig (Created)
