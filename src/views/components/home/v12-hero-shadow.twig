@@ -1,0 +1,36 @@
+{#
+| Variable                  | Type   | Description                                                      |
+|---------------------------|--------|------------------------------------------------------------------|
+| component.badge_text      | string | Hero Badge Text                                                  |
+| component.main_title      | string | Hero Main Title                                                  |
+| component.accent_title    | string | Hero Accent Title                                                |
+| component.description     | string | Hero Description                                                 |
+| component.primary_button_text | string | Primary Button Text                                          |
+| component.secondary_button_text| string | Secondary Button Text                                        |
+| component.main_card_title | string | Main Card Title                                                  |
+| component.main_card_caption| string | Main Card Caption                                               |
+| component.top_card_title  | string | Top Card Title                                                   |
+| component.side_card_title | string | Side Card Title                                                  |
+| component.side_card_caption| string | Side Card Caption                                               |
+| component.enabled         | bool   | Component enabled toggle                                         |
+| position                  | Int    | Sorting number start from zero                                   |
+#}
+<!-- V12C shadow hero component only. Do not replace visible static hero until V12D. -->
+{% if component.enabled %}
+<section class="s-block s-block--v12-hero-shadow" dir="rtl">
+    <div class="alj-v12-hero-shadow">
+        <p>This is a shadow component only. V12C</p>
+        <p>Badge: {{ component.badge_text }}</p>
+        <h2>{{ component.main_title }} <span>{{ component.accent_title }}</span></h2>
+        <p>{{ component.description }}</p>
+        <button>{{ component.primary_button_text }}</button>
+        <button>{{ component.secondary_button_text }}</button>
+
+        <div class="cards">
+            <div>{{ component.main_card_title }} - {{ component.main_card_caption }}</div>
+            <div>{{ component.top_card_title }}</div>
+            <div>{{ component.side_card_title }} - {{ component.side_card_caption }}</div>
+        </div>
+    </div>
+</section>
+{% endif %}

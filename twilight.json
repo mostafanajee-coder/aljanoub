@@ -23,7 +23,8 @@
         "component-youtube",
         "menu-images",
         "filters",
-        "component-v12-probe"
+        "component-v12-probe",
+        "component-v12-hero-shadow"
     ],
     "settings": [
         {
@@ -1158,6 +1159,124 @@
                     "required": false,
                     "format": "textarea",
                     "placeholder": "هذا مكوّن تجريبي للتأكد من ظهور عناصر التخصيص في محرر سلة."
+                }
+            ]
+        },
+        {
+            "key": "d0f0cafa-01e2-4f25-b0c7-5980dbf92298",
+            "title": {
+                "en": "Aljanoub Dynamic Hero V12",
+                "ar": "هيرو الجنوب الديناميكي V12"
+            },
+            "path": "home.v12-hero-shadow",
+            "fields": [
+                {
+                    "id": "enabled",
+                    "type": "switch",
+                    "label": {
+                        "en": "Enabled",
+                        "ar": "تفعيل المكون"
+                    },
+                    "value": true
+                },
+                {
+                    "id": "badge_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Badge Text",
+                        "ar": "نص الشارة"
+                    },
+                    "value": "الخيار الأول للضيافة القطرية"
+                },
+                {
+                    "id": "main_title",
+                    "type": "text",
+                    "label": {
+                        "en": "Main Title",
+                        "ar": "العنوان الرئيسي"
+                    },
+                    "value": "الجنوب التجارية"
+                },
+                {
+                    "id": "accent_title",
+                    "type": "text",
+                    "label": {
+                        "en": "Accent Title",
+                        "ar": "عنوان مميز"
+                    },
+                    "value": "جودة تليق بك"
+                },
+                {
+                    "id": "description",
+                    "type": "textarea",
+                    "label": {
+                        "en": "Description",
+                        "ar": "الوصف"
+                    },
+                    "value": "استكشف عالمنا من القهوة الفاخرة، والتمور المنتقاة، وأرقى مستلزمات الضيافة التي تعكس كرمك وأصالتك بأعلى المعايير."
+                },
+                {
+                    "id": "primary_button_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Primary Button Text",
+                        "ar": "نص الزر الأساسي"
+                    },
+                    "value": "تسوق المجموعات"
+                },
+                {
+                    "id": "secondary_button_text",
+                    "type": "text",
+                    "label": {
+                        "en": "Secondary Button Text",
+                        "ar": "نص الزر الثانوي"
+                    },
+                    "value": "اكتشف العروض"
+                },
+                {
+                    "id": "main_card_title",
+                    "type": "text",
+                    "label": {
+                        "en": "Main Card Title",
+                        "ar": "عنوان البطاقة الرئيسية"
+                    },
+                    "value": "قهوة عربية"
+                },
+                {
+                    "id": "main_card_caption",
+                    "type": "text",
+                    "label": {
+                        "en": "Main Card Caption",
+                        "ar": "وصف البطاقة الرئيسية"
+                    },
+                    "value": "تحميص طازج"
+                },
+                {
+                    "id": "top_card_title",
+                    "type": "text",
+                    "label": {
+                        "en": "Top Card Title",
+                        "ar": "عنوان البطاقة العلوية"
+                    },
+                    "value": "تمور ملكية"
+                },
+                {
+                    "id": "side_card_title",
+                    "type": "text",
+                    "label": {
+                        "en": "Side Card Title",
+                        "ar": "عنوان البطاقة الجانبية"
+                    },
+                    "value": "زعفران نقيل"
+                },
+                {
+                    "id": "side_card_caption",
+                    "type": "text",
+                    "label": {
+                        "en": "Side Card Caption",
+                        "ar": "وصف البطاقة الجانبية"
+                    },
+                    "value": "أصلي ١٠٠٪"
                 }
             ]
         }
