@@ -1,4 +1,4 @@
-Files changed:
+﻿Files changed:
 - src/views/pages/index.twig
 
 Main V5 visual improvements:
@@ -19,7 +19,7 @@ Status Check:
 - Standalone HTML/PNG/PDF generated successfully with UTF-8 encoding.
 
 Git Commit Hash:
-[To be added automatically by Git]
+aec5a56faffa4a62acaff68f63eb97ff6c7cf992
 
 Next Manual Test Command:
 salla theme preview --with-editor
