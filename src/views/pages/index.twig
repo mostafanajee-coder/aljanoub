@@ -26,9 +26,7 @@
     --transition: all 0.3s ease;
   }
   
-  /* --- Temporary suppression of default Salla demo artifacts for coded concept preview only --- */
-  /* V10 static coded homepage concept. Next phase should convert approved static sections into Salla-compatible dynamic sections/components. */
-  /* V10C runtime isolation for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
+  /* --- Static prototype runtime isolation: hides default Salla layout artifacts outside .alj-static-homepage. Must be replaced with proper dynamic components during V12+. --- */
   body:has(.alj-static-homepage) > header:not(.alj-store-header),
   body:has(.alj-static-homepage) > footer:not(.alj-store-footer),
   body:has(.alj-static-homepage) .store-header,
@@ -46,6 +44,16 @@
   
   .alj-static-homepage ~ * {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 0 !important;
   }
 
   body.alj-runtime-isolated {
@@ -55,6 +63,19 @@
     display: block !important;
     width: 100% !important;
     min-height: auto !important;
+  }
+  body.alj-runtime-isolated [data-alj-runtime-hidden="true"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 0 !important;
   }
   
   body { padding-top: 0 !important; }
@@ -107,7 +128,7 @@
   .logo-text h1 { margin: 0; font-size: 1.5rem; color: var(--secondary-color); font-weight: 900; line-height: 1.1; }
   .logo-text span { display: block; font-size: 0.8rem; color: var(--text-light); font-weight: 600; }
   
-  .nav-rail-wrapper { flex: 1; display: flex; justify-content: center; }
+  .nav-rail-wrapper { display: contents; }
   .nav-links { display: flex; gap: 15px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; justify-content: center; width: 100%; }
   .nav-links a {
     text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.95rem;
@@ -342,22 +363,18 @@
         .search-bar .search-icon { flex: 0 0 auto; font-size: 1.15rem; line-height: 1; border: none; background: transparent; padding: 0; cursor: pointer; }
     .search-bar .search-input { flex: 1 1 auto; min-width: 0; border: none; outline: none; background: transparent; direction: rtl; text-align: right; font: inherit; color: inherit; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .nav-rail-wrapper {
-      grid-area: nav; position: relative; width: calc(100% + 40px); margin: 0 -20px; display: block;
+      grid-area: nav; display: block; width: 100%; margin: 0; overflow: hidden;
     }
-    .nav-rail-wrapper::before, .nav-rail-wrapper::after {
-      content: ""; position: absolute; top: 0; bottom: 0; width: 32px; z-index: 2; pointer-events: none;
-    }
-    .nav-rail-wrapper::before { right: 0; background: linear-gradient(to left, var(--bg-main) 15%, transparent); }
-    .nav-rail-wrapper::after { left: 0; background: linear-gradient(to right, var(--bg-main) 15%, transparent); }
+    .nav-rail-wrapper::before, .nav-rail-wrapper::after { display: none; }
     .nav-links { 
       display: flex; overflow-x: auto; overflow-y: hidden; white-space: nowrap; flex-wrap: nowrap; 
-      justify-content: flex-start; gap: 10px; padding: 12px 24px; margin: 0; width: 100%; 
+      justify-content: flex-start; gap: 8px; padding: 12px 16px; margin: 0; width: 100%; 
       -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); 
-      scroll-padding-inline: 24px; scrollbar-width: none; -ms-overflow-style: none; 
+      scroll-padding-inline: 16px; scrollbar-width: none; -ms-overflow-style: none; 
     }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links::before, .nav-links::after { display: none; }
-    .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; flex: 0 0 auto; white-space: nowrap; }
+    .nav-links a { font-size: 0.8rem; padding: 5px 10px; background: var(--bg-alt); border-radius: 20px; flex: 0 0 auto; white-space: nowrap; }
     
     /* Hero Mobile Polish */
     .hero-wrapper { padding: 25px 20px 35px; }
@@ -719,42 +736,85 @@
 </div>
 
 <script>
-  /* V10C runtime isolation for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
+  /* Static prototype runtime isolation: hides default Salla layout artifacts outside .alj-static-homepage. Must be replaced with proper dynamic components during V12+. */
   (function() {
+    var SAFE_TAGS = { HTML:1, HEAD:1, BODY:1, SCRIPT:1, STYLE:1, LINK:1, META:1, TITLE:1 };
+    window.__ALJ_RUNTIME_HIDDEN_COUNT__ = 0;
+    window.__ALJ_RUNTIME_ISOLATION_RUNS__ = 0;
+
     function isolateHomepage() {
       try {
-        const rootWrapper = document.querySelector('.alj-static-homepage');
+        var rootWrapper = document.querySelector('.alj-static-homepage');
         if (!rootWrapper) return;
-        
-        const safeTags = ['HTML', 'HEAD', 'BODY', 'SCRIPT', 'STYLE', 'LINK', 'META', 'TITLE'];
-        let hiddenCount = 0;
-        
-        document.body.querySelectorAll('*').forEach(element => {
-          if (
-            safeTags.includes(element.tagName) ||
-            element === rootWrapper ||
-            rootWrapper.contains(element) ||
-            element.contains(rootWrapper)
-          ) {
-            return;
-          }
-          
-          element.style.setProperty('display', 'none', 'important');
-          element.setAttribute('data-alj-runtime-hidden', 'true');
+
+        var hiddenCount = 0;
+        var allElements = document.body.querySelectorAll('*');
+        for (var i = 0; i < allElements.length; i++) {
+          var el = allElements[i];
+          if (SAFE_TAGS[el.tagName] || el === rootWrapper || rootWrapper.contains(el) || el.contains(rootWrapper)) continue;
+          if (el.getAttribute('data-alj-runtime-hidden') === 'true') { hiddenCount++; continue; }
+          el.style.setProperty('display', 'none', 'important');
+          el.style.setProperty('visibility', 'hidden', 'important');
+          el.style.setProperty('opacity', '0', 'important');
+          el.style.setProperty('pointer-events', 'none', 'important');
+          el.style.setProperty('height', '0', 'important');
+          el.style.setProperty('max-height', '0', 'important');
+          el.style.setProperty('overflow', 'hidden', 'important');
+          el.style.setProperty('margin', '0', 'important');
+          el.style.setProperty('padding', '0', 'important');
+          el.style.setProperty('position', 'absolute', 'important');
+          el.style.setProperty('width', '0', 'important');
+          el.setAttribute('data-alj-runtime-hidden', 'true');
           hiddenCount++;
-        });
-        
+        }
+
         document.body.classList.add('alj-runtime-isolated');
         window.__ALJ_RUNTIME_HIDDEN_COUNT__ = hiddenCount;
-      } catch (e) {
-        // Fail silently to prevent disrupting preview
-      }
+        window.__ALJ_RUNTIME_ISOLATION_RUNS__++;
+      } catch (e) { /* Fail silently */ }
     }
-    
+
+    /* Debounced scheduler to prevent infinite loops */
+    var aljIsolationTimer = null;
+    function scheduleIsolation() {
+      clearTimeout(aljIsolationTimer);
+      aljIsolationTimer = setTimeout(isolateHomepage, 50);
+    }
+
+    /* Multiple scheduled runs */
     document.addEventListener('DOMContentLoaded', isolateHomepage);
-    // Secondary runs to catch dynamically injected Salla artifacts
+    window.addEventListener('load', isolateHomepage);
+    setTimeout(isolateHomepage, 100);
     setTimeout(isolateHomepage, 500);
     setTimeout(isolateHomepage, 1500);
+    setTimeout(isolateHomepage, 3000);
+
+    /* Event-driven re-isolation */
+    document.addEventListener('click', scheduleIsolation, true);
+    document.addEventListener('focusin', scheduleIsolation, true);
+    document.addEventListener('submit', scheduleIsolation, true);
+    document.addEventListener('input', scheduleIsolation, true);
+
+    /* MutationObserver for dynamically injected nodes */
+    if (typeof MutationObserver !== 'undefined') {
+      var observer = new MutationObserver(function(mutations) {
+        var needsRun = false;
+        for (var m = 0; m < mutations.length; m++) {
+          if (mutations[m].addedNodes && mutations[m].addedNodes.length > 0) { needsRun = true; break; }
+        }
+        if (needsRun) scheduleIsolation();
+      });
+      var startObserver = function() {
+        if (document.body) {
+          observer.observe(document.body, { childList: true, subtree: true });
+        } else {
+          document.addEventListener('DOMContentLoaded', function() {
+            observer.observe(document.body, { childList: true, subtree: true });
+          });
+        }
+      };
+      startObserver();
+    }
   })();
 </script>
 {% endblock %}
