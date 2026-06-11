@@ -1,4 +1,4 @@
-Phase name: V11E-HF2 Mobile Luxury Footer & Nav Final Polish
+﻿Phase name: V11E-HF2 Mobile Luxury Footer & Nav Final Polish
 Files changed:
 - src/views/pages/index.twig
 - VISUAL_DIRECTOR_AUDIT_V11E_HF2.md
@@ -18,6 +18,6 @@ Mobile nav clipping status: Fixed.
 Footer luxury compression status: Fixed.
 
 Git commit hash:
-[To be added automatically by Git]
+3d912d10c81f8be27e5cfdc0ee33000081dd8abb
 
 Ready for final static lock: Yes, fully ready for V12.

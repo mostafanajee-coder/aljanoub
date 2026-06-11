@@ -1,4 +1,4 @@
-Phase name: V11E-HF1 Premium Polish Fix
+﻿Phase name: V11E-HF1 Premium Polish Fix
 Files changed:
 - src/views/pages/index.twig
 - VISUAL_DIRECTOR_AUDIT_V11E_HF1.md
@@ -18,6 +18,6 @@ Twig tag cleanup status: Fixed. The robust regex stripped all Twig tags out of t
 Mobile nav clipping status: Fixed. Scrolling extends to screen edges.
 
 Git commit hash:
-[To be added automatically by Git]
+2e1f76a3a87bf955959b4693d35c430229486e9c
 
 Ready for final static lock: Yes. We are completely unblocked for V12 (Dynamic component conversion).
