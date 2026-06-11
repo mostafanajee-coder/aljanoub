@@ -1,4 +1,4 @@
-Phase: V12D Safe Hero Replacement Test
+﻿Phase: V12D Safe Hero Replacement Test
 
 Files changed:
 - src/views/pages/index.twig
@@ -16,7 +16,7 @@ Footer artifact status: PASS
 Editor status: PASS
 
 Final Git Commit:
-PUT_FINAL_COMMIT_HASH_HERE
+f357628 Replace static hero with dynamic hero component v12d
 
 Next recommended phase:
 V12E Next Dynamic Section Conversion
