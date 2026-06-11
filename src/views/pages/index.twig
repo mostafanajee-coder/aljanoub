@@ -429,9 +429,49 @@
     .f-pay-icon { padding: 3px 6px; font-size: 0.7rem; border-radius: 3px; }
   }
   @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+  /* V12B hidden dynamic component host — non-visual editor detection bridge */
+  .alj-v12-component-home-host {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  max-width: 1px !important;
+  max-height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  z-index: -1 !important;
+  inset-inline-start: 0 !important;
+  top: 0 !important;
+  }
+
+  .alj-v12-component-home-host,
+  .alj-v12-component-home-host * {
+  box-sizing: border-box !important;
+  }
+
+  .alj-v12-component-home-host * {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  }
 </style>
 
 <div class="alj-static-homepage v7-home-wrapper" dir="rtl">
+
+<!-- V12B hidden Salla homepage component host.
+     Purpose: allow Salla editor to detect homepage components without visually changing the locked static prototype.
+     This is a temporary bridge for V12 testing and must be replaced by real dynamic section migration later. -->
+<div class="alj-v12-component-home-host" aria-hidden="true" data-alj-dynamic-component-host="v12b">
+  {% component home %}
+</div>
 
   <!-- V7 Storefront Header (DIV instead of HEADER to avoid suppression) -->
   <div class="alj-store-header">
