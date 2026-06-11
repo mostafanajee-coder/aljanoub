@@ -1,4 +1,4 @@
-Phase: V12B-HF1 Component UUID Schema Fix
+﻿Phase: V12B-HF1 Component UUID Schema Fix
 
 Files changed:
 - twilight.json (updated v12-probe-component-key to a valid UUID)
@@ -14,7 +14,7 @@ Footer artifact status: PASS
 Visual regression status: PASS (None detected, static layout locked)
 
 Final Git Commit:
-PUT_FINAL_COMMIT_HASH_HERE
+dad565d Fix v12 probe component UUID schema
 
 Next recommended phase:
 V12C Convert First Real Dynamic Section
