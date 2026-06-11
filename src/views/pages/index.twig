@@ -26,8 +26,7 @@
   
   /* --- Temporary suppression of default Salla demo artifacts for coded concept preview only --- */
   /* V10 static coded homepage concept. Next phase should convert approved static sections into Salla-compatible dynamic sections/components. */
-  /* V10B cleanup prevents default Salla master-layout artifacts from appearing after the approved static homepage. */
-  /* Runtime cleanup for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
+  /* V10C runtime isolation for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
   body:has(.alj-static-homepage) > header:not(.alj-store-header),
   body:has(.alj-static-homepage) > footer:not(.alj-store-footer),
   body:has(.alj-static-homepage) .store-header,
@@ -45,6 +44,15 @@
   
   .alj-static-homepage ~ * {
     display: none !important;
+  }
+
+  body.alj-runtime-isolated {
+    background: #fcfbfa !important;
+  }
+  body.alj-runtime-isolated .alj-static-homepage {
+    display: block !important;
+    width: 100% !important;
+    min-height: auto !important;
   }
   
   body { padding-top: 0 !important; }
@@ -649,4 +657,44 @@
   </div>
 
 </div>
+
+<script>
+  /* V10C runtime isolation for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
+  (function() {
+    function isolateHomepage() {
+      try {
+        const rootWrapper = document.querySelector('.alj-static-homepage');
+        if (!rootWrapper) return;
+        
+        const safeTags = ['HTML', 'HEAD', 'BODY', 'SCRIPT', 'STYLE', 'LINK', 'META', 'TITLE'];
+        let hiddenCount = 0;
+        
+        document.body.querySelectorAll('*').forEach(element => {
+          if (
+            safeTags.includes(element.tagName) ||
+            element === rootWrapper ||
+            rootWrapper.contains(element) ||
+            element.contains(rootWrapper)
+          ) {
+            return;
+          }
+          
+          element.style.setProperty('display', 'none', 'important');
+          element.setAttribute('data-alj-runtime-hidden', 'true');
+          hiddenCount++;
+        });
+        
+        document.body.classList.add('alj-runtime-isolated');
+        window.__ALJ_RUNTIME_HIDDEN_COUNT__ = hiddenCount;
+      } catch (e) {
+        // Fail silently to prevent disrupting preview
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', isolateHomepage);
+    // Secondary runs to catch dynamically injected Salla artifacts
+    setTimeout(isolateHomepage, 500);
+    setTimeout(isolateHomepage, 1500);
+  })();
+</script>
 {% endblock %}

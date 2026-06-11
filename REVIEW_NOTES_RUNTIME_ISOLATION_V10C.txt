@@ -1,0 +1,25 @@
+Files changed:
+- src/views/pages/index.twig
+
+Runtime hard isolation summary:
+Upgraded from soft CSS-only cleanup to a hard runtime isolation approach. 
+1. Added CSS rules for `body.alj-runtime-isolated` to ensure the custom static layout acts as the exclusive rendering context.
+2. Injected a defensive JavaScript immediately before `{% endblock %}` that executes recursively on load to scan the entire DOM tree and force-hide *any* element that is not the `.alj-static-homepage` wrapper, an ancestor/descendant of it, or a core `<head>` tag.
+This guarantees that dynamically injected Salla components (e.g., currency pickers, floating carts, demo footers) are aggressively suppressed from the preview without touching core layout files.
+
+Whether custom header remains visible: Yes
+Whether custom footer remains visible: Yes
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether runtime script was added: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
+
+Manual QA instruction:
+Scroll to the very bottom in the real Salla preview and verify there is no large white default Salla artifact area after the custom footer.
