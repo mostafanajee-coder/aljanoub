@@ -1,10 +1,30 @@
 {
-  "views": {
-    "home": [
-      "hero-slider",
-      "features",
-      "category-grid",
-      "products-slider"
-    ]
-  }
+  "name": "aljanoub",
+  "version": "1.0.0",
+  "components": [
+    {
+      "name": "hero-slider",
+      "title": "بنر القهوة الرئيسي",
+      "settings": {
+        "slides": {
+          "type": "repeater",
+          "title": "الشرائح",
+          "fields": {
+            "title": { "type": "text", "title": "العنوان" },
+            "description": { "type": "textarea", "title": "الوصف" },
+            "image": { "type": "image", "title": "صورة البنر" },
+            "button_text": { "type": "text", "title": "نص الزر" }
+          }
+        }
+      }
+    },
+    {
+      "name": "features",
+      "title": "مميزات المتجر"
+    },
+    {
+      "name": "category-grid",
+      "title": "شبكة التصنيفات"
+    }
+  ]
 }
