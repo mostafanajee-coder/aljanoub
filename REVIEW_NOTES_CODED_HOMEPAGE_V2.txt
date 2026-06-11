@@ -1,0 +1,25 @@
+Files Changed:
+- src/views/pages/index.twig
+
+Main Visual Improvements (V2):
+- Implemented a much more premium and luxurious color palette (Deep Green, Coffee Brown, Premium Gold).
+- Designed a new CSS-only Hero section with elegant geometric background shapes instead of placeholder images.
+- Replaced boring product placeholders with interactive CSS-only product cards (including badges, prices in ر.ق, and "+/add" buttons).
+- Added a "Wide Promo Banner" for luxury hospitality season discounts.
+- Upgraded the "Story Section" to a two-column desktop layout with a dedicated visual/text card.
+- Upgraded "Brands" to neutral, premium "Trust partner" text badges.
+- Enhanced "Trust Features" with animated gold circular icons.
+
+Header/Footer Fix Status:
+- Header Fixed: Added CSS overrides to force the `.navbar-brand` logo to a safe maximum size (180x80px), preventing the massive logo overflow.
+- Footer Fixed: Adjusted `.store-footer` padding and margin to remove awkward blank spacing and match the clean V2 design.
+
+Verification Status:
+- Homepage widget slot `{% widget 'homepage' %}` is STILL REMOVED (static test only).
+- `src/components` folder is currently INACTIVE (`components_DISABLED`).
+
+Git Commit Hash:
+c13a0eca8b3857500689ae9a5f8f8892c757ef12
+
+Exact Next Command to Run:
+salla theme preview --with-editor
