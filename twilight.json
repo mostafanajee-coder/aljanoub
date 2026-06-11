@@ -22,7 +22,8 @@
         "component-store-features",
         "component-youtube",
         "menu-images",
-        "filters"
+        "filters",
+        "component-v12-probe"
     ],
     "settings": [
         {
@@ -1124,6 +1125,39 @@
                     "required": false,
                     "minLength": 1,
                     "maxLength": 30
+                }
+            ]
+        },
+        {
+            "key": "v12-probe-component-key",
+            "title": {
+                "en": "V12 Probe Component",
+                "ar": "اختبار مكوّن V12"
+            },
+            "icon": "sicon-box-open",
+            "path": "home.v12-probe",
+            "fields": [
+                {
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "العنوان",
+                    "multilanguage": true,
+                    "id": "title",
+                    "value": null,
+                    "required": false,
+                    "format": "text",
+                    "placeholder": "اختبار مكوّن V12"
+                },
+                {
+                    "type": "string",
+                    "icon": "sicon-typography",
+                    "label": "الوصف",
+                    "multilanguage": true,
+                    "id": "text",
+                    "value": null,
+                    "required": false,
+                    "format": "textarea",
+                    "placeholder": "هذا مكوّن تجريبي للتأكد من ظهور عناصر التخصيص في محرر سلة."
                 }
             ]
         }

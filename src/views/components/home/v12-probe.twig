@@ -1,0 +1,20 @@
+{#
+| Variable           | Type    | Description                                                      |
+|-------------------|---------|------------------------------------------------------------------|
+| component.title   | ?string | Title text set by merchant in editor                             |
+| component.text    | ?string | Description text set by merchant in editor                       |
+| position          | Int     | Sorting number start from zero                                   |
+
+V12A probe component only. Remove or replace during real dynamic conversion.
+This is a minimal test component to verify Salla editor detection of homepage customizable elements.
+#}
+<section class="s-block s-block--v12-probe container" dir="rtl" style="padding: 40px 20px; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 30px; border: 2px dashed #cda434; border-radius: 16px; background: #fdfaf3;">
+        <h2 style="font-size: 1.5rem; color: #1e3b2b; margin: 0 0 10px 0; font-weight: 800;">
+            {{ component.title|default('اختبار مكوّن V12') }}
+        </h2>
+        <p style="font-size: 1rem; color: #666; margin: 0; line-height: 1.6;">
+            {{ component.text|default('هذا مكوّن تجريبي للتأكد من ظهور عناصر التخصيص في محرر سلة.') }}
+        </p>
+    </div>
+</section>
