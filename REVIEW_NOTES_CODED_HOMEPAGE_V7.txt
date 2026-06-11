@@ -1,4 +1,4 @@
-Files changed:
+﻿Files changed:
 - src/views/pages/index.twig
 
 Main V7 improvements:
@@ -16,7 +16,7 @@ Whether standalone desktop HTML/PNG/PDF were generated: Yes
 Whether standalone mobile HTML/PNG/PDF were generated: Yes
 
 Git Commit Hash:
-[To be added automatically by Git]
+1ed49a279da764aa652255fb5b00c32cd966eebe
 
 Next manual test command:
 salla theme preview

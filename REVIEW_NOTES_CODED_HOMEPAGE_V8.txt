@@ -1,0 +1,24 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V8 improvements:
+- Major mobile commerce polish applied.
+- Mobile header: Navbar elements rearranged into a sticky grid. Search bar spans full width on mobile. Nav links converted into a horizontal scrollable row with hidden scrollbars for compactness.
+- Mobile hero: Reduced vertical height and padding. Scaled down visual floating elements (65%) to avoid taking up the entire viewport. Adjusted font sizes for readability without overflow.
+- Mobile product grid: Converted to a clean 2-column layout on mobile instead of stacked 1-column. Product images scaled down, descriptions hidden, and add-to-cart buttons stretched full-width for easier tapping.
+- Mobile footer: Reversed column order for the bottom section to place copyright at the very bottom, stacked elements cleanly, reduced padding.
+
+Mobile header status: Compact, no horizontal overflow.
+Mobile product grid status: 2-column layout, compact cards.
+Mobile footer status: Cleanly stacked, reduced padding.
+Desktop preservation status: Safe, desktop retains the premium full-size aesthetic.
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
