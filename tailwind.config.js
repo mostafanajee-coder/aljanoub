@@ -34,7 +34,12 @@ module.exports = {
                 'dark'         : '#1D1F1F',
                 'darker'       : '#0E0F0F',
                 'danger'       : '#AE0A0A',
-                'primary-dark' : 'var(--color-primary-dark)'
+                'primary-dark' : 'var(--color-primary-dark)',
+                'coffee-dark': '#2C1E16',
+                'coffee-medium': '#4A3324',
+                'coffee-light': '#C4A484',
+                'gold': '#D4AF37',
+                'cream': '#F5F5DC'
             },
             spacing: {
               '3.75': '15px',

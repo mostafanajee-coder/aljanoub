@@ -1,0 +1,10 @@
+{
+  "views": {
+    "home": [
+      "hero-slider",
+      "features",
+      "category-grid",
+      "products-slider"
+    ]
+  }
+}
