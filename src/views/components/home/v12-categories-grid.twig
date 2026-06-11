@@ -1,0 +1,199 @@
+{#
+| Variable            | Type   | Description           |
+|---------------------|--------|-----------------------|
+| enabled             | bool   | Component enabled     |
+| section_title       | string | Section Title         |
+| item_1_icon         | string | Item 1 Icon           |
+| item_1_title        | string | Item 1 Title          |
+| item_1_url          | string | Item 1 URL            |
+| item_2_icon         | string | Item 2 Icon           |
+| item_2_title        | string | Item 2 Title          |
+| item_2_url          | string | Item 2 URL            |
+| item_3_icon         | string | Item 3 Icon           |
+| item_3_title        | string | Item 3 Title          |
+| item_3_url          | string | Item 3 URL            |
+| item_4_icon         | string | Item 4 Icon           |
+| item_4_title        | string | Item 4 Title          |
+| item_4_url          | string | Item 4 URL            |
+| item_5_icon         | string | Item 5 Icon           |
+| item_5_title        | string | Item 5 Title          |
+| item_5_url          | string | Item 5 URL            |
+| item_6_icon         | string | Item 6 Icon           |
+| item_6_title        | string | Item 6 Title          |
+| item_6_url          | string | Item 6 URL            |
+| item_7_icon         | string | Item 7 Icon           |
+| item_7_title        | string | Item 7 Title          |
+| item_7_url          | string | Item 7 URL            |
+| item_8_icon         | string | Item 8 Icon           |
+| item_8_title        | string | Item 8 Title          |
+| item_8_url          | string | Item 8 URL            |
+#}
+{% if enabled|default(true) %}
+<style>
+  .alj-v12-categories-container {
+    --primary-color: #3b2818;
+    --secondary-color: #1e3b2b;
+    --accent-color: #cda434;
+    --accent-light: #fdfaf3;
+    --bg-main: #fcfbfa;
+    --bg-alt: #f4f1eb;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --border-color: #f0ebe4;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.05);
+    --radius-md: 14px;
+    --transition: all 0.3s ease;
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-main);
+  }
+  
+  .alj-v12-categories-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .alj-v12-categories-section-padding {
+    padding: 50px 0;
+  }
+  
+  .alj-v12-categories-header {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  
+  .alj-v12-categories-title {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .alj-v12-categories-title-accent {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 4px;
+  }
+  
+  .alj-v12-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .alj-v12-categories-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 25px 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .alj-v12-categories-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .alj-v12-categories-icon-area {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    background: var(--bg-alt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: var(--transition);
+  }
+  
+  .alj-v12-categories-card:hover .alj-v12-categories-icon-area {
+    background: var(--accent-light);
+    color: var(--accent-color);
+    transform: scale(1.05);
+  }
+  
+  .alj-v12-categories-name {
+    font-weight: 800;
+    color: var(--secondary-color);
+    font-size: 1.05rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .alj-v12-categories-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 850px) {
+    .alj-v12-categories-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .alj-v12-categories-section-padding { padding: 25px 0; }
+    .alj-v12-categories-title { font-size: 1.5rem; }
+    .alj-v12-categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .alj-v12-categories-card { padding: 12px 10px; }
+    .alj-v12-categories-icon-area { width: 45px; height: 45px; font-size: 1.4rem; margin-bottom: 8px; }
+    .alj-v12-categories-name { font-size: 0.9rem; }
+  }
+</style>
+
+<div class="alj-v12-categories-container" dir="rtl">
+  <section class="alj-v12-categories-section-padding alj-v12-categories-inner">
+    <div class="alj-v12-categories-header">
+      <h2 class="alj-v12-categories-title">{{ section_title|default('أقسام التسوق') }}<span class="alj-v12-categories-title-accent"></span></h2>
+    </div>
+    <div class="alj-v12-categories-grid">
+      <a href="{{ item_1_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_1_icon|default('☕') }}</div>
+        <div class="alj-v12-categories-name">{{ item_1_title|default('القهوة') }}</div>
+      </a>
+      <a href="{{ item_2_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_2_icon|default('🌴') }}</div>
+        <div class="alj-v12-categories-name">{{ item_2_title|default('التمور') }}</div>
+      </a>
+      <a href="{{ item_3_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_3_icon|default('🌿') }}</div>
+        <div class="alj-v12-categories-name">{{ item_3_title|default('الهيل') }}</div>
+      </a>
+      <a href="{{ item_4_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_4_icon|default('🫖') }}</div>
+        <div class="alj-v12-categories-name">{{ item_4_title|default('الشاي') }}</div>
+      </a>
+      <a href="{{ item_5_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_5_icon|default('🌺') }}</div>
+        <div class="alj-v12-categories-name">{{ item_5_title|default('الزعفران') }}</div>
+      </a>
+      <a href="{{ item_6_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_6_icon|default('🍽️') }}</div>
+        <div class="alj-v12-categories-name">{{ item_6_title|default('أواني الضيافة') }}</div>
+      </a>
+      <a href="{{ item_7_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_7_icon|default('⚙️') }}</div>
+        <div class="alj-v12-categories-name">{{ item_7_title|default('محضرات القهوة') }}</div>
+      </a>
+      <a href="{{ item_8_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
+        <div class="alj-v12-categories-icon-area">{{ item_8_icon|default('⛺') }}</div>
+        <div class="alj-v12-categories-name">{{ item_8_title|default('لوازم الرحلات') }}</div>
+      </a>
+    </div>
+  </section>
+</div>
+{% endif %}
