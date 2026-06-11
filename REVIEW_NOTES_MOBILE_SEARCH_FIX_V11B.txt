@@ -1,0 +1,23 @@
+Files changed:
+- src/views/pages/index.twig
+
+Exact search issue fixed:
+The mobile search box was wrapping to two lines, taking up too much vertical space, and appeared visually broken (especially due to text selection). 
+
+Exact CSS/HTML changes made for search:
+1. Updated HTML: Wrapped the icon in `<span class="search-icon">` and the text in `<span class="search-text">`. Changed the text slightly to "ابحث عن القهوة والتمور..." for better flow.
+2. Global CSS: Added `user-select: none;` to the `.search-bar` to prevent the text selection broken-look. Added specific styling to `.search-text` enforcing `white-space: nowrap; overflow: hidden; text-overflow: ellipsis;`.
+3. Mobile CSS: Enforced `min-height: 54px; height: 54px;`, `border-radius: 999px`, and `flex: 0 0 auto` for the icon to ensure it behaves as a perfectly shaped horizontal pill that strictly forbids text wrapping.
+
+Whether promo button remained fixed: Yes
+Whether runtime isolation remained intact: Yes
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview

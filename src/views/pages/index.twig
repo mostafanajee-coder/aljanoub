@@ -118,9 +118,11 @@
     border-radius: 32px; padding: 10px 24px; border: 1px solid var(--border-color);
     width: 250px; color: var(--text-light); font-size: 0.95rem; transition: var(--transition);
     box-sizing: border-box;
+    user-select: none;
   }
   .search-bar:hover { border-color: var(--accent-color); background: var(--white); box-shadow: var(--shadow-sm); }
-  .search-bar span { color: var(--accent-color); font-size: 1.1rem; flex-shrink: 0; }
+  .search-bar .search-icon { color: var(--accent-color); font-size: 1.1rem; flex-shrink: 0; }
+  .search-bar .search-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .action-btn {
     width: 42px; height: 42px; background: var(--white); border: 1px solid var(--border-color);
@@ -313,10 +315,15 @@
     .header-actions { grid-column: 2; justify-content: flex-end; width: auto; margin-top: 0; gap: 10px; }
     .action-btn { width: 40px; height: 40px; font-size: 1.1rem; }
     .search-bar { 
-      grid-column: 1 / -1; width: 100%; max-width: 100%; display: flex; align-items: center; gap: 15px;
-      padding: 16px 24px; font-size: 1rem; border-radius: 32px; margin-top: 10px; 
-      background: var(--bg-alt); border: 1px solid var(--border-color); box-sizing: border-box; min-height: 60px;
+      grid-column: 1 / -1; width: 100%; max-width: 100%; min-height: 54px; height: 54px;
+      padding: 0 18px; border-radius: 999px; display: flex; align-items: center;
+      justify-content: flex-start; gap: 10px; box-sizing: border-box;
+      overflow: hidden; direction: rtl; text-align: right;
+      font-size: 0.95rem; line-height: 1; white-space: nowrap;
+      margin-top: 10px; background: var(--bg-alt); border: 1px solid var(--border-color);
     }
+    .search-bar .search-icon { flex: 0 0 auto; font-size: 1.15rem; line-height: 1; }
+    .search-bar .search-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .nav-links { display: flex; grid-column: 1 / -1; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); padding-top: 10px; }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; }
@@ -398,7 +405,7 @@
         <li><a href="#">لوازم الرحلات</a></li>
       </ul>
       <div class="header-actions">
-        <div class="search-bar"><span>🔍</span> ابحث عن القهوة، التمور...</div>
+        <div class="search-bar"><span class="search-icon">🔍</span> <span class="search-text">ابحث عن القهوة والتمور...</span></div>
         <a href="#" class="action-btn">👤</a>
         <a href="#" class="action-btn">🛒<div class="cart-count">2</div></a>
       </div>
