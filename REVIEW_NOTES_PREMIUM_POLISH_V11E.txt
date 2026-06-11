@@ -1,0 +1,30 @@
+Phase name: V11E Premium Visual Polish & Storefront Director Review
+Files changed:
+- src/views/pages/index.twig
+- VISUAL_DIRECTOR_AUDIT_V11E.md
+- REVIEW_NOTES_PREMIUM_POLISH_V11E.txt
+
+Exact summary of visual changes:
+- Refined global `--border-color` and `--text-light` for a softer, more luxurious contrast.
+- Added `:focus-within` styling to `.search-bar` to provide elegant visual feedback when the invisible input is active.
+- Fixed the mobile navigation chips clipping issue by pushing margins out to `-20px` and compensating with padding, allowing the chips to smoothly scroll off the very edge of the screen rather than cutting off artificially inside the container.
+- Polished the mobile cart badge with a smaller scale and a crisp white border.
+- Improved mobile hero spacing to reduce claustrophobia.
+- Improved mobile promo banner spacing to ensure the CTA breathes easily.
+
+Search input preservation status: 
+Preserved flawlessly. The `input type="search"` remains fully writable and intact.
+
+Runtime isolation status: 
+Active and preserving the exact intended isolated view.
+
+Salla preview status: 
+Theme ID exists, and preview commands function correctly following the V11D migration.
+
+Desktop review artifact status: Generated successfully.
+Mobile review artifact status: Generated successfully.
+
+Git commit hash:
+[To be added automatically by Git]
+
+Ready for V11F Final Static Lock Review: Yes. The layout is robust enough to move to dynamic conversion.

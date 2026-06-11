@@ -1,7 +1,7 @@
 ﻿{% extends "layouts.master" %}
 
 {% block content %}
-<!-- V11D static pre-lock functional fix: search is now a real writable form input, placeholder links are disabled safely, and non-submit buttons have explicit type attributes. Next phase should convert approved static sections into Salla-compatible dynamic components. -->
+<!-- V11E premium visual polish: Mobile UX layout improvements, refined spacing, and subtle visual balancing before dynamic component conversion. -->
 
 <style>
   :root {
@@ -14,9 +14,9 @@
     --bg-alt: #f4f1eb; /* Soft contrast background */
     --white: #ffffff;
     --text-dark: #1a1a1a;
-    --text-light: #5a5a5a;
+    --text-light: #666666;
     --text-muted: #888888;
-    --border-color: #e8e4df;
+    --border-color: #f0ebe4;
     --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
     --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.05);
     --shadow-hover: 0 15px 40px rgba(30, 59, 43, 0.08);
@@ -121,7 +121,7 @@
     width: 250px; color: var(--text-light); font-size: 0.95rem; transition: var(--transition);
     box-sizing: border-box;
   }
-  .search-bar:hover { border-color: var(--accent-color); background: var(--white); box-shadow: var(--shadow-sm); }
+  .search-bar:hover, .search-bar:focus-within { border-color: var(--accent-color); background: var(--white); box-shadow: var(--shadow-sm); }
   .search-bar .search-icon { 
     color: var(--accent-color); font-size: 1.1rem; flex-shrink: 0; 
     border: none; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -139,8 +139,8 @@
   }
   .action-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
   .cart-count {
-    position: absolute; top: -5px; right: -5px; background: var(--secondary-color); color: var(--white);
-    font-size: 0.75rem; width: 20px; height: 20px; border-radius: 50%;
+    position: absolute; top: -4px; right: -4px; background: var(--secondary-color); color: var(--white);
+    font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--white);
     display: flex; align-items: center; justify-content: center; font-weight: bold;
   }
 
@@ -327,7 +327,7 @@
     .logo-text h1 { font-size: 1.15rem; }
     .logo-icon { width: 38px; height: 38px; font-size: 1.3rem; border-radius: 10px; }
     .header-actions { display: contents; }
-    .action-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+    .action-btn { width: 40px; height: 40px; font-size: 1.05rem; }
     .header-actions .action-btn:nth-of-type(1) { grid-area: account; }
     .header-actions .action-btn:nth-of-type(2) { grid-area: cart; }
     .search-bar { 
@@ -340,19 +340,19 @@
     }
         .search-bar .search-icon { flex: 0 0 auto; font-size: 1.15rem; line-height: 1; border: none; background: transparent; padding: 0; cursor: pointer; }
     .search-bar .search-input { flex: 1 1 auto; min-width: 0; border: none; outline: none; background: transparent; direction: rtl; text-align: right; font: inherit; color: inherit; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-links { grid-area: nav; display: flex; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); padding-top: 10px; }
+    .nav-links { grid-area: nav; display: flex; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 12px 20px; margin: 0 -20px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); scroll-padding-right: 20px; }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; }
     
     /* Hero Mobile Polish */
-    .hero-wrapper { padding: 15px 15px 25px; }
+    .hero-wrapper { padding: 25px 20px 35px; }
     .hero-badge { font-size: 0.75rem; padding: 6px 12px; margin-bottom: 12px; }
     .hero-title { font-size: 2.1rem; margin-bottom: 12px; } .hero-title span { font-size: 1.5rem; }
-    .hero-desc { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; max-width: 100%; }
+    .hero-desc { font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; max-width: 100%; color: var(--text-light); }
     .btn { 
       box-sizing: border-box; width: 100%; max-width: calc(100% - 32px); 
-      margin: 0 auto 10px auto !important; padding: 16px 20px; 
-      font-size: 1.05rem; border-radius: 999px; min-height: 56px; 
+      margin: 0 auto 10px auto !important; padding: 15px 20px; 
+      font-size: 1rem; border-radius: 999px; min-height: 54px; 
     }
     .hero-visual-area { height: 240px; transform: scale(0.6); transform-origin: top center; margin-top: -10px; }
     
@@ -376,7 +376,7 @@
     .cat-name { font-size: 0.9rem; }
     
     /* Promo Banner & Brands */
-    .promo-banner { padding: 25px 15px; margin-top: 0; }
+    .promo-banner { padding: 35px 20px; margin-top: 10px; border-radius: var(--radius-md); }
     .promo-title { font-size: 1.4rem; margin-bottom: 10px; }
     .promo-text { font-size: 0.9rem; margin-bottom: 15px; }
     .brands-grid { gap: 10px; }
@@ -739,4 +739,5 @@
   })();
 </script>
 {% endblock %}
+
 
