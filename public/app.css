@@ -1560,9 +1560,6 @@ input:where([type='file']):focus{
 .rounded{
     border-radius: .75rem;
 }
-.rounded-2xl{
-    border-radius: 1rem;
-}
 .rounded-3xl{
     border-radius: 1.5rem;
 }
@@ -1603,9 +1600,6 @@ input:where([type='file']):focus{
 }
 .border-t{
     border-top-width: 1px;
-}
-.border-dashed{
-    border-style: dashed;
 }
 .border-blue-200{
     --tw-border-opacity: 1;

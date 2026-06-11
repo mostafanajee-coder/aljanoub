@@ -1,6 +1,16 @@
-{% extends 'layouts/master.twig' %}
+﻿{% extends 'layouts/master.twig' %}
 
 {% block content %}
-  {# Keep this page safe. Do not include non-existing component paths here. #}
+  <section style="padding:60px 20px;background:#ffffff;">
+    <div style="padding:40px;border:3px dashed #2563eb;text-align:center;background:#fff;border-radius:20px;margin:40px auto;max-width:900px;">
+      <h1 style="font-size:32px;font-weight:700;color:#1d4ed8;margin-bottom:12px;">
+        ALJANOUB HOME PAGE IS RENDERING
+      </h1>
+      <p style="font-size:18px;color:#444;">
+        This message is coming from src/views/pages/home.twig
+      </p>
+    </div>
+  </section>
+
   {% widget 'homepage' %}
 {% endblock %}
