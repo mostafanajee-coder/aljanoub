@@ -1,5 +1,10 @@
 {
-  "name": "aljanoub",
-  "version": "1.0.0",
-  "author": "Mostafa"
+  "views": {
+    "home": [
+      "hero-slider",
+      "features",
+      "category-grid",
+      "products-slider"
+    ]
+  }
 }
