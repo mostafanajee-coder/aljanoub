@@ -25,6 +25,7 @@
   }
   
   /* --- Temporary suppression of default Salla demo artifacts for coded concept preview only --- */
+  /* V10 static coded homepage concept. Next phase should convert approved static sections into Salla-compatible dynamic sections/components. */
   .store-header, 
   .store-footer, 
   .salla-demo-ribbon, 
@@ -189,7 +190,7 @@
     border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
     transition: var(--transition); display: flex; flex-direction: column; position: relative;
   }
-  .product-card:hover { border-color: var(--border-color); box-shadow: var(--shadow-hover); transform: translateY(-5px); }
+  .product-card:hover { border-color: var(--accent-color); box-shadow: 0 15px 35px var(--accent-glow); transform: translateY(-5px); }
   
   .p-badge { position: absolute; top: 12px; right: 12px; background: var(--accent-color); color: var(--white); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
   .p-badge.new { background: var(--secondary-color); }
@@ -197,14 +198,22 @@
   .p-visual { height: 220px; background: var(--bg-alt); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--border-color); }
   .p-visual::after { content: ''; position: absolute; width: 140px; height: 140px; background: var(--white); border-radius: 50%; opacity: 0.5; filter: blur(15px); }
   .art-box { width: 110px; height: 130px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1), inset 0 2px 5px rgba(255,255,255,0.2); position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
-  .art-coffee-bag { background: linear-gradient(135deg, #2c1b10, #4a2c11); border-radius: 5px 5px 15px 15px; }
-  .art-dates-box { background: linear-gradient(135deg, #a67c00, #bf953f); height: 70px; width: 130px; }
-  .art-cardamom-jar { background: linear-gradient(to bottom, #d4ebd0, #8cb585); width: 80px; border-radius: 30px; }
-  .art-saffron-tin { background: linear-gradient(135deg, #e31b23, #a10f16); width: 90px; height: 90px; border-radius: 50%; }
-  .art-grinder { background: linear-gradient(135deg, #333, #111); width: 80px; height: 150px; }
-  .art-tea { background: linear-gradient(135deg, #2b4522, #1a2e13); }
-  .art-hospitality { background: linear-gradient(135deg, #f0f0f0, #d4d4d4); border-radius: 50%; width: 120px; height: 120px; border: 3px solid var(--accent-color); }
-  .art-camping { background: linear-gradient(135deg, #8b7355, #5c4a3d); border-radius: 15px; height: 100px; width: 140px; }
+  .art-coffee-bag { background: linear-gradient(135deg, #2c1b10, #4a2c11); border-radius: 5px 5px 15px 15px; position: relative; }
+  .art-coffee-bag::before { content:''; position:absolute; top:-5px; left:20%; width:60%; height:8px; background:#1a0f08; border-radius:3px; }
+  .art-dates-box { background: linear-gradient(135deg, #a67c00, #bf953f); height: 70px; width: 130px; border-radius: 4px; border: 1px solid #d4af37; position: relative; }
+  .art-dates-box::before { content:''; position:absolute; top:0; left:45%; width:10%; height:100%; background:rgba(255,255,255,0.3); }
+  .art-cardamom-jar { background: linear-gradient(to bottom, #d4ebd0, #8cb585); width: 80px; border-radius: 10px 10px 30px 30px; position: relative; }
+  .art-cardamom-jar::before { content:''; position:absolute; top:-10px; left:10%; width:80%; height:15px; background:#cda434; border-radius:5px 5px 0 0; }
+  .art-saffron-tin { background: linear-gradient(135deg, #e31b23, #a10f16); width: 90px; height: 90px; border-radius: 50%; border: 4px solid #cda434; position: relative; }
+  .art-saffron-tin::after { content:''; position:absolute; inset:5px; border-radius:50%; border:1px dashed rgba(255,255,255,0.5); }
+  .art-grinder { background: linear-gradient(135deg, #333, #111); width: 80px; height: 150px; border-radius: 10px; position: relative; }
+  .art-grinder::before { content:''; position:absolute; top:-15px; left:25%; width:50%; height:20px; background:#cda434; border-radius:10px 10px 0 0; }
+  .art-tea { background: linear-gradient(135deg, #2b4522, #1a2e13); border-radius: 5px 5px 20px 20px; position: relative; }
+  .art-tea::before { content:''; position:absolute; top:20px; left:15%; width:70%; height:30px; background:#cda434; border-radius:4px; opacity:0.8; }
+  .art-hospitality { background: linear-gradient(135deg, #f0f0f0, #d4d4d4); border-radius: 50%; width: 120px; height: 120px; border: 3px solid var(--accent-color); position: relative; }
+  .art-hospitality::after { content:''; position:absolute; width:60px; height:60px; background:rgba(255,255,255,0.8); border-radius:50%; }
+  .art-camping { background: linear-gradient(135deg, #8b7355, #5c4a3d); border-radius: 15px; height: 100px; width: 140px; position: relative; }
+  .art-camping::before { content:''; position:absolute; top:-15px; left:30%; width:40%; height:25px; border:4px solid #4a3627; border-bottom:none; border-radius:10px 10px 0 0; }
   
   .p-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; background: var(--white); }
   .p-title { font-size: 1.1rem; color: var(--secondary-color); font-weight: 800; margin-bottom: 5px; line-height: 1.4; }
@@ -213,8 +222,9 @@
   .p-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: auto; flex-wrap: wrap; gap: 10px; }
   .p-price { color: var(--secondary-color); font-weight: 900; font-size: 1.3rem; }
   .p-price span { font-size: 0.8rem; color: var(--text-light); }
-  .p-add-btn { background: var(--bg-alt); color: var(--secondary-color); border: none; padding: 8px 15px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-  .product-card:hover .p-add-btn { background: var(--secondary-color); color: var(--white); }
+  .p-add-btn { background: var(--bg-alt); color: var(--secondary-color); border: none; padding: 8px 15px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 5px; flex-shrink: 0; border: 1px solid transparent; }
+  .product-card:hover .p-add-btn { background: var(--secondary-color); color: var(--white); box-shadow: 0 4px 10px rgba(30, 59, 43, 0.2); }
+  .p-add-btn:hover { background: var(--primary-color) !important; color: var(--white) !important; transform: scale(1.05); }
 
   /* --- Dark Promo Banner --- */
   .promo-banner { background: var(--primary-color); border-radius: var(--radius-lg); padding: 50px 40px; text-align: center; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-md); margin-top: 20px; }

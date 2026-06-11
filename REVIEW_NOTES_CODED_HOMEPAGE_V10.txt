@@ -1,0 +1,26 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V10 improvements:
+- Added internal developer comment marking the end of the static phase.
+- Polished product card hover states with a deeper gold shadow transition.
+- Enhanced add-to-cart button hover state with scale and shadow effects.
+- Added intricate CSS-only visual details to product cards (seals, ribbons, lids, rims) to replace the simple placeholder feel with a premium packaging aesthetic.
+- Final spacing pass ensures balance between sections on both mobile and desktop.
+
+Desktop final QA status: Excellent layout balance, strong hero, cleanly aligned 4-column product grid.
+Mobile final QA status: Clean 2-column grid, compact header without overflow, neatly stacked footer.
+Product visual polish status: CSS pseudo-elements (::before, ::after) successfully simulate packaging labels and depth without requiring external image assets.
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
+
+Recommended next phase:
+Convert approved static homepage sections into Salla-compatible dynamic sections/components.
