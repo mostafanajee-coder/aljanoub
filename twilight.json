@@ -24,7 +24,8 @@
                      "menu-images",
                      "filters",
                      "component-v12-probe",
-                     "component-v12-hero-shadow"
+                     "component-v12-hero-shadow",
+                     "component-v12-categories-grid"
                  ],
     "settings":  [
                      {
@@ -1627,7 +1628,10 @@
                            "icon":  "sicon-grid",
                            "path":  "home.v12-categories-grid",
                            "key":  "bfa87706-da82-40f0-92f8-8571356bcd02",
-                           "title":  "أقسام التسوق الديناميكية V12"
+                           "title":  {
+                                         "ar":  "أقسام التسوق الديناميكية V12",
+                                         "en":  "Dynamic Categories Grid V12"
+                                     }
                        }
                    ],
     "support_url":  "https://aljanoubstores.sa/",
