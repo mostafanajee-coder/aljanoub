@@ -1,0 +1,27 @@
+Files changed:
+- src/views/pages/index.twig
+
+Search input activation summary:
+Upgraded the static search box into a fully writable `<form>` with an `<input type="search">` and a `type="submit"` button. The form action is set to `/search`, and it supports keyboard entry (Enter key) without compromising the beautiful UI pill layout achieved in V11C. Safe CSS resets (`border: none; outline: none; background: transparent;`) were applied to the input to prevent ugly browser defaults.
+
+Placeholder link handling summary:
+Identified all `href="#"` occurrences and replaced them with `href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true"`. This guarantees clicking placeholder links during the static preview phase will not trigger aggressive page jumps or alter the URL unexpectedly.
+
+Button type cleanup summary:
+All placeholder product action buttons (`<button class="p-add-btn">`) were retrofitted with explicit `type="button"` attributes to ensure they don't accidentally act as submit buttons if placed inside a form context later.
+
+Runtime isolation status: Intact.
+Promo button status: Intact.
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git commit hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
+
+Recommended next phase:
+Lock static prototype and begin V12 Dynamic Component Test.
