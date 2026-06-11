@@ -47,18 +47,7 @@ eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or dir
   \**************************************************************/
 () {
 
-eval("{/**\n * A lightweight youtube embed. Still should feel the same to the user, just MUCH faster to initialize and paint.\n *\n * Thx to these as the inspiration\n *   https://storage.googleapis.com/amp-vs-non-amp/youtube-lazy.html\n *   https://autoplay-youtube-player.glitch.me/\n *\n * Once built it, I also found these:\n *   https://github.com/ampproject/amphtml/blob/master/extensions/amp-youtube (👍👍)\n *   https://github.com/Daugilas/lazyYT\n *   https://github.com/vb/lazyframe\n */\nclass LiteYTEmbed extends HTMLElement {\n    connectedCallback() {\n        this.videoId = this.getAttribute('videoid');\n\n        let playBtnEl = this.querySelector('.lty-playbtn');\n        // A label for the button takes priority over a [playlabel] attribute on the custom-element\n        this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';\n\n        /**\n         * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)\n         *\n         * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md\n         *\n         * TODO: Do the sddefault->hqdefault fallback\n         *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)\n         * TODO: Consider using webp if supported, falling back to jpg\n         */\n        if (!this.style.backgroundImage) {\n          this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;\n          // Warm the connection for the poster image\n          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');\n\n          this.style.backgroundImage = `url(\"${this.posterUrl}\")`;\n        }\n\n        // Set up play button, and its visually hidden label\n        if (!playBtnEl) {\n            playBtnEl = document.createElement('button');\n            playBtnEl.type = 'button';\n            playBtnEl.classList.add('lty-playbtn');\n            this.append(playBtnEl);\n        }\n        if (!playBtnEl.textContent) {\n            const playBtnLabelEl = document.createElement('span');\n            playBtnLabelEl.className = 'lyt-visually-hidden';\n            playBtnLabelEl.textContent = this.playLabel;\n            playBtnEl.append(playBtnLabelEl);\n        }\n\n        // On hover (or tap), warm up the TCP connections we're (likely) about to use.\n        this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});\n\n        // Once the user clicks, add the real iframe and drop our play button\n        // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time\n        //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003\n        this.addEventListener('click', e => this.addIframe());\n    }\n\n    // // TODO: Support the the user changing the [videoid] attribute\n    // attributeChangedCallback() {\n    // }\n\n    /**\n     * Add a <link rel={preload | preconnect} ...> to the head\n     */\n    static addPrefetch(kind, url, as) {\n        const linkEl = document.createElement('link');\n        linkEl.rel = kind;\n        linkEl.href = url;\n        if (as) {\n            linkEl.as = as;\n        }\n        document.head.append(linkEl);\n    }\n\n    /**\n     * Begin pre-connecting to warm up the iframe load\n     * Since the embed's network requests load within its iframe,\n     *   preload/prefetch'ing them outside the iframe will only cause double-downloads.\n     * So, the best we can do is warm up a few connections to origins that are in the critical path.\n     *\n     * Maybe `<link rel=preload as=document>` would work, but it's unsupported: http://crbug.com/593267\n     * But TBH, I don't think it'll happen soon with Site Isolation and split caches adding serious complexity.\n     */\n    static warmConnections() {\n        if (LiteYTEmbed.preconnected) return;\n\n        // The iframe document and most of its subresources come right off youtube.com\n        LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube-nocookie.com');\n        // The botguard script is fetched off from google.com\n        LiteYTEmbed.addPrefetch('preconnect', 'https://www.google.com');\n\n        // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.\n        LiteYTEmbed.addPrefetch('preconnect', 'https://googleads.g.doubleclick.net');\n        LiteYTEmbed.addPrefetch('preconnect', 'https://static.doubleclick.net');\n\n        LiteYTEmbed.preconnected = true;\n    }\n\n    addIframe() {\n        const params = new URLSearchParams(this.getAttribute('params') || []);\n        params.append('autoplay', '1');\n\n        const iframeEl = document.createElement('iframe');\n        iframeEl.width = 560;\n        iframeEl.height = 315;\n        // No encoding necessary as [title] is safe. https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#:~:text=Safe%20HTML%20Attributes%20include\n        iframeEl.title = this.playLabel;\n        iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';\n        iframeEl.allowFullscreen = true;\n        // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL\n        // https://stackoverflow.com/q/64959723/89484\n        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;\n        this.append(iframeEl);\n\n        this.classList.add('lyt-activated');\n\n        // Set focus for a11y\n        this.querySelector('iframe').focus();\n    }\n}\n// Register custom element\ncustomElements.define('lite-youtube', LiteYTEmbed);\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/lite-youtube-embed/src/lite-yt-embed.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js"
-/*!**************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
-  \**************************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _assertThisInitialized)\n/* harmony export */ });\nfunction _assertThisInitialized(e) {\n  if (void 0 === e) throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");\n  return e;\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\lite-youtube-embed\\\\src\\\\lite-yt-embed.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/lite-youtube-embed/src/lite-yt-embed.js?\n}");
 
 /***/ },
 
@@ -66,10 +55,9 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
   \*******************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _classCallCheck)\n/* harmony export */ });\nfunction _classCallCheck(a, n) {\n  if (!(a instanceof n)) throw new TypeError(\"Cannot call a class as a function\");\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/classCallCheck.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\@babel\\\\runtime\\\\helpers\\\\esm\\\\classCallCheck.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/classCallCheck.js?\n}");
 
 /***/ },
 
@@ -77,10 +65,9 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
   \****************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _createClass)\n/* harmony export */ });\n/* harmony import */ var _toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toPropertyKey.js */ \"./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js\");\n\nfunction _defineProperties(e, r) {\n  for (var t = 0; t < r.length; t++) {\n    var o = r[t];\n    o.enumerable = o.enumerable || !1, o.configurable = !0, \"value\" in o && (o.writable = !0), Object.defineProperty(e, (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(o.key), o);\n  }\n}\nfunction _createClass(e, r, t) {\n  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, \"prototype\", {\n    writable: !1\n  }), e;\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/createClass.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\@babel\\\\runtime\\\\helpers\\\\esm\\\\createClass.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/createClass.js?\n}");
 
 /***/ },
 
@@ -88,10 +75,9 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
   \*******************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _getPrototypeOf)\n/* harmony export */ });\nfunction _getPrototypeOf(t) {\n  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {\n    return t.__proto__ || Object.getPrototypeOf(t);\n  }, _getPrototypeOf(t);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\@babel\\\\runtime\\\\helpers\\\\esm\\\\getPrototypeOf.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js?\n}");
 
 /***/ },
 
@@ -99,10 +85,9 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /*!*************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/inherits.js ***!
   \*************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _inherits)\n/* harmony export */ });\n/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ \"./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js\");\n\nfunction _inherits(t, e) {\n  if (\"function\" != typeof e && null !== e) throw new TypeError(\"Super expression must either be null or a function\");\n  t.prototype = Object.create(e && e.prototype, {\n    constructor: {\n      value: t,\n      writable: !0,\n      configurable: !0\n    }\n  }), Object.defineProperty(t, \"prototype\", {\n    writable: !1\n  }), e && (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(t, e);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/inherits.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\@babel\\\\runtime\\\\helpers\\\\esm\\\\inherits.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/inherits.js?\n}");
 
 /***/ },
 
@@ -110,54 +95,9 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
   \******************************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _possibleConstructorReturn)\n/* harmony export */ });\n/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ \"./node_modules/@babel/runtime/helpers/esm/typeof.js\");\n/* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ \"./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js\");\n\n\nfunction _possibleConstructorReturn(t, e) {\n  if (e && (\"object\" == (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(e) || \"function\" == typeof e)) return e;\n  if (void 0 !== e) throw new TypeError(\"Derived constructors may only return object or undefined\");\n  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(t);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js"
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
-  \*******************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _setPrototypeOf)\n/* harmony export */ });\nfunction _setPrototypeOf(t, e) {\n  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {\n    return t.__proto__ = e, t;\n  }, _setPrototypeOf(t, e);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/toPrimitive.js"
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js ***!
-  \****************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ toPrimitive)\n/* harmony export */ });\n/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ \"./node_modules/@babel/runtime/helpers/esm/typeof.js\");\n\nfunction toPrimitive(t, r) {\n  if (\"object\" != (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(t) || !t) return t;\n  var e = t[Symbol.toPrimitive];\n  if (void 0 !== e) {\n    var i = e.call(t, r || \"default\");\n    if (\"object\" != (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(i)) return i;\n    throw new TypeError(\"@@toPrimitive must return a primitive value.\");\n  }\n  return (\"string\" === r ? String : Number)(t);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/toPrimitive.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js"
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js ***!
-  \******************************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ toPropertyKey)\n/* harmony export */ });\n/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ \"./node_modules/@babel/runtime/helpers/esm/typeof.js\");\n/* harmony import */ var _toPrimitive_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toPrimitive.js */ \"./node_modules/@babel/runtime/helpers/esm/toPrimitive.js\");\n\n\nfunction toPropertyKey(t) {\n  var i = (0,_toPrimitive_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(t, \"string\");\n  return \"symbol\" == (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(i) ? i : i + \"\";\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js"
-/*!***********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
-  \***********************************************************/
-(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _typeof)\n/* harmony export */ });\nfunction _typeof(o) {\n  \"@babel/helpers - typeof\";\n\n  return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (o) {\n    return typeof o;\n  } : function (o) {\n    return o && \"function\" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? \"symbol\" : typeof o;\n  }, _typeof(o);\n}\n\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/typeof.js?\n}");
+eval("{throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\kingm\\\\aljanoub\\\\node_modules\\\\@babel\\\\runtime\\\\helpers\\\\esm\\\\possibleConstructorReturn.js'\");\n\n//# sourceURL=webpack://theme-raed/./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js?\n}");
 
 /***/ }
 
