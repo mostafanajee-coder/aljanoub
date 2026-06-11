@@ -1,0 +1,29 @@
+Files changed:
+- src/views/pages/index.twig
+
+Main V4 visual improvements:
+- Arabic RTL layout heavily optimized for premium Gulf hospitality (Deep green, gold, cream, coffee brown).
+- Rebuilt Hero section into a highly polished two-column layout with glowing CSS shapes and strong typography.
+- Refined category cards with subtle animations and balanced grid.
+- Product cards (Best Sellers & New Arrivals) improved with real Qatari Riyal (ر.ق) prices, glowing icons, and clean "Add to Cart" buttons.
+- Wide promo banner given a dark coffee/gold rotating background effect.
+- Premium Brand Cards and Compact Trust Features created.
+
+Temporary Overrides (for Concept Preview Only):
+- Default Salla demo header and demo badges are HIDDEN via scoped CSS.
+- Default Salla footer is HIDDEN.
+
+Custom Additions:
+- Added a custom clean Concept Header inside index.twig (الجنوب للضيافة) with navigation links and search pill.
+- Added a custom Concept Footer inside index.twig with quick links and store info.
+
+Status:
+- Homepage widget slot `{% widget 'homepage' %}` is STILL REMOVED.
+- `src/components` folder is currently INACTIVE (`components_DISABLED`).
+- Standalone screenshot generated with explicitly forced UTF-8 to preserve Arabic characters.
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Exact Next Command to Run:
+salla theme preview --with-editor

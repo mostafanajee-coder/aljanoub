@@ -1,0 +1,27 @@
+Files Changed:
+- src/views/pages/index.twig
+
+Main V3 Improvements:
+- Built a premium two-column hero section for desktop (right side text, left side dynamic CSS art/badges), stacking correctly on mobile.
+- Refined typography and headings for absolute consistency and visual hierarchy.
+- Re-designed category grid to feature subtle gradient borders, circular icons, and 100% stable, balanced responsiveness (4 cols desktop, 2 tablet, 2 mobile).
+- Overhauled product cards with cleaner typography, aligned prices and buttons, richer CSS placeholder art, and realistic Gulf hospitality product examples using Qatari Riyal (ر.ق).
+- Updated promo banner into an animated, luxurious, dark coffee card with gold accents.
+- Improved trust features into a sleek, compact horizontal-row grid layout with glowing icon wraps.
+
+Header/Footer Cleanup Status:
+- Added scoped CSS to hide ugly Salla demo ribbons and badges safely without breaking the header itself.
+- Polished the footer spacing to integrate seamlessly with the end of the homepage design.
+
+Category Grid Balance Status:
+- Balanced: 8 items exactly split across 4-column (desktop) and 2-column (tablet/mobile) responsive layouts, eliminating awkward single-card wrap scenarios.
+
+Verification:
+- Homepage widget slot `{% widget 'homepage' %}` is STILL REMOVED (static testing phase only).
+- `src/components` folder is currently INACTIVE (`components_DISABLED`).
+
+Git Commit Hash:
+eed4d70384210dc7ab34424ba037a111d0f293e7
+
+Exact Next Command to Run:
+salla theme preview --with-editor
