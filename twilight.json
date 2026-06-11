@@ -1,7 +1,7 @@
 {
-  "features": [
-    { "name": "hero-slider", "title": "بنر القهوة الرئيسي" },
-    { "name": "features", "title": "مميزات المتجر" },
-    { "name": "category-grid", "title": "شبكة التصنيفات" }
+  "homepage": [
+    { "name": "hero-slider" },
+    { "name": "features" },
+    { "name": "category-grid" }
   ]
 }
