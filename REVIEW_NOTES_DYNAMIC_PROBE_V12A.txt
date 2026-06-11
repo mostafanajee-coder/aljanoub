@@ -1,17 +1,17 @@
-Phase name: V12A Dynamic Component Probe / Safe Salla Editor Detection Test
+﻿Phase name: V12A Dynamic Component Probe / Safe Salla Editor Detection Test
 Files changed:
 - src/views/components/home/v12-probe.twig (created)
 - twilight.json (added component-v12-probe feature and v12-probe component schema)
 - DYNAMIC_COMPONENT_PROBE_AUDIT_V12A.md (created)
 
 Preview status: Compiles cleanly, Theme ID valid, GitHub linked.
-Editor detection status: Editor still says "لا يحتوي هذا الثيم على عناصر قابلة للتخصيص في الصفحة الرئيسية". This confirms the audit finding that the editor requires {% component home %} inside index.twig to detect anything.
-Search status: PASS — writable, not disabled.
-Runtime isolation status: PASS — MutationObserver active.
-Footer artifact status: PASS — aggressive CSS + JS suppression works.
+Editor detection status: Editor still says "Ù„Ø§ ÙŠØ­ØªÙˆÙŠ Ù‡Ø°Ø§ Ø§Ù„Ø«ÙŠÙ… Ø¹Ù„Ù‰ Ø¹Ù†Ø§ØµØ± Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ØªØ®ØµÙŠØµ ÙÙŠ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©". This confirms the audit finding that the editor requires {% component home %} inside index.twig to detect anything.
+Search status: PASS â€” writable, not disabled.
+Runtime isolation status: PASS â€” MutationObserver active.
+Footer artifact status: PASS â€” aggressive CSS + JS suppression works.
 
 Git commit hash:
-[PENDING]
+b4ffe0e Add safe dynamic component probe v12a
 
 Next recommended phase:
 V12B Safe Homepage Widget Integration
