@@ -1,4 +1,4 @@
-﻿{% extends "layouts.master" %}
+{% extends "layouts.master" %}
 
 {% block content %}
 <!-- V11E premium visual polish: Mobile UX layout improvements, refined spacing, and subtle visual balancing before dynamic component conversion. -->
@@ -139,8 +139,8 @@
   }
   .action-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
   .cart-count {
-    position: absolute; top: -4px; right: -4px; background: var(--secondary-color); color: var(--white);
-    font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--white);
+    position: absolute; top: -2px; right: -2px; background: var(--secondary-color); color: var(--white);
+    font-size: 0.65rem; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--white); display: flex; align-items: center; justify-content: center; font-weight: bold; line-height: 1;
     display: flex; align-items: center; justify-content: center; font-weight: bold;
   }
 
@@ -327,7 +327,7 @@
     .logo-text h1 { font-size: 1.15rem; }
     .logo-icon { width: 38px; height: 38px; font-size: 1.3rem; border-radius: 10px; }
     .header-actions { display: contents; }
-    .action-btn { width: 40px; height: 40px; font-size: 1.05rem; }
+    .action-btn { width: 38px; height: 38px; font-size: 1rem; }
     .header-actions .action-btn:nth-of-type(1) { grid-area: account; }
     .header-actions .action-btn:nth-of-type(2) { grid-area: cart; }
     .search-bar { 
@@ -340,7 +340,7 @@
     }
         .search-bar .search-icon { flex: 0 0 auto; font-size: 1.15rem; line-height: 1; border: none; background: transparent; padding: 0; cursor: pointer; }
     .search-bar .search-input { flex: 1 1 auto; min-width: 0; border: none; outline: none; background: transparent; direction: rtl; text-align: right; font: inherit; color: inherit; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-links { grid-area: nav; display: flex; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 12px 20px; margin: 0 -20px; -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); scroll-padding-right: 20px; }
+    .nav-links { grid-area: nav; display: flex; overflow-x: auto; overflow-y: hidden; white-space: nowrap; flex-wrap: nowrap; justify-content: flex-start; gap: 10px; padding: 12px 16px; margin: 0 -16px; width: calc(100% + 32px); -webkit-overflow-scrolling: touch; border-top: 1px solid var(--border-color); scroll-padding-inline: 16px; scrollbar-width: none; }
     .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a { font-size: 0.85rem; padding: 6px 12px; background: var(--bg-alt); border-radius: 20px; }
     
@@ -385,11 +385,11 @@
     .brand-name { font-size: 0.85rem; }
     
     /* Footer Mobile Polish */
-    .alj-store-footer { padding: 30px 15px 15px; margin-top: 20px; }
-    .f-grid { grid-template-columns: 1fr; gap: 20px; }
-    .f-logo { font-size: 1.4rem; margin-bottom: 10px; }
-    .f-col h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--accent-color); }
-    .f-desc { font-size: 0.85rem; margin-bottom: 10px; max-width: 100%; line-height: 1.6; }
+    .alj-store-footer { padding: 25px 15px 15px; margin-top: 15px; }
+    .f-grid { grid-template-columns: 1fr; gap: 15px; }
+    .f-logo { font-size: 1.3rem; margin-bottom: 8px; }
+    .f-col h4 { font-size: 0.9rem; margin-bottom: 6px; color: var(--accent-color); }
+    .f-desc { font-size: 0.8rem; margin-bottom: 8px; max-width: 100%; line-height: 1.5; }
     .f-links a { font-size: 0.85rem; }
     .f-contact p { font-size: 0.85rem; margin-bottom: 6px; }
     .f-bottom { margin-top: 20px; flex-direction: column-reverse; gap: 15px; padding-top: 15px; }
@@ -739,5 +739,6 @@
   })();
 </script>
 {% endblock %}
+
 
 
