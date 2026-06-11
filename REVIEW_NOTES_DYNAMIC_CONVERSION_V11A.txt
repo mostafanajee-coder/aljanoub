@@ -1,0 +1,25 @@
+Files changed:
+- DYNAMIC_CONVERSION_AUDIT_V11A.md (created)
+- V10_STATIC_HOMEPAGE_BACKUP_NOTES.md (created)
+
+Audit summary:
+Analyzed Salla Twilight's component architecture (`twilight.json`, `theme.json`, and `src/views/components/home/*.twig`). Discovered that components are populated via the `{% widget 'homepage' %}` loop, and custom components require explicit JSON schema registration in `twilight.json`.
+
+Existing component inventory summary:
+19 components currently exist in `src/views/components/home`, including various product sliders, photo sliders, and banners. Modifying these is safe as long as the expected loop structures (`component.products`, etc.) remain intact.
+
+Recommended conversion path:
+A phased approach (V11B-V11G) to prevent preview crashes. Custom sections like the Hero will require new schemas in `twilight.json`. Salla product sections will be updated to use V10 CSS while retaining their existing data loops.
+
+Rollback plan summary:
+If components fail to load or the page goes blank during conversion, we will rollback `index.twig` directly to the static V10 commit hash (`932ca163dc2673a4839305ab3008b434bd353e22`).
+
+Whether index.twig was unchanged: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next recommended phase:
+V11B create one minimal safe test component under src/views/components/home
