@@ -1,0 +1,21 @@
+Files changed:
+- src/views/pages/index.twig
+
+Runtime artifact cleanup summary:
+Added a new root wrapper class `.alj-static-homepage` to the main custom container. Implemented specific scoped CSS rules (`body:has(.alj-static-homepage) ...`) and a sibling fallback rule (`.alj-static-homepage ~ *`) to aggressively hide the default Salla master layout artifacts (sidebar, old mobile nav, old footer, demo notices) that were bleeding into the real preview without breaking the custom V10 components.
+
+Whether custom header remains visible: Yes
+Whether custom footer remains visible: Yes
+Whether homepage widget is still removed: Yes
+Whether src/components is inactive: Yes
+Whether standalone desktop HTML/PNG/PDF were generated: Yes
+Whether standalone mobile HTML/PNG/PDF were generated: Yes
+
+Git Commit Hash:
+[To be added automatically by Git]
+
+Next manual test command:
+salla theme preview
+
+Manual QA instruction:
+Scroll to the very bottom in the real Salla preview and verify there is no large white default Salla artifact area after the custom footer.

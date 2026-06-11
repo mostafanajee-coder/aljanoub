@@ -26,18 +26,26 @@
   
   /* --- Temporary suppression of default Salla demo artifacts for coded concept preview only --- */
   /* V10 static coded homepage concept. Next phase should convert approved static sections into Salla-compatible dynamic sections/components. */
-  .store-header, 
-  .store-footer, 
-  .salla-demo-ribbon, 
-  .demo-badge, 
-  .demo-notice,
-  #twilight-toolbar,
-  .twilight-toolbar {
+  /* V10B cleanup prevents default Salla master-layout artifacts from appearing after the approved static homepage. */
+  /* Runtime cleanup for coded static concept preview only. Remove or revise during dynamic Salla component conversion. */
+  body:has(.alj-static-homepage) > header:not(.alj-store-header),
+  body:has(.alj-static-homepage) > footer:not(.alj-store-footer),
+  body:has(.alj-static-homepage) .store-header,
+  body:has(.alj-static-homepage) .store-footer,
+  body:has(.alj-static-homepage) .main-menu,
+  body:has(.alj-static-homepage) .mobile-menu,
+  body:has(.alj-static-homepage) .main-nav-container,
+  body:has(.alj-static-homepage) .salla-demo-ribbon,
+  body:has(.alj-static-homepage) .demo-badge,
+  body:has(.alj-static-homepage) .demo-notice,
+  body:has(.alj-static-homepage) #twilight-toolbar,
+  body:has(.alj-static-homepage) .twilight-toolbar {
     display: none !important;
   }
-  /* If Salla theme still injects generic header/footer without classes, hide them based on position/DOM only if needed.
-     But we'll avoid global element selectors. */
-  body > header, body > footer { display: none !important; }
+  
+  .alj-static-homepage ~ * {
+    display: none !important;
+  }
   
   body { padding-top: 0 !important; }
 
@@ -349,7 +357,7 @@
   @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
 </style>
 
-<div class="v7-home-wrapper" dir="rtl">
+<div class="alj-static-homepage v7-home-wrapper" dir="rtl">
 
   <!-- V7 Storefront Header (DIV instead of HEADER to avoid suppression) -->
   <div class="alj-store-header">
