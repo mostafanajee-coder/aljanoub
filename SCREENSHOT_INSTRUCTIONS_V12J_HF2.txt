@@ -1,0 +1,18 @@
+INSTRUCTIONS FOR V12J-HF2 IMAGE RATIO POLISH SCREENSHOTS:
+=========================================================
+
+To verify the visual image area improvements on the storefront:
+1. Open the homepage in a desktop browser.
+2. Scroll to the "الأكثر مبيعاً" (Best Sellers) section.
+3. Verify that:
+   - All product images are centered, uniformly scaled, and have an elegant soft cream background (#f5f1eb).
+   - Images do not stretch, crop awkwardly, or overflow.
+   - Wishlist buttons sit cleanly at the top-right corner of the image zones.
+   - The desktop grid shows 4 columns and cards have identical heights.
+4. Capture a desktop screenshot of this section and save it as `desktop_image_ratio_v12j_hf2.png`.
+5. Switch to a mobile viewport.
+6. Verify that:
+   - The mobile grid shows 2 columns.
+   - Card heights and image areas scale down beautifully.
+7. Capture a mobile screenshot of this section and save it as `mobile_image_ratio_v12j_hf2.png`.
+8. Submit both screenshots for review.

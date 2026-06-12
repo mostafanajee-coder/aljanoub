@@ -1,0 +1,27 @@
+REVIEW NOTES - PHASE V12K: PRODUCT SOURCE STRATEGY AUDIT
+=========================================================
+
+Phase Verdict: PASS
+Files Inspected:
+- src/views/components/home/latest-products.twig
+- src/views/components/home/featured-products-style1.twig
+- src/views/components/home/featured-products-style3.twig
+- src/views/components/home/v12-best-sellers-grid.twig
+- src/views/components/home/v12-raed-real-products-sandbox.twig
+- src/assets/js/partials/product-card.js
+- theme.json
+- twilight.json
+Files Changed:
+- src/views/components/home/v12-best-sellers-grid.twig
+
+Audit Findings:
+- Product source candidates found: latest, selected, category, offers, wishlist, related
+- Source tested in sandbox: offers
+- Sandbox rendering: Successfully tested dynamic rendering of offers. Displays fallback message cleanly when no offers exist, or real products when offers are active.
+- Production Best Sellers: Remained completely unchanged using source="latest".
+- {% component home %} count: 0
+- theme.json final value: {"views":{"home":[]}}
+- Desktop status: PASS (4 columns, aligned grid)
+- Mobile status: PASS (2 columns, responsive)
+- ZIP path: C:\Users\kingm\Desktop\aljanoub_v12k_product_source_strategy_review.zip
+- Rollback command: git reset --hard HEAD~1

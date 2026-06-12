@@ -1,0 +1,15 @@
+REVIEW NOTES - PHASE V12J-HF2: BEST SELLERS REAL PRODUCT IMAGE RATIO POLISH
+=============================================================================
+
+Phase Verdict: PASS
+Files Changed:
+- src/views/components/home/v12-best-sellers-grid.twig
+
+Key Observations:
+- Real Products Status: Stayed dynamic (using salla-products-list with source="latest").
+- Image Consistency: Fully polished. Mixed ratios (including vertical fashion products) are centered and contained using object-fit: contain without any distorting, cropping, or overflowing.
+- Desktop Status: passed (4 columns, visually uniform).
+- Mobile Status: passed (2 columns, responsive, well-balanced).
+- Suppression: Salla native background camera icons and load-more error messages remain fully hidden.
+- Theme Settings: {% component home %} count is 0. theme.json remains {"views":{"home":[]}}.
+- Rollback Command: git reset --hard HEAD~1

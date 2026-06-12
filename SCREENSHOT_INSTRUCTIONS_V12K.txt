@@ -1,0 +1,13 @@
+INSTRUCTIONS FOR V12K AUDIT SCREENSHOT VERIFICATION:
+=====================================================
+
+1. Open your desktop browser and go to your storefront homepage.
+2. Scroll down below the "الأكثر مبيعاً" (Best Sellers) section.
+3. Locate the new sandbox section named "اختبار مصادر المنتجات".
+4. Check the following:
+   - The sandbox section must display a grid with 4 columns on desktop and 2 columns on mobile.
+   - If there are active promo products in your store, they will display inside. Otherwise, it will show: "لا توجد عروض ترويجية متاحة حالياً" cleanly.
+   - Verify that this sandbox is isolated and does not affect the layout or styling of the production Best Sellers section.
+5. Capture a screenshot of this area on desktop and name it `desktop_sandbox_source_v12k.png`.
+6. Capture a mobile screenshot showing the 2-column mobile layout of this area and name it `mobile_sandbox_source_v12k.png`.
+7. Submit these screenshots for verification.
