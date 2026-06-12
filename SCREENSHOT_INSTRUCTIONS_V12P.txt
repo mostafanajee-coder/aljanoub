@@ -1,0 +1,18 @@
+SCREENSHOT INSTRUCTIONS: V12P Full Storefront Production QA
+
+1. Desktop Fullpage Verification (desktop_home_fullpage.png):
+   - Capture a screenshot of the entire desktop homepage.
+   - Verify all dynamic sections (Header Navigation, Categories Grid, Best Sellers, Promo Banner, New Arrivals, Partners, Footer) are aligned and load cleanly.
+
+2. Mobile Fullpage Verification (mobile_home_fullpage.png):
+   - Capture a screenshot of the entire mobile homepage.
+   - Verify responsiveness, 2-column grids for categories and products, and scrollable nav chips.
+
+3. Desktop Header (desktop_header.png) & Mobile Header (mobile_header.png):
+   - Capture detailed header sections on both viewports to confirm logo, search bar, cart summary, and profile actions are visible and identical.
+
+4. Desktop/Mobile Products (desktop_products_sections.png & mobile_products_sections.png):
+   - Capture detailed Best Sellers and New Arrivals sections to verify image containment (object-fit: contain) and equal card heights.
+
+5. Footer (footer_clean.png):
+   - Capture the custom footer to confirm no native Salla system or edit links leak.
