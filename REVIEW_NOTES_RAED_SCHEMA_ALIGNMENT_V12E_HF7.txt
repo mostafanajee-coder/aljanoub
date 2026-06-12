@@ -20,4 +20,4 @@ Whether editor was verified or pending user screenshot: PENDING USER SCREENSHOT
 
 Rollback command: git checkout master
 
-Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
+Final Git Commit: e7ba9a2 Align categories component schema with Theme Raed contract
