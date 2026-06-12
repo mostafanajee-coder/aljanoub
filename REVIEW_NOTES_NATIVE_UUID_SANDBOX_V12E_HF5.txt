@@ -1,0 +1,20 @@
+﻿Phase: V12E-HF5 Custom Component UUID Sandbox Test / Hidden Native Host Only
+Branch: v12e-hf5-custom-uuid-sandbox
+
+Files changed:
+- src/views/pages/index.twig
+- theme.json
+- NATIVE_UUID_SANDBOX_TEST_V12E_HF5.md
+- REVIEW_NOTES_NATIVE_UUID_SANDBOX_V12E_HF5.txt
+
+UUID tested: bfa87706-da82-40f0-92f8-8571356bcd02
+Whether master was touched: NO
+Whether visible categories include was removed: NO
+Whether hidden component host was added: YES
+Whether theme.json uses UUID: YES
+Whether preview compiled: YES
+Whether editor result is pending user screenshot: YES
+
+Rollback command: git checkout master
+
+Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
