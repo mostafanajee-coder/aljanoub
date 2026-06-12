@@ -470,7 +470,7 @@
      Purpose: allow Salla editor to detect homepage components without visually changing the locked static prototype.
      This is a temporary bridge for V12 testing and must be replaced by real dynamic section migration later. -->
 <div class="alj-v12-component-home-host" aria-hidden="true" data-alj-dynamic-component-host="v12b">
-  {% component home %}
+  {# hidden host removed in v12e hf2 test #}
 </div>
 
   <!-- V7 Storefront Header (DIV instead of HEADER to avoid suppression) -->
@@ -519,7 +519,9 @@
 
   <!-- Categories -->
   {# V12E visible dynamic categories replacement. Static categories replaced by v12-categories-grid include. #}
-  {% include 'components.home.v12-categories-grid' %}
+  <div class="alj-v12-native-categories-engine-host" data-alj-native-engine="v12e-hf2">
+    {% component home %}
+  </div>
 
   <!-- Best Sellers -->
   <section class="section-padding-sm container">
