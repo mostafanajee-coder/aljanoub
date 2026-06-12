@@ -1,0 +1,232 @@
+{# V12L Code-Managed Dynamic New Arrivals Grid Component
+   Architecture: Safe dynamic Twig include using salla-products-list (no native Salla component engine).
+   This component is NOT registered in twilight.json or theme.json.
+   It renders the "وصلنا حديثاً" product grid using real store products and Al Janoub premium style.
+#}
+
+<section class="section-padding-sm container" id="alj-new-arrivals">
+  <div class="section-header">
+    <h2 class="section-title">وصلنا حديثاً<span class="title-accent"></span></h2>
+    <p class="section-subtitle">أحدث الإضافات المميزة من أواني الضيافة وأجهزة التحضير</p>
+  </div>
+  
+  <style>
+    /* 1. Force the inner wrapper to behave as a grid, NOT the outer component */
+    #alj-new-arrivals salla-products-list {
+      display: block !important;
+      width: 100% !important;
+    }
+    
+    #alj-new-arrivals .s-products-list-wrapper,
+    #alj-new-arrivals .s-products-list-vertical-cards,
+    #alj-new-arrivals .s-products-list-row-cards {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      align-items: stretch !important;
+      gap: 25px !important;
+      width: 100% !important;
+    }
+
+    @media (max-width: 1024px) {
+      #alj-new-arrivals .s-products-list-wrapper,
+      #alj-new-arrivals .s-products-list-vertical-cards,
+      #alj-new-arrivals .s-products-list-row-cards { 
+        grid-template-columns: repeat(3, 1fr) !important; 
+      }
+    }
+    @media (max-width: 768px) {
+      #alj-new-arrivals .s-products-list-wrapper,
+      #alj-new-arrivals .s-products-list-vertical-cards,
+      #alj-new-arrivals .s-products-list-row-cards { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+      }
+    }
+
+    /* Hide the "Load More" or "تعذر جلب المزيد" block in the new arrivals */
+    #alj-new-arrivals salla-products-list > *:not(.s-products-list-wrapper):not(.s-products-list-vertical-cards):not(.s-products-list-row-cards):not(.products-list),
+    #alj-new-arrivals .s-products-list-loading-wrapper,
+    #alj-new-arrivals .s-products-list-placeholder,
+    #alj-new-arrivals .s-infinite-scroll-wrapper,
+    #alj-new-arrivals [class*="placeholder"]:not(img),
+    #alj-new-arrivals [class*="load-more"],
+    #alj-new-arrivals [class*="loading"] {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Suppress broken icon fonts without hiding actual product images */
+    #alj-new-arrivals i[class*="sicon-image"],
+    #alj-new-arrivals i[class*="sicon-photo"],
+    #alj-new-arrivals i[class*="broken"],
+    #alj-new-arrivals .sicon-image,
+    #alj-new-arrivals .sicon-image-broken,
+    #alj-new-arrivals .s-product-card-image::before,
+    #alj-new-arrivals .s-product-card-image::after,
+    #alj-new-arrivals .s-product-card-image-full::before,
+    #alj-new-arrivals .s-product-card-image-full::after {
+      display: none !important;
+      content: "" !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+
+    /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
+    #alj-new-arrivals custom-salla-product-card,
+    #alj-new-arrivals salla-product-card {
+      background: var(--white, #fff) !important;
+      border-radius: var(--radius-md, 14px) !important;
+      box-shadow: var(--shadow-sm, 0px 4px 15px rgba(0,0,0,0.06)) !important;
+      border: 1px solid var(--border-color, #e5e7eb) !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      height: 100% !important;
+    }
+    #alj-new-arrivals custom-salla-product-card:hover,
+    #alj-new-arrivals salla-product-card:hover {
+      box-shadow: var(--shadow-md, 5px 10px 30px rgba(0,0,0,0.1)) !important;
+      transform: translateY(-5px) !important;
+    }
+
+    /* 3. Image container sizing (V12J-HF2 polish: consistent fixed height, flex centering, background) */
+    #alj-new-arrivals custom-salla-product-card .s-product-card-image,
+    #alj-new-arrivals salla-product-card .s-product-card-image {
+      position: relative !important;
+      height: 260px !important;
+      min-height: 260px !important;
+      max-height: 260px !important;
+      background: #f5f1eb !important;
+      border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+      padding: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+    }
+    @media (max-width: 768px) {
+      #alj-new-arrivals custom-salla-product-card .s-product-card-image,
+      #alj-new-arrivals salla-product-card .s-product-card-image {
+        height: 180px !important;
+        min-height: 180px !important;
+        max-height: 180px !important;
+      }
+    }
+    
+    /* Image containment without cropping, distortion or overflow (V12J-HF2 polish) */
+    #alj-new-arrivals custom-salla-product-card .s-product-card-image img,
+    #alj-new-arrivals salla-product-card .s-product-card-image img {
+      width: auto !important;
+      height: auto !important;
+      max-width: 88% !important;
+      max-height: 88% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      display: block !important;
+    }
+
+    /* 4. Text content styling */
+    #alj-new-arrivals custom-salla-product-card .s-product-card-content,
+    #alj-new-arrivals salla-product-card .s-product-card-content {
+      padding: 15px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+      text-align: right !important;
+    }
+    #alj-new-arrivals custom-salla-product-card .s-product-card-content-main,
+    #alj-new-arrivals salla-product-card .s-product-card-content-main {
+      flex-grow: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      margin-bottom: 12px !important;
+    }
+    #alj-new-arrivals custom-salla-product-card .s-product-card-content-title a,
+    #alj-new-arrivals salla-product-card .s-product-card-content-title a {
+      color: var(--secondary-color, #1f2937) !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      text-decoration: none !important;
+      line-height: 1.4 !important;
+    }
+    #alj-new-arrivals custom-salla-product-card .s-product-card-content-sub,
+    #alj-new-arrivals salla-product-card .s-product-card-content-sub {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-top: auto !important;
+      padding-top: 10px !important;
+      width: 100% !important;
+    }
+    #alj-new-arrivals custom-salla-product-card .s-product-card-price,
+    #alj-new-arrivals salla-product-card .s-product-card-price {
+      color: var(--text-dark, #111) !important;
+      font-weight: bold !important;
+      font-size: 1.1rem !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* 5. Wishlist button safe positioning */
+    #alj-new-arrivals custom-salla-product-card .s-product-card-wishlist-btn,
+    #alj-new-arrivals salla-product-card .s-product-card-wishlist-btn {
+      position: absolute !important;
+      top: 12px !important;
+      right: 12px !important;
+      left: auto !important;
+      margin: 0 !important;
+      z-index: 10 !important;
+    }
+
+    /* 6. Pill button morphing and alignment */
+    #alj-new-arrivals custom-salla-product-card .s-product-card-content-footer,
+    #alj-new-arrivals salla-product-card .s-product-card-content-footer {
+      width: 100% !important;
+      margin-top: 10px !important;
+    }
+    #alj-new-arrivals custom-salla-product-card salla-add-product-button::part(button),
+    #alj-new-arrivals custom-salla-product-card salla-add-product-button .btn,
+    #alj-new-arrivals custom-salla-product-card salla-add-product-button button,
+    #alj-new-arrivals salla-product-card salla-add-product-button::part(button),
+    #alj-new-arrivals salla-product-card salla-add-product-button .btn,
+    #alj-new-arrivals salla-product-card salla-add-product-button button {
+      background: var(--bg-alt, #f9fafb) !important;
+      color: var(--secondary-color, #1f2937) !important;
+      border: 1px solid var(--border-color, #e5e7eb) !important;
+      border-radius: 20px !important;
+      padding: 6px 15px !important;
+      font-weight: 700 !important;
+      height: auto !important;
+      min-height: 38px !important;
+      box-shadow: none !important;
+      width: 100% !important;
+      min-width: 80px;
+      transition: all 0.3s ease !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    #alj-new-arrivals custom-salla-product-card:hover salla-add-product-button::part(button),
+    #alj-new-arrivals custom-salla-product-card:hover salla-add-product-button .btn,
+    #alj-new-arrivals custom-salla-product-card:hover salla-add-product-button button,
+    #alj-new-arrivals salla-product-card:hover salla-add-product-button::part(button),
+    #alj-new-arrivals salla-product-card:hover salla-add-product-button .btn,
+    #alj-new-arrivals salla-product-card:hover salla-add-product-button button {
+      background: var(--secondary-color, #1f2937) !important;
+      color: var(--white, #fff) !important;
+    }
+  </style>
+
+  <div class="product-grid" style="min-height: 400px; display: block; position: relative; z-index: 5;">
+    <salla-products-list source="latest" limit="4" fallback-message="لا توجد منتجات متاحة حالياً" class="w-full">
+    </salla-products-list>
+  </div>
+
+</section>

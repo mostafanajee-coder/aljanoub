@@ -1,0 +1,18 @@
+INSTRUCTIONS FOR V12L DYNAMIC NEW ARRIVALS VERIFICATION SCREENSHOTS:
+=====================================================================
+
+To verify that the New Arrivals section is now fully dynamic:
+1. Open the storefront homepage in a desktop browser.
+2. Scroll down to the "وصلنا حديثاً" (New Arrivals) section (located right before "شركاء النجاح").
+3. Verify that:
+   - The section renders 4 dynamic product cards in a single row.
+   - The product images scale cleanly using object-fit: contain on a soft cream background (#f5f1eb).
+   - Wishlist buttons are positioned in the top-right corner of the image containers.
+   - The "الأكثر مبيعاً" (Best Sellers) section above remains stable and fully dynamic.
+4. Capture a desktop screenshot showing both Best Sellers and New Arrivals sections, and save it as `desktop_new_arrivals_v12l.png`.
+5. Switch to a mobile viewport.
+6. Verify that:
+   - The New Arrivals section displays in a 2-column grid.
+   - Images remain centered and balanced with no horizontal overflow.
+7. Capture a mobile screenshot of this section and save it as `mobile_new_arrivals_v12l.png`.
+8. Submit both screenshots for review.

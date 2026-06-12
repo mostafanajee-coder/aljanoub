@@ -1,0 +1,17 @@
+REVIEW NOTES - PHASE V12L: DYNAMIC NEW ARRIVALS PROMOTION
+==========================================================
+
+Phase Verdict: PASS
+Files Changed:
+- src/views/components/home/v12-new-arrivals-grid.twig [NEW]
+- src/views/pages/index.twig [MODIFY]
+
+Key Identifiers:
+- Product Source Used: source="latest" (salla-products-list)
+- theme.json status: Unchanged / Untouched (value remains {"views":{"home":[]}})
+- twilight.json status: Unchanged / Untouched
+- {% component home %} count: 0 (No native Salla builder dependencies)
+- Desktop layout: Passed (4-column grid aligned with Best Sellers grid, uniform contained images, no camera fallback icons)
+- Mobile layout: Passed (2-column responsive layout, zero horizontal overflow)
+- Footer Status: Passed (Clean, isolated storefront footer unaffected)
+- Rollback Command: git reset --hard HEAD~1
