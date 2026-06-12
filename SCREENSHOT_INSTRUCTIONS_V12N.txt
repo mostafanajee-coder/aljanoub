@@ -1,0 +1,13 @@
+SCREENSHOT INSTRUCTIONS: V12N Dynamic Categories Grid / Client-Side Menu Binding
+
+1. Desktop Homepage Categories Verification:
+   - Capture a screenshot of the "أقسام التسوق" section on the desktop homepage.
+   - Verify that the layout continues to display 8 category cards with correct alignment and spacing.
+   - Confirm that either dynamic categories have loaded successfully (with custom images or emoji fallbacks) or the original static categories have remained as a fallback.
+
+2. Mobile Categories Grid Verification:
+   - Capture a screenshot of the homepage categories on a mobile viewport.
+   - Verify that the layout renders as a 2-column grid and wraps cleanly without horizontal overflow or alignment issues.
+
+3. Static categories fallback check:
+   - To test fallback, temporarily disable JS or block salla.api.component.getMenus() to verify that the static grid renders instantly and perfectly.

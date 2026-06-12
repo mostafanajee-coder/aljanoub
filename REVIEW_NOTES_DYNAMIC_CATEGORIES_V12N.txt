@@ -1,0 +1,36 @@
+PHASE: V12N Dynamic Categories Grid / Client-Side Menu Binding
+VERDICT: PASS
+
+FILES CHANGED:
+- src/views/components/home/v12-categories-grid.twig (added container ID)
+- src/assets/js/app.js (imported dynamic categories partial)
+- src/assets/js/partials/v12-dynamic-categories-grid.js (implemented categories binding)
+
+DATA SOURCE:
+- salla.api.component.getMenus() - verified to exist and load menu data.
+
+DYNAMIC RENDERING & FALLBACKS:
+- Retrieves categories from Salla navigation menu.
+- Filters out generic pages (about us, policy links, etc.) and limits output to 8 items.
+- If fetched categories exist, inner grid HTML is dynamically replaced with the new cards.
+- If fetch fails, returns empty, or returns non-category items, the old static Arabic categories remain unchanged.
+- Falls back to rounded images, customizer icon classes, or contextual emojis (e.g. coffee -> ☕).
+
+CONFIRMATIONS:
+- Categories appears exactly once on the homepage.
+- Best Sellers and New Arrivals sections are dynamic, untouched, and fully active.
+- {% component home %} count remains 0.
+- theme.json remains {"views":{"home":[]}}.
+
+TESTING STATUS:
+- Desktop: Clean 8-card grid layout with uniform shadows and hovers.
+- Mobile: Responsive 2-column layout.
+
+RISKS / LIMITATIONS:
+- Relies on merchant configuring correct categories/menus in the Salla dashboard.
+
+ROLLBACK COMMAND:
+git checkout master && git branch -D v12n-dynamic-categories-grid
+
+COMMIT HASH:
+28984c5e643207dd1cf2ec194a8429c61a737cda

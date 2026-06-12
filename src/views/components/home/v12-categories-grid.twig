@@ -1,4 +1,4 @@
-﻿<section class="alj-native-categories-component">
+<section class="alj-native-categories-component">
 {#
 | Variable            | Type   | Description           |
 |---------------------|--------|-----------------------|
@@ -161,7 +161,7 @@
     <div class="alj-v12-categories-header">
       <h2 class="alj-v12-categories-title">{{ section_title|default('أقسام التسوق') }}<span class="alj-v12-categories-title-accent"></span></h2>
     </div>
-    <div class="alj-v12-categories-grid">
+    <div class="alj-v12-categories-grid" id="alj-categories-grid" data-alj-dynamic-categories="true">
       <a href="{{ item_1_url|default('javascript:void(0)') }}" class="alj-v12-categories-card">
         <div class="alj-v12-categories-icon-area">{{ item_1_icon|default('☕') }}</div>
         <div class="alj-v12-categories-name">{{ item_1_title|default('القهوة') }}</div>
