@@ -172,4 +172,61 @@
     <salla-products-list source="latest" limit="4" fallback-message="لا توجد منتجات متاحة حالياً" class="w-full">
     </salla-products-list>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sandbox = document.getElementById('alj-real-products-sandbox');
+      if (!sandbox) return;
+
+      const cleanBrokenArtifacts = function() {
+        const cards = sandbox.querySelectorAll('custom-salla-product-card, salla-product-card, .s-product-card-entry');
+        cards.forEach(card => {
+          // 1. Hide Salla's internal icon fonts that represent missing/broken images
+          const icons = card.querySelectorAll('i[class*="sicon-image"], i[class*="broken"]');
+          icons.forEach(i => { i.style.display = 'none'; i.style.opacity = '0'; });
+
+          // 2. Validate all <img> tags inside the card
+          const imgs = card.querySelectorAll('img');
+          let foundValidMainImage = false;
+
+          imgs.forEach(img => {
+            const src = img.getAttribute('src') || img.currentSrc || '';
+            
+            // If src is clearly invalid literal
+            if (!src || src === 'undefined' || src === 'null' || src.endsWith('null') || src.trim() === '') {
+              img.style.display = 'none';
+              img.style.opacity = '0';
+              return;
+            }
+
+            // Attach a native error listener to catch 404s dynamically
+            img.addEventListener('error', function() {
+              this.style.display = 'none';
+              this.style.opacity = '0';
+            });
+
+            // If we already found the main product image, treat subsequent images as secondary/hover.
+            // If the secondary image is breaking the layout, we hide it as a precaution.
+            if (foundValidMainImage) {
+               // We only want the primary image in the sandbox for a clean look
+               img.style.display = 'none';
+               img.style.opacity = '0';
+            } else {
+               foundValidMainImage = true;
+            }
+          });
+        });
+      };
+
+      // Run immediately in case they are already rendered
+      setTimeout(cleanBrokenArtifacts, 500);
+      setTimeout(cleanBrokenArtifacts, 2000);
+
+      // Run continuously as Twilight hydrates the web components
+      const observer = new MutationObserver((mutations) => {
+        cleanBrokenArtifacts();
+      });
+      observer.observe(sandbox, { childList: true, subtree: true });
+    });
+  </script>
 </section>
