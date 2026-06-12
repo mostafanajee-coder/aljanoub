@@ -1,0 +1,26 @@
+﻿Phase: V12E-HF4 Native Component Contract Audit / No Storefront Mutation
+
+Files changed:
+- NATIVE_COMPONENT_CONTRACT_AUDIT_V12E_HF4.md
+- REVIEW_NOTES_NATIVE_COMPONENT_CONTRACT_V12E_HF4.txt
+
+Files inspected:
+- src/views/pages/index.twig
+- theme.json
+- twilight.json
+- src/views/components/home/*.twig
+
+Whether storefront source files changed: NO
+Whether theme.json changed: NO
+Whether twilight.json changed: NO
+Current theme.json home value: []
+Whether active {% component home %} exists: NO
+
+Why editor is empty: Salla requires a valid identifier in theme.json to list it in Page Elements. Since our manual identifier ("home.v12-categories-grid") was invalid, it fell back to an empty active list.
+Why V12E-HF2 failed: Manual theme.json mutation used an unrecognized identifier format, triggering Salla's fallback required-sections logic which injected the ugly "Latest Products".
+
+Recommended V12E-HF5 test: "User Driven Contract Discovery" sandbox on a temporary branch to let Salla's backend generate the correct theme.json identifier.
+
+Final classification: AUDIT ONLY / STOREFRONT UNCHANGED / NATIVE CONTRACT NOT YET PROVEN
+
+Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
