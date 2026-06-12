@@ -4,6 +4,7 @@ import Anime from './partials/anime';
 import initTootTip from './partials/tooltip';
 import AppHelpers from "./app-helpers";
 import './partials/v12-dynamic-categories-grid';
+import './partials/v12-dynamic-header-menu';
 
 
 class App extends AppHelpers {

@@ -1,0 +1,14 @@
+SCREENSHOT INSTRUCTIONS: V12O Dynamic Header Navigation / Client-Side Menu Binding
+
+1. Desktop Header Verification:
+   - Capture a screenshot of the header on desktop viewports.
+   - Verify that the horizontal navigation links appear centered, clean, and fit correctly next to the logo and search bar.
+   - Confirm that cart, user icon, and search behave and render identically.
+
+2. Mobile Header Verification:
+   - Capture a screenshot of the header on a mobile viewport.
+   - Verify that the search form remains full-width and aligned correctly.
+   - Confirm that there are no broken elements or overflows.
+
+3. Static Fallback Check:
+   - Verify that if Javascript is disabled or if the fetch fails, the header links fall back gracefully to "الرئيسية", "القهوة", "التمور", "الهيل والزعفران", "أواني الضيافة", and "لوازم الرحلات".

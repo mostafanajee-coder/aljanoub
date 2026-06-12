@@ -1,0 +1,30 @@
+PHASE: V12O Dynamic Header Navigation / Client-Side Menu Binding
+VERDICT: PASS
+
+FILES CHANGED:
+- src/views/pages/index.twig (added target ID #alj-header-menu to custom header navigation)
+- src/assets/js/app.js (imported dynamic header menu partial)
+- src/assets/js/partials/v12-dynamic-header-menu.js (implemented dynamic header binding)
+
+DATA SOURCE:
+- salla.api.component.getMenus() - verified to exist and load menu data.
+
+DYNAMIC RENDERING & FALLBACKS:
+- Retrieves navigation links from Salla menu API.
+- Filters out generic pages (terms, privacy, contact, cart, search, etc.).
+- Keeps first link as "الرئيسية" (Home) linking to `/`, followed by up to 5 category links (max 6 links total).
+- Enhances links only if at least 3 valid category/menu items are successfully fetched.
+- If fetch fails or data is insufficient, the static header navigation links remain visible and unchanged.
+- Layout remains identical, retaining horizontal alignment on desktop and scrolling behavior on mobile.
+
+CONFIRMATIONS:
+- Categories, Best Sellers, and New Arrivals each appear exactly once on the homepage and remain active.
+- Cart, user/account, logo, search, and footer remain completely unchanged.
+- {% component home %} count remains 0.
+- theme.json remains {"views":{"home":[]}}.
+
+ROLLBACK COMMAND:
+git checkout master && git branch -D v12o-dynamic-header-navigation
+
+COMMIT HASH:
+48038ce1245facb0d267ee28a80fae8352a95edc
