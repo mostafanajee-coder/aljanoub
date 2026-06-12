@@ -22,6 +22,7 @@
     #alj-best-sellers .s-products-list-row-cards {
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
+      align-items: stretch !important;
       gap: 25px !important;
       width: 100% !important;
     }
@@ -97,18 +98,24 @@
     /* 3. Image container sizing */
     #alj-best-sellers custom-salla-product-card .s-product-card-image,
     #alj-best-sellers salla-product-card .s-product-card-image {
+      position: relative !important;
       height: 220px !important;
+      min-height: 220px !important;
+      max-height: 220px !important;
       background: var(--bg-alt, #f9fafb) !important;
       border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
       padding: 10px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
+      overflow: hidden !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-image img,
     #alj-best-sellers salla-product-card .s-product-card-image img {
-      width: 100% !important;
-      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
       object-fit: contain !important;
     }
 
@@ -121,32 +128,56 @@
       flex-grow: 1 !important;
       text-align: right !important;
     }
+    #alj-best-sellers custom-salla-product-card .s-product-card-content-main,
+    #alj-best-sellers salla-product-card .s-product-card-content-main {
+      flex-grow: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      margin-bottom: 12px !important;
+    }
     #alj-best-sellers custom-salla-product-card .s-product-card-content-title a,
     #alj-best-sellers salla-product-card .s-product-card-content-title a {
       color: var(--secondary-color, #1f2937) !important;
       font-weight: 700 !important;
       font-size: 1.1rem !important;
       text-decoration: none !important;
+      line-height: 1.4 !important;
+    }
+    #alj-best-sellers custom-salla-product-card .s-product-card-content-sub,
+    #alj-best-sellers salla-product-card .s-product-card-content-sub {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-top: auto !important;
+      padding-top: 10px !important;
+      width: 100% !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-price,
     #alj-best-sellers salla-product-card .s-product-card-price {
       color: var(--text-dark, #111) !important;
       font-weight: bold !important;
       font-size: 1.1rem !important;
-      margin-top: auto !important;
-      padding-top: 10px !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     /* 5. Wishlist button safe positioning */
     #alj-best-sellers custom-salla-product-card .s-product-card-wishlist-btn,
     #alj-best-sellers salla-product-card .s-product-card-wishlist-btn {
       position: absolute !important;
-      top: 10px !important;
-      right: 10px !important;
+      top: 12px !important;
+      right: 12px !important;
+      left: auto !important;
+      margin: 0 !important;
       z-index: 10 !important;
     }
 
-    /* 6. Pill button morphing */
+    /* 6. Pill button morphing and alignment */
+    #alj-best-sellers custom-salla-product-card .s-product-card-content-footer,
+    #alj-best-sellers salla-product-card .s-product-card-content-footer {
+      width: 100% !important;
+      margin-top: 10px !important;
+    }
     #alj-best-sellers custom-salla-product-card salla-add-product-button::part(button),
     #alj-best-sellers custom-salla-product-card salla-add-product-button .btn,
     #alj-best-sellers custom-salla-product-card salla-add-product-button button,
@@ -160,11 +191,15 @@
       padding: 6px 15px !important;
       font-weight: 700 !important;
       height: auto !important;
-      min-height: 0 !important;
+      min-height: 38px !important;
       box-shadow: none !important;
+      width: 100% !important;
       min-width: 80px;
       transition: all 0.3s ease !important;
-      margin-top: 10px !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
     #alj-best-sellers custom-salla-product-card:hover salla-add-product-button::part(button),
     #alj-best-sellers custom-salla-product-card:hover salla-add-product-button .btn,

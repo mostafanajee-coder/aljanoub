@@ -1,0 +1,25 @@
+REVIEW NOTES - PHASE V12J-HF1: PRODUCTION REAL PRODUCTS VISUAL POLISH
+========================================================================
+
+Verified Items:
+----------------
+1. Product card height:
+   All cards inside the Best Sellers grid have equal height. Tested on varying lengths of titles.
+2. Product image containment and centering:
+   Images inside the card are contained (object-fit: contain) and centered within a 220px box.
+3. Wishlist button position:
+   Wishlist heart buttons are aligned at the top-right corner of each image container cleanly and do not drift or overlap other details.
+4. Product name position:
+   Product names are kept inside the content wrapper below the image area.
+5. Consistent alignments:
+   Prices and add-to-cart buttons align perfectly at the bottom of the cards.
+6. Layout columns:
+   4 columns on desktop, 2 columns on mobile.
+7. Suppressed artifacts:
+   Broken native image background camera/photo icons and Salla "تعذر جلب المزيد" loading-error messages are completely hidden.
+8. Best Sellers count:
+   The الأكثر مبيعاً (Best Sellers) section is included exactly once on the homepage.
+9. Structural safety:
+   No static product mockups are re-introduced. The data source remains dynamically connected to the store via salla-products-list (source="latest").
+10. Salla native engine:
+    {% component home %} is NOT used. Count is 0. theme.json remains {"views":{"home":[]}}.

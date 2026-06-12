@@ -1,0 +1,19 @@
+INSTRUCTIONS FOR VERIFICATION SCREENSHOTS:
+==========================================
+
+To verify the visual polish in Phase V12J-HF1:
+1. Open the storefront homepage in a desktop browser.
+2. Scroll to the "الأكثر مبيعاً" (Best Sellers) section.
+3. Check the following:
+   - Product cards must have identical heights (even if the titles wrap differently).
+   - Product images must be fully visible and centered inside a 220px box with no background camera icons.
+   - The wishlist heart button must be cleanly placed in the top corner of the image container.
+   - Product names must be displayed fully below the image box, never overlapping it.
+   - Prices and add-to-cart buttons must align perfectly at the bottom.
+   - The desktop grid should show 4 columns.
+4. Capture a full desktop screenshot and save it as `desktop_screenshot_v12j_hf1.png`.
+5. Switch the browser viewport to a mobile device emulation (e.g. iPhone 12 Pro) or open on a mobile phone.
+6. Verify that:
+   - The mobile grid shows exactly 2 columns.
+   - Image containment and card heights are perfectly balanced.
+7. Capture a mobile screenshot and save it as `mobile_screenshot_v12j_hf1.png`.
