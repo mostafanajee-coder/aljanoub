@@ -1,0 +1,14 @@
+﻿SALLA EDITOR VERIFICATION REQUIRED - V12E-HF7
+
+Please open your Salla Theme Editor on the branch 12e-hf7-raed-schema-alignment and check the following:
+
+1. "Page Elements" Panel (عناصر الصفحة):
+   - Take a screenshot of the active page elements list.
+   - Does the "Dynamic Categories Grid V12" appear here now that it perfectly matches the official Raed schema?
+
+2. "Add New Element" Panel (إضافة عنصر جديد):
+   - Take a screenshot of the available components list.
+   - Is the component available to be added manually?
+
+3. Storefront Preview:
+   - Verify that the layout remains clean and the fallback "Latest Products" section is hidden.

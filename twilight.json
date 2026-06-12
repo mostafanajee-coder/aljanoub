@@ -1372,251 +1372,276 @@
             ]
         },
         {
+            "key": "bfa87706-da82-40f0-92f8-8571356bcd02",
+            "title": {
+                "ar": "أقسام التسوق",
+                "en": "Shopping Categories"
+            },
+            "icon": "sicon-grid",
+            "path": "home.v12-categories-grid",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1",
             "fields": [
                 {
+                    "id": "enabled",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "تفعيل القسم",
                         "en": "Enable Section"
                     },
-                    "value": true,
-                    "id": "enabled",
-                    "type": "switch"
+                    "value": true
                 },
                 {
+                    "id": "section_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم",
                         "en": "Section Title"
                     },
-                    "value": "أقسام التسوق",
-                    "id": "section_title",
-                    "type": "text"
+                    "value": "أقسام التسوق"
                 },
                 {
+                    "id": "item_1_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 1",
                         "en": "Item 1 Icon"
                     },
-                    "value": "☕",
-                    "id": "item_1_icon",
-                    "type": "text"
+                    "value": "☕"
                 },
                 {
+                    "id": "item_1_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 1",
                         "en": "Item 1 Title"
                     },
-                    "value": "القهوة",
-                    "id": "item_1_title",
-                    "type": "text"
+                    "value": "القهوة"
                 },
                 {
+                    "id": "item_1_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 1",
                         "en": "Item 1 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_1_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_2_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 2",
                         "en": "Item 2 Icon"
                     },
-                    "value": "🌴",
-                    "id": "item_2_icon",
-                    "type": "text"
+                    "value": "🌴"
                 },
                 {
+                    "id": "item_2_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 2",
                         "en": "Item 2 Title"
                     },
-                    "value": "التمور",
-                    "id": "item_2_title",
-                    "type": "text"
+                    "value": "التمور"
                 },
                 {
+                    "id": "item_2_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 2",
                         "en": "Item 2 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_2_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_3_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 3",
                         "en": "Item 3 Icon"
                     },
-                    "value": "🌿",
-                    "id": "item_3_icon",
-                    "type": "text"
+                    "value": "🌿"
                 },
                 {
+                    "id": "item_3_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 3",
                         "en": "Item 3 Title"
                     },
-                    "value": "الهيل",
-                    "id": "item_3_title",
-                    "type": "text"
+                    "value": "الهيل"
                 },
                 {
+                    "id": "item_3_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 3",
                         "en": "Item 3 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_3_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_4_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 4",
                         "en": "Item 4 Icon"
                     },
-                    "value": "🫖",
-                    "id": "item_4_icon",
-                    "type": "text"
+                    "value": "🫖"
                 },
                 {
+                    "id": "item_4_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 4",
                         "en": "Item 4 Title"
                     },
-                    "value": "الشاي",
-                    "id": "item_4_title",
-                    "type": "text"
+                    "value": "الشاي"
                 },
                 {
+                    "id": "item_4_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 4",
                         "en": "Item 4 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_4_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_5_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 5",
                         "en": "Item 5 Icon"
                     },
-                    "value": "🌺",
-                    "id": "item_5_icon",
-                    "type": "text"
+                    "value": "🌺"
                 },
                 {
+                    "id": "item_5_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 5",
                         "en": "Item 5 Title"
                     },
-                    "value": "الزعفران",
-                    "id": "item_5_title",
-                    "type": "text"
+                    "value": "الزعفران"
                 },
                 {
+                    "id": "item_5_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 5",
                         "en": "Item 5 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_5_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_6_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 6",
                         "en": "Item 6 Icon"
                     },
-                    "value": "🍽️",
-                    "id": "item_6_icon",
-                    "type": "text"
+                    "value": "🍽️"
                 },
                 {
+                    "id": "item_6_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 6",
                         "en": "Item 6 Title"
                     },
-                    "value": "أواني الضيافة",
-                    "id": "item_6_title",
-                    "type": "text"
+                    "value": "أواني الضيافة"
                 },
                 {
+                    "id": "item_6_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 6",
                         "en": "Item 6 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_6_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_7_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 7",
                         "en": "Item 7 Icon"
                     },
-                    "value": "⚙️",
-                    "id": "item_7_icon",
-                    "type": "text"
+                    "value": "⚙️"
                 },
                 {
+                    "id": "item_7_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 7",
                         "en": "Item 7 Title"
                     },
-                    "value": "محضرات القهوة",
-                    "id": "item_7_title",
-                    "type": "text"
+                    "value": "محضرات القهوة"
                 },
                 {
+                    "id": "item_7_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 7",
                         "en": "Item 7 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_7_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 },
                 {
+                    "id": "item_8_icon",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "أيقونة القسم 8",
                         "en": "Item 8 Icon"
                     },
-                    "value": "⛺",
-                    "id": "item_8_icon",
-                    "type": "text"
+                    "value": "⛺"
                 },
                 {
+                    "id": "item_8_title",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "عنوان القسم 8",
                         "en": "Item 8 Title"
                     },
-                    "value": "لوازم الرحلات",
-                    "id": "item_8_title",
-                    "type": "text"
+                    "value": "لوازم الرحلات"
                 },
                 {
+                    "id": "item_8_url",
+                    "type": "string",
+                    "format": "text",
                     "label": {
                         "ar": "رابط القسم 8",
                         "en": "Item 8 URL"
                     },
-                    "value": "javascript:void(0)",
-                    "id": "item_8_url",
-                    "type": "text"
+                    "value": "javascript:void(0)"
                 }
-            ],
-            "name": "home.v12-categories-grid",
-            "icon": "sicon-grid",
-            "path": "home.v12-categories-grid",
-            "key": "bfa87706-da82-40f0-92f8-8571356bcd02",
-            "title": {
-                "ar": "أقسام التسوق الديناميكية V12",
-                "en": "Dynamic Categories Grid V12"
-            },
-            "section": "home"
+            ]
         }
     ],
     "support_url": "https://aljanoubstores.sa/",
