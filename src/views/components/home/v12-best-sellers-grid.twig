@@ -1,0 +1,65 @@
+{# V12F Code-Managed Best Sellers Grid Component
+   Architecture: Safe manual Twig include (no native Salla component engine).
+   This component is NOT registered in twilight.json or theme.json.
+   It renders the "الأكثر مبيعاً" product grid with 4 static product cards. #}
+
+<!-- Best Sellers -->
+<section class="section-padding-sm container">
+  <div class="section-header">
+    <h2 class="section-title">الأكثر مبيعاً<span class="title-accent"></span></h2>
+    <p class="section-subtitle">المنتجات المفضلة لدى عملائنا لجودتها الاستثنائية</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <span class="p-badge">الأكثر طلباً</span>
+      <div class="p-visual"><div class="art-box art-coffee-bag">☕</div></div>
+      <div class="p-info">
+        <div class="p-title">قهوة عربية فاخرة</div>
+        <div class="p-desc">مزيج من أجود أنواع البن المحمص بعناية لتقديم نكهة أصيلة.</div>
+        <div class="p-rate">★★★★★</div>
+        <div class="p-footer">
+          <div class="p-price">١٢٠ <span>ر.ق</span></div>
+          <button type="button" class="p-add-btn">🛒 أضف</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <span class="p-badge" style="background:var(--primary-color);">مميز</span>
+      <div class="p-visual"><div class="art-box art-dates-box">🌴</div></div>
+      <div class="p-info">
+        <div class="p-title">تمر خلاص فاخر</div>
+        <div class="p-desc">تمور منتقاة حبة بحبة، تتميز بمذاق حلو طبيعي وجودة ممتازة.</div>
+        <div class="p-rate">★★★★★</div>
+        <div class="p-footer">
+          <div class="p-price">٨٥ <span>ر.ق</span></div>
+          <button type="button" class="p-add-btn">🛒 أضف</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="p-visual"><div class="art-box art-cardamom-jar">🌿</div></div>
+      <div class="p-info">
+        <div class="p-title">هيل هندي اكسترا</div>
+        <div class="p-desc">حبات هيل خضراء كبيرة ذات رائحة نفاذة للقهوة والطبخ.</div>
+        <div class="p-rate">★★★★☆</div>
+        <div class="p-footer">
+          <div class="p-price">١٦٠ <span>ر.ق</span></div>
+          <button type="button" class="p-add-btn">🛒 أضف</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <span class="p-badge new">نادر</span>
+      <div class="p-visual"><div class="art-box art-saffron-tin">🌺</div></div>
+      <div class="p-info">
+        <div class="p-title">زعفران نقيل مختار</div>
+        <div class="p-desc">خيوط زعفران حمراء نقية ١٠٠٪ تضفي طعماً ولوناً فريداً.</div>
+        <div class="p-rate">★★★★★</div>
+        <div class="p-footer">
+          <div class="p-price">٢٥٠ <span>ر.ق</span></div>
+          <button type="button" class="p-add-btn">🛒 أضف</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

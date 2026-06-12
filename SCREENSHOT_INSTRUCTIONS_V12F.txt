@@ -1,0 +1,9 @@
+﻿STOREFRONT VERIFICATION - V12F CODE-MANAGED BEST SELLERS
+
+Please verify the following in the Salla preview or live storefront:
+
+1. Screenshot of "أقسام التسوق" (Shopping Categories) cards — confirm they appear exactly once.
+2. Screenshot of "الأكثر مبيعاً" (Best Sellers) section — confirm 4 product cards are visible with correct Arabic text, prices, and badges.
+3. Screenshot of the area between "الأكثر مبيعاً" and "موسم الضيافة الفاخرة" promo banner — confirm no unwanted default sections appear.
+4. Screenshot of the footer — confirm it is clean with no layout artifacts.
+5. Mobile screenshot of the full homepage — confirm responsive layout is intact.

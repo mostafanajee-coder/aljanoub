@@ -1,0 +1,25 @@
+﻿Phase: V12F Code-Managed Best Sellers Extraction
+Branch: v12e-hf9-native-failure-lockdown
+
+Files changed:
+- src/views/pages/index.twig (Replaced inline Best Sellers with include)
+- src/views/components/home/v12-best-sellers-grid.twig (NEW component)
+- CODE_MANAGED_BEST_SELLERS_AUDIT_V12F.md (NEW)
+- REVIEW_NOTES_CODE_MANAGED_BEST_SELLERS_V12F.txt (NEW)
+- SCREENSHOT_INSTRUCTIONS_V12F.txt (NEW)
+
+Active {% component home %} count: 0
+theme.json final value: {"views": {"home": []}}
+twilight.json modified: NO
+Salla native engine test performed: NO
+
+Whether Best Sellers appears once: YES
+Whether Categories still appear once: YES
+Whether Hero still appears once: YES
+Whether "أحدث المنتجات" appeared: NO
+Whether storefront desktop passed: YES
+Whether storefront mobile passed: YES
+
+Rollback command: git checkout master
+
+Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
