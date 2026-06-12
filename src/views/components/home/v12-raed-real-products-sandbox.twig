@@ -42,9 +42,20 @@
     }
 
     /* Hide the "Load More" or "تعذر جلب المزيد" block in the sandbox */
+    #alj-real-products-sandbox salla-products-list > *:not(.s-products-list-wrapper):not(.s-products-list-vertical-cards):not(.s-products-list-row-cards):not(.products-list),
     #alj-real-products-sandbox .s-products-list-loading-wrapper,
-    #alj-real-products-sandbox .s-products-list-placeholder {
+    #alj-real-products-sandbox .s-products-list-placeholder,
+    #alj-real-products-sandbox .s-infinite-scroll-wrapper,
+    #alj-real-products-sandbox [class*="placeholder"]:not(img),
+    #alj-real-products-sandbox [class*="load-more"],
+    #alj-real-products-sandbox [class*="loading"] {
       display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
