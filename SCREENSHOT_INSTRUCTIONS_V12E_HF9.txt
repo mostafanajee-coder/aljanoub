@@ -1,0 +1,8 @@
+﻿SALLA STOREFRONT LOCKDOWN VERIFICATION - V12E-HF9
+
+Please verify that the storefront has been safely restored after the native component engine failure:
+
+1. The “أقسام التسوق” cards: Take a screenshot confirming the categories grid is visible exactly once.
+2. The area directly below “أقسام التسوق” until “الأكثر مبيعاً”: Take a screenshot confirming that the "Native component test host" box and the "أحدث المنتجات" default products have been completely removed.
+3. The footer: Take a screenshot of the footer to ensure no layout breakages occurred at the bottom.
+4. Editor sidebar (Optional): Take a screenshot of the right editor sidebar (“عناصر الصفحة”) just for confirmation that it remains empty.
