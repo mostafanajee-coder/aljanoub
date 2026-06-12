@@ -63,8 +63,13 @@
     #alj-real-products-sandbox i[class*="sicon-photo"],
     #alj-real-products-sandbox i[class*="broken"],
     #alj-real-products-sandbox .sicon-image,
-    #alj-real-products-sandbox .sicon-image-broken {
+    #alj-real-products-sandbox .sicon-image-broken,
+    #alj-real-products-sandbox .s-product-card-image::before,
+    #alj-real-products-sandbox .s-product-card-image::after,
+    #alj-real-products-sandbox .s-product-card-image-full::before,
+    #alj-real-products-sandbox .s-product-card-image-full::after {
       display: none !important;
+      content: "" !important;
       opacity: 0 !important;
       visibility: hidden !important;
     }
