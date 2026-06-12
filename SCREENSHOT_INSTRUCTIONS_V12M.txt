@@ -1,0 +1,13 @@
+SCREENSHOT INSTRUCTIONS: V12M Category Data Source Audit
+
+1. Homepage Categories Grid Screenshot:
+   - Capture a screenshot of the "أقسام التسوق" section on the desktop homepage.
+   - Verify that the layout continues to display the 8 static categories with their correct emojis and labels.
+   - Confirm that no visual regressions or testing sandboxes are visible.
+
+2. Homepage Categories Grid Mobile Viewport:
+   - Capture a screenshot of the categories section in mobile view.
+   - Verify that the 2-column layout displays correctly and matches the stable styling.
+
+3. Salla Component Count Check:
+   - Search for {% component home %} in the code editor to visually confirm that the count is 0 and no native engine dependencies have been introduced.

@@ -1,0 +1,35 @@
+PHASE: V12M Category Data Source Audit / No Storefront Mutation
+VERDICT: AUDIT ONLY
+
+FILES INSPECTED:
+- src/views/components/home/v12-categories-grid.twig
+- src/views/pages/index.twig
+- src/views/components/home/latest-products.twig
+- src/views/components/home/featured-products-style1.twig
+- src/views/components/home/featured-products-style3.twig
+- src/views/layouts/master.twig
+- src/views/components/header/header.twig
+- src/assets/js/partials/main-menu.js
+- theme.json
+- twilight.json
+
+PATTERNS FOUND:
+1. Current categories component uses customizer fields (item_1_icon, item_1_title, item_1_url) defaulting to static Arabic layouts since the native engine is off.
+2. Salla category variables (category.name, category.url, etc.) are only available in category page contexts, not globally on the homepage.
+3. The main menu uses salla.api.component.getMenus() in JavaScript to fetch dynamic categories.
+4. Component builder features (component.categories) are inactive without the home engine.
+
+RECOMMENDED V12N STRATEGY:
+- Implement a custom JavaScript Web Component (e.g. <custom-categories-grid>) that fetches store menus using Salla's JS SDK (salla.api.component.getMenus()), extracts the category links, and renders them in the exact same visual card markup.
+- Use the current static category grid as a skeleton placeholder during server-side rendering to prevent layout shift.
+- Fallback to name-to-emoji mapping if category images are not configured on the store backend.
+
+CONFIRMATIONS:
+- Storefront was NOT changed.
+- {% component home %} count remains 0.
+- theme.json remains {"views":{"home":[]}}.
+- Twilight.json is untouched.
+- Current Categories section remains static and visible.
+
+ROLLBACK COMMAND:
+git checkout master && git branch -D v12m-category-data-source-audit
