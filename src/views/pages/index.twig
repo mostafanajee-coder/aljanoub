@@ -518,10 +518,8 @@
   {% include 'components.home.v12-hero-shadow' %}
 
   <!-- Categories -->
-  {# V12E visible dynamic categories replacement. Static categories replaced by v12-categories-grid include. #}
-  <div class="alj-v12-native-categories-engine-host" data-alj-native-engine="v12e-hf2">
-    {% component home %}
-  </div>
+  {# V12E-HF3 visible dynamic categories restored as safe direct include due to native engine failure. #}
+  {% include 'components.home.v12-categories-grid' %}
 
   <!-- Best Sellers -->
   <section class="section-padding-sm container">

@@ -1,7 +1,5 @@
 {
   "views": {
-    "home": [
-      "home.v12-categories-grid"
-    ]
+    "home": []
   }
 }
