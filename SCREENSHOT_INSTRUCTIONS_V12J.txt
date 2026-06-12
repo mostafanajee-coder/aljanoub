@@ -1,0 +1,28 @@
+==========================================================
+SCREENSHOT VERIFICATION INSTRUCTIONS: V12J
+==========================================================
+
+Please follow these instructions to verify the dynamic Best Sellers promotion on the local preview storefront:
+
+1. Launch Salla CLI Preview Server:
+   - Ensure the server is running (e.g. `salla theme preview`).
+   
+2. Desktop Storefront Layout:
+   - Scroll to the "?????? ??????" (Best Sellers) section on desktop.
+   - Verify that 4 dynamic real product cards are loaded in a single clean row.
+   - Confirm that the static dummy cards are gone and only real products are shown.
+   - Verify that all wishlist hearts (top right), titles, prices, and add-to-cart buttons (pills) appear and align correctly.
+   - Take a full-screen desktop screenshot showing the "?????? ??????" section.
+
+3. Mobile Storefront Layout:
+   - Inspect the page using browser responsive view (mobile size).
+   - Confirm that the "?????? ??????" section renders in exactly 2 columns.
+   - Verify that images load nicely with no broken placeholders.
+   - Take a mobile screenshot of the "?????? ??????" section.
+
+4. Layout Order & Duplication Check:
+   - Scroll through the entire page.
+   - Verify that "?????? ???????? ????????" (the sandbox section) does not appear anywhere.
+   - Confirm that categories, hero, best sellers, promo banner, new arrivals, brands, and footer appear in the correct order exactly once.
+
+Please save the captured screenshots into the review folder or upload them to verify.

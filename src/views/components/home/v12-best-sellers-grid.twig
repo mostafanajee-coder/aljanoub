@@ -1,66 +1,185 @@
-{# V12F Code-Managed Best Sellers Grid Component
-   Architecture: Safe manual Twig include (no native Salla component engine).
+{# V12J Code-Managed Dynamic Best Sellers Grid Component
+   Architecture: Safe dynamic Twig include using salla-products-list (no native Salla component engine).
    This component is NOT registered in twilight.json or theme.json.
-   It renders the "الأكثر مبيعاً" product grid with 4 static product cards.
-   V12H-HF4: Rolled back to stable static cards after real-product binding failed. #}
+   It renders the "الأكثر مبيعاً" product grid using real store products and Al Janoub premium style.
+#}
 
-<!-- Best Sellers -->
-<section class="section-padding-sm container">
+<section class="section-padding-sm container" id="alj-best-sellers">
   <div class="section-header">
     <h2 class="section-title">الأكثر مبيعاً<span class="title-accent"></span></h2>
     <p class="section-subtitle">المنتجات المفضلة لدى عملائنا لجودتها الاستثنائية</p>
   </div>
-  <div class="product-grid">
-    <div class="product-card">
-      <span class="p-badge">الأكثر طلباً</span>
-      <div class="p-visual"><div class="art-box art-coffee-bag">☕</div></div>
-      <div class="p-info">
-        <div class="p-title">قهوة عربية فاخرة</div>
-        <div class="p-desc">مزيج من أجود أنواع البن المحمص بعناية لتقديم نكهة أصيلة.</div>
-        <div class="p-rate">★★★★★</div>
-        <div class="p-footer">
-          <div class="p-price">١٢٠ <span>ر.ق</span></div>
-          <button type="button" class="p-add-btn">🛒 أضف</button>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <span class="p-badge" style="background:var(--primary-color);">مميز</span>
-      <div class="p-visual"><div class="art-box art-dates-box">🌴</div></div>
-      <div class="p-info">
-        <div class="p-title">تمر خلاص فاخر</div>
-        <div class="p-desc">تمور منتقاة حبة بحبة، تتميز بمذاق حلو طبيعي وجودة ممتازة.</div>
-        <div class="p-rate">★★★★★</div>
-        <div class="p-footer">
-          <div class="p-price">٨٥ <span>ر.ق</span></div>
-          <button type="button" class="p-add-btn">🛒 أضف</button>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="p-visual"><div class="art-box art-cardamom-jar">🌿</div></div>
-      <div class="p-info">
-        <div class="p-title">هيل هندي اكسترا</div>
-        <div class="p-desc">حبات هيل خضراء كبيرة ذات رائحة نفاذة للقهوة والطبخ.</div>
-        <div class="p-rate">★★★★☆</div>
-        <div class="p-footer">
-          <div class="p-price">١٦٠ <span>ر.ق</span></div>
-          <button type="button" class="p-add-btn">🛒 أضف</button>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <span class="p-badge new">نادر</span>
-      <div class="p-visual"><div class="art-box art-saffron-tin">🌺</div></div>
-      <div class="p-info">
-        <div class="p-title">زعفران نقيل مختار</div>
-        <div class="p-desc">خيوط زعفران حمراء نقية ١٠٠٪ تضفي طعماً ولوناً فريداً.</div>
-        <div class="p-rate">★★★★★</div>
-        <div class="p-footer">
-          <div class="p-price">٢٥٠ <span>ر.ق</span></div>
-          <button type="button" class="p-add-btn">🛒 أضف</button>
-        </div>
-      </div>
-    </div>
+  
+  <style>
+    /* 1. Force the inner wrapper to behave as a grid, NOT the outer component */
+    #alj-best-sellers salla-products-list {
+      display: block !important;
+      width: 100% !important;
+    }
+    
+    #alj-best-sellers .s-products-list-wrapper,
+    #alj-best-sellers .s-products-list-vertical-cards,
+    #alj-best-sellers .s-products-list-row-cards {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 25px !important;
+      width: 100% !important;
+    }
+
+    @media (max-width: 1024px) {
+      #alj-best-sellers .s-products-list-wrapper,
+      #alj-best-sellers .s-products-list-vertical-cards,
+      #alj-best-sellers .s-products-list-row-cards { 
+        grid-template-columns: repeat(3, 1fr) !important; 
+      }
+    }
+    @media (max-width: 768px) {
+      #alj-best-sellers .s-products-list-wrapper,
+      #alj-best-sellers .s-products-list-vertical-cards,
+      #alj-best-sellers .s-products-list-row-cards { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+      }
+    }
+
+    /* Hide the "Load More" or "تعذر جلب المزيد" block in the best sellers */
+    #alj-best-sellers salla-products-list > *:not(.s-products-list-wrapper):not(.s-products-list-vertical-cards):not(.s-products-list-row-cards):not(.products-list),
+    #alj-best-sellers .s-products-list-loading-wrapper,
+    #alj-best-sellers .s-products-list-placeholder,
+    #alj-best-sellers .s-infinite-scroll-wrapper,
+    #alj-best-sellers [class*="placeholder"]:not(img),
+    #alj-best-sellers [class*="load-more"],
+    #alj-best-sellers [class*="loading"] {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Suppress broken icon fonts without hiding actual product images */
+    #alj-best-sellers i[class*="sicon-image"],
+    #alj-best-sellers i[class*="sicon-photo"],
+    #alj-best-sellers i[class*="broken"],
+    #alj-best-sellers .sicon-image,
+    #alj-best-sellers .sicon-image-broken,
+    #alj-best-sellers .s-product-card-image::before,
+    #alj-best-sellers .s-product-card-image::after,
+    #alj-best-sellers .s-product-card-image-full::before,
+    #alj-best-sellers .s-product-card-image-full::after {
+      display: none !important;
+      content: "" !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+
+    /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
+    #alj-best-sellers custom-salla-product-card,
+    #alj-best-sellers salla-product-card {
+      background: var(--white, #fff) !important;
+      border-radius: var(--radius-md, 14px) !important;
+      box-shadow: var(--shadow-sm, 0px 4px 15px rgba(0,0,0,0.06)) !important;
+      border: 1px solid var(--border-color, #e5e7eb) !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      height: 100% !important;
+    }
+    #alj-best-sellers custom-salla-product-card:hover,
+    #alj-best-sellers salla-product-card:hover {
+      box-shadow: var(--shadow-md, 5px 10px 30px rgba(0,0,0,0.1)) !important;
+      transform: translateY(-5px) !important;
+    }
+
+    /* 3. Image container sizing */
+    #alj-best-sellers custom-salla-product-card .s-product-card-image,
+    #alj-best-sellers salla-product-card .s-product-card-image {
+      height: 220px !important;
+      background: var(--bg-alt, #f9fafb) !important;
+      border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+      padding: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    #alj-best-sellers custom-salla-product-card .s-product-card-image img,
+    #alj-best-sellers salla-product-card .s-product-card-image img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+    }
+
+    /* 4. Text content styling */
+    #alj-best-sellers custom-salla-product-card .s-product-card-content,
+    #alj-best-sellers salla-product-card .s-product-card-content {
+      padding: 15px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+      text-align: right !important;
+    }
+    #alj-best-sellers custom-salla-product-card .s-product-card-content-title a,
+    #alj-best-sellers salla-product-card .s-product-card-content-title a {
+      color: var(--secondary-color, #1f2937) !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      text-decoration: none !important;
+    }
+    #alj-best-sellers custom-salla-product-card .s-product-card-price,
+    #alj-best-sellers salla-product-card .s-product-card-price {
+      color: var(--text-dark, #111) !important;
+      font-weight: bold !important;
+      font-size: 1.1rem !important;
+      margin-top: auto !important;
+      padding-top: 10px !important;
+    }
+
+    /* 5. Wishlist button safe positioning */
+    #alj-best-sellers custom-salla-product-card .s-product-card-wishlist-btn,
+    #alj-best-sellers salla-product-card .s-product-card-wishlist-btn {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      z-index: 10 !important;
+    }
+
+    /* 6. Pill button morphing */
+    #alj-best-sellers custom-salla-product-card salla-add-product-button::part(button),
+    #alj-best-sellers custom-salla-product-card salla-add-product-button .btn,
+    #alj-best-sellers custom-salla-product-card salla-add-product-button button,
+    #alj-best-sellers salla-product-card salla-add-product-button::part(button),
+    #alj-best-sellers salla-product-card salla-add-product-button .btn,
+    #alj-best-sellers salla-product-card salla-add-product-button button {
+      background: var(--bg-alt, #f9fafb) !important;
+      color: var(--secondary-color, #1f2937) !important;
+      border: 1px solid var(--border-color, #e5e7eb) !important;
+      border-radius: 20px !important;
+      padding: 6px 15px !important;
+      font-weight: 700 !important;
+      height: auto !important;
+      min-height: 0 !important;
+      box-shadow: none !important;
+      min-width: 80px;
+      transition: all 0.3s ease !important;
+      margin-top: 10px !important;
+    }
+    #alj-best-sellers custom-salla-product-card:hover salla-add-product-button::part(button),
+    #alj-best-sellers custom-salla-product-card:hover salla-add-product-button .btn,
+    #alj-best-sellers custom-salla-product-card:hover salla-add-product-button button,
+    #alj-best-sellers salla-product-card:hover salla-add-product-button::part(button),
+    #alj-best-sellers salla-product-card:hover salla-add-product-button .btn,
+    #alj-best-sellers salla-product-card:hover salla-add-product-button button {
+      background: var(--secondary-color, #1f2937) !important;
+      color: var(--white, #fff) !important;
+    }
+  </style>
+
+  <div class="product-grid" style="min-height: 400px; display: block; position: relative; z-index: 5;">
+    <salla-products-list source="latest" limit="4" fallback-message="لا توجد منتجات متاحة حالياً" class="w-full">
+    </salla-products-list>
   </div>
+
 </section>

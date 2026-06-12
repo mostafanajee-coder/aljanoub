@@ -1,0 +1,35 @@
+==========================================================
+REVIEW NOTES: V12J REAL PRODUCTS PRODUCTION PROMOTION
+==========================================================
+
+* Phase: V12J (Promote Real Products Sandbox to Best Sellers Production Section)
+* Date: 2026-06-13
+* Status: PROMOTED & READY FOR VERIFICATION
+
+Overview of Changes:
+1. Promoted the dynamic product card grid from the sandbox to the production position of the "?????? ??????" (Best Sellers) section in:
+   `src/views/components/home/v12-best-sellers-grid.twig`
+2. Removed the experimental sandbox include from:
+   `src/views/pages/index.twig`
+3. Ensured that real products are rendered dynamically, exactly once, in the proper production order.
+4. Suppressed native twilight fallback background icons (camera placeholder icons) on images inside this section to ensure clean visual appearance.
+
+Why This Approach is Safe:
+* We do NOT enable Salla's native `{% component home %}` or modify `theme.json` to be anything other than `{"views":{"home":[]}}`. This protects our custom layout from Salla's dashboard-managed widget overrides.
+* We leverage `<salla-products-list>` to fetch products from the backend store storefront API and style them dynamically using local, precise, scoped CSS under `#alj-best-sellers`.
+
+Build Status:
+* Webpack successfully compiled all assets in production mode (`npm run prod`).
+
+Verification Checkpoints:
+* Best Sellers displays real products (not static mock cards).
+* Sandbox section is completely removed.
+* No duplicate sections are rendered on the homepage.
+* Images load cleanly with no camera placeholder font icons showing through.
+* Desktop grid displays 4 cards, mobile grid displays 2 columns.
+* Titles, prices, wishlist heart buttons, and add-to-cart buttons are intact and fully functional.
+
+Rollback Command:
+```bash
+git checkout v12i-hf6-broken-icon-dom-fix && git branch -D v12j-real-products-promotion
+```
