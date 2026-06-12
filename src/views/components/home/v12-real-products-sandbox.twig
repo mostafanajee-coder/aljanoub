@@ -1,0 +1,30 @@
+{# V12H-HF4 Real Products Sandbox (NOT included in homepage)
+   This file is a research sandbox for future real-product binding experiments.
+   DO NOT include this file in index.twig until a working solution is validated.
+   
+   Known failure modes (V12H through V12H-HF4):
+   1. product-card-component="v12-best-seller-card" requires the JS to be a
+      standalone Webpack entry point (like wishlist-card.js), NOT bundled into app.js.
+   2. Even with standalone chunking, Salla Twilight's hydration timing may conflict
+      with the isolateHomepage() MutationObserver that aggressively hides DOM nodes.
+   3. CSS-only overrides of native cards (Option B in HF3) failed because the native
+      card structure uses Shadow DOM or deep scoping that resists external CSS.
+   
+   Future research path:
+   - Add 'v12-best-seller-card': asset('js/partials/v12-best-seller-card.js') to webpack.config.js
+   - Load the standalone chunk via <script defer src="{{ 'v12-best-seller-card.js'|asset }}">
+   - Use product-card-component="v12-best-seller-card" in salla-products-list
+   - Test on a NON-homepage page first (e.g., a hidden test page) to avoid isolateHomepage() conflicts
+   - Only migrate to homepage after visual confirmation
+#}
+
+<!-- SANDBOX: Real Products Best Sellers (NOT ACTIVE) -->
+<section class="section-padding-sm container" style="display:none;">
+  <div class="section-header">
+    <h2 class="section-title">الأكثر مبيعاً (Sandbox)<span class="title-accent"></span></h2>
+  </div>
+  <div id="v12-real-products-sandbox" class="product-grid" style="min-height: 400px;">
+    <salla-products-list source="latest" limit="4" product-card-component="v12-best-seller-card" fallback-message="لا توجد منتجات متاحة حالياً">
+    </salla-products-list>
+  </div>
+</section>
