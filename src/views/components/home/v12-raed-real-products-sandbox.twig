@@ -58,6 +58,14 @@
       padding: 0 !important;
     }
 
+    /* Hide broken image artifacts (e.g. empty or undefined src attributes) */
+    #alj-real-products-sandbox img[src=""],
+    #alj-real-products-sandbox img:not([src]),
+    #alj-real-products-sandbox img[src="undefined"],
+    #alj-real-products-sandbox img[src*="undefined"] {
+      display: none !important;
+    }
+
     /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
     #alj-real-products-sandbox custom-salla-product-card,
     #alj-real-products-sandbox salla-product-card {
