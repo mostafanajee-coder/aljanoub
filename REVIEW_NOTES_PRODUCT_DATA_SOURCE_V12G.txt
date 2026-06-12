@@ -1,0 +1,8 @@
+# Review Notes for V12G Product Data Source Audit
+
+- This phase was purely an audit. No changes were made to the codebase or storefront.
+- We confirmed `{% component home %}` remains unused and `theme.json` is protected.
+- We identified Salla's Custom Element component approach (like `wishlist-card.js`) as the safest path forward.
+- By injecting our custom HTML/CSS into a JS Web Component, we can use `<salla-products-list>` to fetch real products without destabilizing the theme.
+- Risk: We lose the custom visual mapping (e.g. coffee icon for product A, dates icon for product B) unless we hardcode logic based on product ID, or randomize the visuals. We will need to decide on this mapping logic in V12H.
+- We are ready to proceed with V12H to implement the data binding.

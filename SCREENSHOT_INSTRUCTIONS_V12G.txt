@@ -1,0 +1,13 @@
+Please run the following commands manually if you wish to verify the audit:
+
+1. Confirm branch is correct:
+git branch
+
+2. Confirm component home is not used:
+git grep "{% component home %}"
+
+3. Preview locally (no visual changes expected, but confirms build is stable):
+salla npm run dev
+salla theme preview
+
+Take screenshots of the local preview showing that the static "الأكثر مبيعاً" grid is still rendering correctly and no errors appear.
