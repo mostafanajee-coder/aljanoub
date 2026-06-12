@@ -12,18 +12,14 @@
   
   <style>
     /* 1. Force the inner wrapper to behave as a grid, NOT the outer component */
-    #alj-best-sellers salla-products-list,
-    #alj-product-source-sandbox salla-products-list {
+    #alj-best-sellers salla-products-list {
       display: block !important;
       width: 100% !important;
     }
     
     #alj-best-sellers .s-products-list-wrapper,
     #alj-best-sellers .s-products-list-vertical-cards,
-    #alj-best-sellers .s-products-list-row-cards,
-    #alj-product-source-sandbox .s-products-list-wrapper,
-    #alj-product-source-sandbox .s-products-list-vertical-cards,
-    #alj-product-source-sandbox .s-products-list-row-cards {
+    #alj-best-sellers .s-products-list-row-cards {
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
       align-items: stretch !important;
@@ -34,20 +30,14 @@
     @media (max-width: 1024px) {
       #alj-best-sellers .s-products-list-wrapper,
       #alj-best-sellers .s-products-list-vertical-cards,
-      #alj-best-sellers .s-products-list-row-cards,
-      #alj-product-source-sandbox .s-products-list-wrapper,
-      #alj-product-source-sandbox .s-products-list-vertical-cards,
-      #alj-product-source-sandbox .s-products-list-row-cards { 
+      #alj-best-sellers .s-products-list-row-cards { 
         grid-template-columns: repeat(3, 1fr) !important; 
       }
     }
     @media (max-width: 768px) {
       #alj-best-sellers .s-products-list-wrapper,
       #alj-best-sellers .s-products-list-vertical-cards,
-      #alj-best-sellers .s-products-list-row-cards,
-      #alj-product-source-sandbox .s-products-list-wrapper,
-      #alj-product-source-sandbox .s-products-list-vertical-cards,
-      #alj-product-source-sandbox .s-products-list-row-cards { 
+      #alj-best-sellers .s-products-list-row-cards { 
         grid-template-columns: repeat(2, 1fr) !important; 
         gap: 12px !important; 
       }
@@ -60,14 +50,7 @@
     #alj-best-sellers .s-infinite-scroll-wrapper,
     #alj-best-sellers [class*="placeholder"]:not(img),
     #alj-best-sellers [class*="load-more"],
-    #alj-best-sellers [class*="loading"],
-    #alj-product-source-sandbox salla-products-list > *:not(.s-products-list-wrapper):not(.s-products-list-vertical-cards):not(.s-products-list-row-cards):not(.products-list),
-    #alj-product-source-sandbox .s-products-list-loading-wrapper,
-    #alj-product-source-sandbox .s-products-list-placeholder,
-    #alj-product-source-sandbox .s-infinite-scroll-wrapper,
-    #alj-product-source-sandbox [class*="placeholder"]:not(img),
-    #alj-product-source-sandbox [class*="load-more"],
-    #alj-product-source-sandbox [class*="loading"] {
+    #alj-best-sellers [class*="loading"] {
       display: none !important;
       opacity: 0 !important;
       visibility: hidden !important;
@@ -86,16 +69,7 @@
     #alj-best-sellers .s-product-card-image::before,
     #alj-best-sellers .s-product-card-image::after,
     #alj-best-sellers .s-product-card-image-full::before,
-    #alj-best-sellers .s-product-card-image-full::after,
-    #alj-product-source-sandbox i[class*="sicon-image"],
-    #alj-product-source-sandbox i[class*="sicon-photo"],
-    #alj-product-source-sandbox i[class*="broken"],
-    #alj-product-source-sandbox .sicon-image,
-    #alj-product-source-sandbox .sicon-image-broken,
-    #alj-product-source-sandbox .s-product-card-image::before,
-    #alj-product-source-sandbox .s-product-card-image::after,
-    #alj-product-source-sandbox .s-product-card-image-full::before,
-    #alj-product-source-sandbox .s-product-card-image-full::after {
+    #alj-best-sellers .s-product-card-image-full::after {
       display: none !important;
       content: "" !important;
       opacity: 0 !important;
@@ -104,9 +78,7 @@
 
     /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
     #alj-best-sellers custom-salla-product-card,
-    #alj-best-sellers salla-product-card,
-    #alj-product-source-sandbox custom-salla-product-card,
-    #alj-product-source-sandbox salla-product-card {
+    #alj-best-sellers salla-product-card {
       background: var(--white, #fff) !important;
       border-radius: var(--radius-md, 14px) !important;
       box-shadow: var(--shadow-sm, 0px 4px 15px rgba(0,0,0,0.06)) !important;
@@ -118,18 +90,14 @@
       height: 100% !important;
     }
     #alj-best-sellers custom-salla-product-card:hover,
-    #alj-best-sellers salla-product-card:hover,
-    #alj-product-source-sandbox custom-salla-product-card:hover,
-    #alj-product-source-sandbox salla-product-card:hover {
+    #alj-best-sellers salla-product-card:hover {
       box-shadow: var(--shadow-md, 5px 10px 30px rgba(0,0,0,0.1)) !important;
       transform: translateY(-5px) !important;
     }
 
     /* 3. Image container sizing (V12J-HF2 polish: consistent fixed height, flex centering, background) */
     #alj-best-sellers custom-salla-product-card .s-product-card-image,
-    #alj-best-sellers salla-product-card .s-product-card-image,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-image,
-    #alj-product-source-sandbox salla-product-card .s-product-card-image {
+    #alj-best-sellers salla-product-card .s-product-card-image {
       position: relative !important;
       height: 260px !important;
       min-height: 260px !important;
@@ -144,9 +112,7 @@
     }
     @media (max-width: 768px) {
       #alj-best-sellers custom-salla-product-card .s-product-card-image,
-      #alj-best-sellers salla-product-card .s-product-card-image,
-      #alj-product-source-sandbox custom-salla-product-card .s-product-card-image,
-      #alj-product-source-sandbox salla-product-card .s-product-card-image {
+      #alj-best-sellers salla-product-card .s-product-card-image {
         height: 180px !important;
         min-height: 180px !important;
         max-height: 180px !important;
@@ -155,9 +121,7 @@
     
     /* Image containment without cropping, distortion or overflow (V12J-HF2 polish) */
     #alj-best-sellers custom-salla-product-card .s-product-card-image img,
-    #alj-best-sellers salla-product-card .s-product-card-image img,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-image img,
-    #alj-product-source-sandbox salla-product-card .s-product-card-image img {
+    #alj-best-sellers salla-product-card .s-product-card-image img {
       width: auto !important;
       height: auto !important;
       max-width: 88% !important;
@@ -169,9 +133,7 @@
 
     /* 4. Text content styling */
     #alj-best-sellers custom-salla-product-card .s-product-card-content,
-    #alj-best-sellers salla-product-card .s-product-card-content,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-content,
-    #alj-product-source-sandbox salla-product-card .s-product-card-content {
+    #alj-best-sellers salla-product-card .s-product-card-content {
       padding: 15px !important;
       display: flex !important;
       flex-direction: column !important;
@@ -179,18 +141,14 @@
       text-align: right !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-content-main,
-    #alj-best-sellers salla-product-card .s-product-card-content-main,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-content-main,
-    #alj-product-source-sandbox salla-product-card .s-product-card-content-main {
+    #alj-best-sellers salla-product-card .s-product-card-content-main {
       flex-grow: 1 !important;
       display: flex !important;
       flex-direction: column !important;
       margin-bottom: 12px !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-content-title a,
-    #alj-best-sellers salla-product-card .s-product-card-content-title a,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-content-title a,
-    #alj-product-source-sandbox salla-product-card .s-product-card-content-title a {
+    #alj-best-sellers salla-product-card .s-product-card-content-title a {
       color: var(--secondary-color, #1f2937) !important;
       font-weight: 700 !important;
       font-size: 1.1rem !important;
@@ -198,9 +156,7 @@
       line-height: 1.4 !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-content-sub,
-    #alj-best-sellers salla-product-card .s-product-card-content-sub,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-content-sub,
-    #alj-product-source-sandbox salla-product-card .s-product-card-content-sub {
+    #alj-best-sellers salla-product-card .s-product-card-content-sub {
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
@@ -209,9 +165,7 @@
       width: 100% !important;
     }
     #alj-best-sellers custom-salla-product-card .s-product-card-price,
-    #alj-best-sellers salla-product-card .s-product-card-price,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-price,
-    #alj-product-source-sandbox salla-product-card .s-product-card-price {
+    #alj-best-sellers salla-product-card .s-product-card-price {
       color: var(--text-dark, #111) !important;
       font-weight: bold !important;
       font-size: 1.1rem !important;
@@ -221,9 +175,7 @@
 
     /* 5. Wishlist button safe positioning */
     #alj-best-sellers custom-salla-product-card .s-product-card-wishlist-btn,
-    #alj-best-sellers salla-product-card .s-product-card-wishlist-btn,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-wishlist-btn,
-    #alj-product-source-sandbox salla-product-card .s-product-card-wishlist-btn {
+    #alj-best-sellers salla-product-card .s-product-card-wishlist-btn {
       position: absolute !important;
       top: 12px !important;
       right: 12px !important;
@@ -234,9 +186,7 @@
 
     /* 6. Pill button morphing and alignment */
     #alj-best-sellers custom-salla-product-card .s-product-card-content-footer,
-    #alj-best-sellers salla-product-card .s-product-card-content-footer,
-    #alj-product-source-sandbox custom-salla-product-card .s-product-card-content-footer,
-    #alj-product-source-sandbox salla-product-card .s-product-card-content-footer {
+    #alj-best-sellers salla-product-card .s-product-card-content-footer {
       width: 100% !important;
       margin-top: 10px !important;
     }
@@ -245,10 +195,7 @@
     #alj-best-sellers custom-salla-product-card salla-add-product-button button,
     #alj-best-sellers salla-product-card salla-add-product-button::part(button),
     #alj-best-sellers salla-product-card salla-add-product-button .btn,
-    #alj-best-sellers salla-product-card salla-add-product-button button,
-    #alj-product-source-sandbox salla-add-product-button::part(button),
-    #alj-product-source-sandbox salla-add-product-button .btn,
-    #alj-product-source-sandbox salla-add-product-button button {
+    #alj-best-sellers salla-product-card salla-add-product-button button {
       background: var(--bg-alt, #f9fafb) !important;
       color: var(--secondary-color, #1f2937) !important;
       border: 1px solid var(--border-color, #e5e7eb) !important;
@@ -271,13 +218,7 @@
     #alj-best-sellers custom-salla-product-card:hover salla-add-product-button button,
     #alj-best-sellers salla-product-card:hover salla-add-product-button::part(button),
     #alj-best-sellers salla-product-card:hover salla-add-product-button .btn,
-    #alj-best-sellers salla-product-card:hover salla-add-product-button button,
-    #alj-product-source-sandbox custom-salla-product-card:hover salla-add-product-button::part(button),
-    #alj-product-source-sandbox custom-salla-product-card:hover salla-add-product-button .btn,
-    #alj-product-source-sandbox custom-salla-product-card:hover salla-add-product-button button,
-    #alj-product-source-sandbox salla-product-card:hover salla-add-product-button::part(button),
-    #alj-product-source-sandbox salla-product-card:hover salla-add-product-button .btn,
-    #alj-product-source-sandbox salla-product-card:hover salla-add-product-button button {
+    #alj-best-sellers salla-product-card:hover salla-add-product-button button {
       background: var(--secondary-color, #1f2937) !important;
       color: var(--white, #fff) !important;
     }
@@ -288,17 +229,4 @@
     </salla-products-list>
   </div>
 
-</section>
-
-<!-- V12K Product Source Sandbox Section -->
-<section class="section-padding-sm container" id="alj-product-source-sandbox" style="border-top: 1px dashed var(--border-color, #e5e7eb); margin-top: 40px; position: relative; z-index: 5;">
-  <div class="section-header">
-    <h2 class="section-title">اختبار مصادر المنتجات<span class="title-accent"></span></h2>
-    <p class="section-subtitle">بيئة تجريبية للتحقق من مصادر المنتجات الديناميكية (المصدر الحالي: offers)</p>
-  </div>
-
-  <div class="product-grid" style="min-height: 200px; display: block; position: relative; z-index: 5;">
-    <salla-products-list source="offers" limit="4" fallback-message="لا توجد عروض ترويجية متاحة حالياً" class="w-full">
-    </salla-products-list>
-  </div>
 </section>

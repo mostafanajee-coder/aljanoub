@@ -1,0 +1,17 @@
+SCREENSHOT INSTRUCTIONS: V12L-HF1 Production Cleanup + New Arrivals Verification
+
+1. Desktop Homepage Verification:
+   - Capture a screenshot of the homepage showing the "وصلنا حديثاً" section.
+   - Verify that the layout displays 4 columns, wishlist button is neatly placed, and images are centered without clipping.
+   - Confirm that the sandbox section "اختبار مصادر المنتجات" is completely gone.
+
+2. Mobile Homepage Verification:
+   - Capture a screenshot of the homepage on a mobile viewport (e.g., iPhone 12/13/14 emulation).
+   - Verify that the "وصلنا حديثاً" layout displays 2 columns, wishlist button is correctly positioned, and images are contained and centered.
+   - Confirm that there are no broken icons or "تعذر جلب المزيد" notices.
+
+3. Footer Verification:
+   - Capture a screenshot of the footer on desktop and mobile.
+   - Verify the custom footer structure is clean, fully visible, and there is no leakage of sandbox elements or broken image fallbacks near the footer.
+
+No fake or placeholder images should be used. Ensure actual rendered storefront outputs are captured.

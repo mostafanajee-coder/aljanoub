@@ -1,0 +1,23 @@
+PHASE: V12L-HF1 Production Cleanup + New Arrivals Verification
+STATUS: COMPLETE
+
+KEY VERIFICATIONS:
+- Deleted sandbox section '#alj-product-source-sandbox' ("اختبار مصادر المنتجات") from 'src/views/components/home/v12-best-sellers-grid.twig'.
+- Verified that 'src/views/pages/index.twig' has only production sections: Hero, Categories, Best Sellers, Promo banner, New Arrivals, Partners, and Footer.
+- Verified that "وصلنا حديثاً" appears exactly once via 'components.home.v12-new-arrivals-grid' immediately before "شركاء النجاح".
+- Verified that "الأكثر مبيعاً" appears exactly once and is dynamic.
+- Verified that {% component home %} count is 0 and theme.json remains {"views":{"home":[]}}.
+- Verified that twilight.json is completely untouched.
+- Verified that there are no broken camera icons or "تعذر جلب المزيد" messages in production sections.
+- Verified that desktop and mobile previews are clean, consistent, and beautiful.
+
+CHANGES SUMMARY:
+- Modified: src/views/components/home/v12-best-sellers-grid.twig (removed sandbox section markup and sandbox styles)
+- Untouched: theme.json, twilight.json, src/views/pages/index.twig (verified clean status)
+- Built: Compiled production assets with pnpm run prod
+
+ROLLBACK COMMAND:
+git checkout master && git branch -D v12l-hf1-production-cleanup
+
+COMMIT HASH:
+0a06e3946ce344b2508644b3ecf56ff49e9b9647
