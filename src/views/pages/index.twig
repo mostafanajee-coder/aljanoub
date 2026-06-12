@@ -1,4 +1,4 @@
-{% extends "layouts.master" %}
+﻿{% extends "layouts.master" %}
 
 {% block content %}
 <!-- V11E premium visual polish: Mobile UX layout improvements, refined spacing, and subtle visual balancing before dynamic component conversion. -->
@@ -478,10 +478,7 @@
 </style>
 
 <div class="alj-static-homepage v7-home-wrapper" dir="rtl">
-  <!-- V12E-HF5 hidden Salla homepage component host for UUID sandbox test -->
-  <div class="alj-v12e-hf5-native-sandbox-host" aria-hidden="true" data-v12e-hf5-native-sandbox="custom-uuid">
-    {% component home %}
-  </div>
+  
 
 <!-- V12B hidden Salla homepage component host.
      Purpose: allow Salla editor to detect homepage components without visually changing the locked static prototype.
@@ -537,6 +534,12 @@
   <!-- Categories -->
   {# V12E-HF3 visible dynamic categories restored as safe direct include due to native engine failure. #}
   {% include 'components.home.v12-categories-grid' %}
+
+  <!-- V12E-HF8 Native Component Test Host -->
+  <div class="alj-native-editor-contract-test" style="margin: 24px auto; max-width: 1200px; padding: 20px; border: 2px dashed #cda434; text-align: center; background: #fff;">
+    <h3 style="margin-bottom: 15px; color: #cda434;">Native component test host</h3>
+    {% component home %}
+  </div>
 
   <!-- Best Sellers -->
   <section class="section-padding-sm container">
@@ -822,6 +825,7 @@
   })();
 </script>
 {% endblock %}
+
 
 
 

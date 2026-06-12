@@ -1,0 +1,29 @@
+﻿Phase: V12E-HF8 Native Editor Contract Decision Test
+Branch: v12e-hf8-native-contract-decision
+
+Files changed:
+- src/views/pages/index.twig (Added visible test host below categories)
+- src/views/components/home/v12-categories-grid.twig (Added safe outer wrapper section)
+- NATIVE_COMPONENT_CONTRACT_AUDIT_V12E_HF8.md
+- REVIEW_NOTES_NATIVE_CONTRACT_DECISION_V12E_HF8.txt
+- SCREENSHOT_INSTRUCTIONS_V12E_HF8.txt
+
+Active candidate used: A (UUID contract)
+Exact twilight.json component object shape used: Raed-aligned shape with key, path, name, icon, image, title, fields
+Exact theme.json views.home value: {"views": {"home": ["bfa87706-da82-40f0-92f8-8571356bcd02"]}}
+Whether {% component home %} is visible: YES (Inside test host box)
+Whether default "أحدث المنتجات" appeared: NO (Storefront remained stable locally)
+Whether categories stayed stable: YES (The manual include remained intact)
+Whether editor verification is still pending user screenshots: YES
+
+DECISION MATRIX RULES FOR USER:
+- If Candidate A shows component in editor: UUID contract PASS.
+- If Candidate B is required: path contract PASS.
+- If both fail locally but config matches official docs: likely server sync / Partners Portal issue.
+- If native host renders “أحدث المنتجات”: component contract still invalid or backend fallback active.
+- If sidebar remains empty while storefront is stable: editor is reading server-side synced theme, not local files.
+- If component appears but settings do not open: fields/title schema issue.
+
+Rollback command: git checkout master
+
+Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE

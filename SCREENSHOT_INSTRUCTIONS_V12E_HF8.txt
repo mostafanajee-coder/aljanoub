@@ -1,0 +1,11 @@
+﻿SALLA EDITOR VERIFICATION REQUIRED - V12E-HF8
+
+Please push this branch to Github to trigger a Salla sync, then open your Salla Theme Editor and check the following:
+
+1. Storefront screenshot: Screenshot of the storefront at “أقسام التسوق”.
+2. Storefront Test Host screenshot: Screenshot of the area directly under “أقسام التسوق” where the "Native component test host" box should appear.
+3. Sidebar screenshot: Screenshot of the right sidebar “عناصر الصفحة”.
+4. Add New Element screenshot: Screenshot after clicking “إضافة عنصر جديد”.
+5. Add List screenshot: Screenshot if “أقسام التسوق” appears in the add-element list.
+6. Console Logs: Screenshot of browser Console filtered by: component OR twilight OR theme OR home OR latest
+7. Network Logs: Screenshot of Network tab filtered by: twilight OR theme OR components OR home
