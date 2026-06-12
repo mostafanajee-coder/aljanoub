@@ -10,18 +10,41 @@
   </div>
   
   <style>
-    /* 1. Force the list to behave as a grid */
+    /* 1. Force the inner wrapper to behave as a grid, NOT the outer component */
     #alj-real-products-sandbox salla-products-list {
+      display: block !important;
+      width: 100% !important;
+    }
+    
+    #alj-real-products-sandbox .s-products-list-wrapper,
+    #alj-real-products-sandbox .s-products-list-vertical-cards,
+    #alj-real-products-sandbox .s-products-list-row-cards {
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
       gap: 25px !important;
       width: 100% !important;
     }
+
     @media (max-width: 1024px) {
-      #alj-real-products-sandbox salla-products-list { grid-template-columns: repeat(3, 1fr) !important; }
+      #alj-real-products-sandbox .s-products-list-wrapper,
+      #alj-real-products-sandbox .s-products-list-vertical-cards,
+      #alj-real-products-sandbox .s-products-list-row-cards { 
+        grid-template-columns: repeat(3, 1fr) !important; 
+      }
     }
     @media (max-width: 768px) {
-      #alj-real-products-sandbox salla-products-list { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+      #alj-real-products-sandbox .s-products-list-wrapper,
+      #alj-real-products-sandbox .s-products-list-vertical-cards,
+      #alj-real-products-sandbox .s-products-list-row-cards { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+      }
+    }
+
+    /* Hide the "Load More" or "تعذر جلب المزيد" block in the sandbox */
+    #alj-real-products-sandbox .s-products-list-loading-wrapper,
+    #alj-real-products-sandbox .s-products-list-placeholder {
+      display: none !important;
     }
 
     /* 2. Override the native custom-salla-product-card wrapper to match Al Janoub style */
