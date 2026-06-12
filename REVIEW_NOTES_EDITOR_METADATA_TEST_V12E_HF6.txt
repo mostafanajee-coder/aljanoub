@@ -24,4 +24,4 @@ Final classification: LOCAL_METADATA_READY / REMOTE_EDITOR_PENDING
 
 Rollback command: git checkout master
 
-Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
+Final Git Commit: 27fe626 Test V12E-HF6 editor metadata for categories component
