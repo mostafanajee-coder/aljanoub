@@ -22,4 +22,4 @@ Whether storefront mobile passed: YES
 
 Rollback command: git checkout master
 
-Final Git Commit: PUT_FINAL_COMMIT_HASH_HERE
+Final Git Commit: b522887 V12F code-managed best sellers extraction
