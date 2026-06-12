@@ -1,0 +1,17 @@
+V12H-HF2 Product Card Repair Review Notes
+
+Overview:
+We have successfully isolated and repaired the issues causing "huge" unstyled product cards and "unwanted Salla runtime artifacts" at the bottom of the page. The storefront visual fidelity has been restored without resorting to the unstable native `{% component home %}` engine.
+
+Key Changes:
+1. Fixed Web Component Layout: By default, the `v12-best-seller-card` was behaving as an inline element, ignoring the `.product-grid` columns. We have aggressively styled the wrapper and internal flex attributes to lock it into the correct 4-column desktop layout.
+2. Button CSS Injection: Forced the native Salla `<salla-add-product-button>` to discard its default appearance and adopt our custom Al Janoub pill button styles (`.p-add-btn`) using deep CSS `::part(button)` targeting.
+3. Cleaned Up Duplicated HTML: The source of the "X buttons" and bottom artifacts was traced to a catastrophic duplication of HTML inside `index.twig` (caused by an earlier automated edit in HF1). This duplicate footprint was completely stripped.
+4. Robust CSS Isolation: We dropped the brittle `:has()` CSS pseudo-selector in favor of a synchronized Javascript-CSS handshake (`body.alj-home-page-active`), meaning older devices and WebViews will successfully hide the Twilight toolbar ("تعديل" edit buttons) and `<salla-search>` modals.
+
+Testing Instructions:
+1. Run `salla theme preview`.
+2. Scroll to the "الأكثر مبيعاً" (Best Sellers) section.
+3. Verify that 4 product cards appear in a single row on desktop, properly styled with your custom pill buttons, green/gold text, and correctly proportioned images.
+4. Scroll to the bottom of the page (past the footer) and verify that no "تعديل", "X", or search boxes appear.
+5. Provide screenshots if any layout discrepancies persist.

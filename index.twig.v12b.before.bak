@@ -3,7 +3,6 @@
 {% block content %}
 <!-- V11E premium visual polish: Mobile UX layout improvements, refined spacing, and subtle visual balancing before dynamic component conversion. -->
 
-<script>document.body.classList.add('alj-home-page-active');</script>
 <style>
   :root {
     --primary-color: #3b2818; /* Rich Coffee Brown */
@@ -28,25 +27,19 @@
   }
   
   /* --- Static prototype runtime isolation: hides default Salla layout artifacts outside .alj-static-homepage. Must be replaced with proper dynamic components during V12+. --- */
-  body.alj-home-page-active > header:not(.alj-store-header),
-  body.alj-home-page-active > footer:not(.alj-store-footer),
-  body.alj-home-page-active .store-header,
-  body.alj-home-page-active .store-footer,
-  body.alj-home-page-active .main-menu,
-  body.alj-home-page-active .mobile-menu,
-  body.alj-home-page-active .main-nav-container,
-  body.alj-home-page-active .salla-demo-ribbon,
-  body.alj-home-page-active .demo-badge,
-  body.alj-home-page-active .demo-notice,
-  body.alj-home-page-active #twilight-toolbar,
-  body.alj-home-page-active .twilight-toolbar,
-  body.alj-home-page-active salla-search,
-  body.alj-home-page-active salla-login-modal,
-  body.alj-home-page-active salla-offer-modal,
-  body.alj-home-page-active salla-scopes {
+  body:has(.alj-static-homepage) > header:not(.alj-store-header),
+  body:has(.alj-static-homepage) > footer:not(.alj-store-footer),
+  body:has(.alj-static-homepage) .store-header,
+  body:has(.alj-static-homepage) .store-footer,
+  body:has(.alj-static-homepage) .main-menu,
+  body:has(.alj-static-homepage) .mobile-menu,
+  body:has(.alj-static-homepage) .main-nav-container,
+  body:has(.alj-static-homepage) .salla-demo-ribbon,
+  body:has(.alj-static-homepage) .demo-badge,
+  body:has(.alj-static-homepage) .demo-notice,
+  body:has(.alj-static-homepage) #twilight-toolbar,
+  body:has(.alj-static-homepage) .twilight-toolbar {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
   }
   
   .alj-static-homepage ~ * {
@@ -436,63 +429,9 @@
     .f-pay-icon { padding: 3px 6px; font-size: 0.7rem; border-radius: 3px; }
   }
   @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
-  /* V12B hidden dynamic component host — non-visual editor detection bridge */
-  .alj-v12-component-home-host {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  max-width: 1px !important;
-  max-height: 1px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  clip: rect(0 0 0 0) !important;
-  clip-path: inset(50%) !important;
-  white-space: nowrap !important;
-  z-index: -1 !important;
-  inset-inline-start: 0 !important;
-  top: 0 !important;
-  }
-
-  .alj-v12-component-home-host,
-  .alj-v12-component-home-host * {
-  box-sizing: border-box !important;
-  }
-
-  .alj-v12-component-home-host * {
-  max-height: 0 !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
-  }
-  
-  .alj-v12e-hf5-native-sandbox-host {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  max-width: 1px !important;
-  max-height: 1px !important;
-  overflow: hidden !important;
-  clip-path: inset(50%) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  z-index: -1 !important;
-  }
 </style>
 
 <div class="alj-static-homepage v7-home-wrapper" dir="rtl">
-  
-
-<!-- V12B hidden Salla homepage component host.
-     Purpose: allow Salla editor to detect homepage components without visually changing the locked static prototype.
-     This is a temporary bridge for V12 testing and must be replaced by real dynamic section migration later. -->
-<div class="alj-v12-component-home-host" aria-hidden="true" data-alj-dynamic-component-host="v12b">
-  {# hidden host removed in v12e hf2 test #}
-</div>
 
   <!-- V7 Storefront Header (DIV instead of HEADER to avoid suppression) -->
   <div class="alj-store-header">
@@ -535,18 +474,126 @@
   </div>
 
   <!-- V7 Premium Hero -->
-  {# V12D visible dynamic hero replacement test. Static hero replaced by v12-hero-shadow include. #}
-  {% include 'components.home.v12-hero-shadow' %}
+  <section class="hero-wrapper">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">🌟 الخيار الأول للضيافة القطرية</div>
+        <h2 class="hero-title">الجنوب التجارية<span>جودة تليق بك</span></h2>
+        <p class="hero-desc">استكشف عالمنا من القهوة الفاخرة، والتمور المنتقاة، وأرقى مستلزمات الضيافة التي تعكس كرمك وأصالتك بأعلى المعايير.</p>
+        <div class="hero-actions">
+          <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="btn btn-primary">تسوق المجموعات</a>
+          <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="btn btn-outline">اكتشف العروض</a>
+        </div>
+      </div>
+      <div class="hero-visual-area">
+        <div class="visual-bg-glow"></div>
+        <div class="visual-card-main">
+          <div class="art-item-hero-coffee"></div>
+          <div class="vc-title">قهوة عربية</div>
+          <div class="vc-sub">تحميص طازج</div>
+        </div>
+        <div class="visual-card-float1">
+          <div class="art-item-dates"></div>
+          <div class="vc-title" style="font-size:1rem;">تمور ملكية</div>
+        </div>
+        <div class="visual-card-float2">
+          <div class="art-item-saffron">🌺</div>
+          <div>
+            <div class="vc-title" style="font-size:1rem;">زعفران نقيل</div>
+            <div class="vc-sub" style="font-size:0.8rem;">أصلي ١٠٠٪</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Row -->
+  <div class="benefits-row">
+    <div class="benefits-inner">
+      <div class="benefit-item"><span class="benefit-icon">🔥</span> تحميص مختار</div>
+      <div class="benefit-item"><span class="benefit-icon">✨</span> منتجات أصلية</div>
+      <div class="benefit-item"><span class="benefit-icon">🚚</span> توصيل موثوق</div>
+      <div class="benefit-item"><span class="benefit-icon">🔒</span> دفع آمن</div>
+    </div>
+  </div>
 
   <!-- Categories -->
-  {# V12E-HF3 visible dynamic categories restored as safe direct include due to native engine failure. #}
-  {% include 'components.home.v12-categories-grid' %}
-
-  
+  <section class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title">أقسام التسوق<span class="title-accent"></span></h2>
+    </div>
+    <div class="cat-grid">
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">☕</div><div class="cat-name">القهوة</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">🌴</div><div class="cat-name">التمور</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">🌿</div><div class="cat-name">الهيل</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">🫖</div><div class="cat-name">الشاي</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">🌺</div><div class="cat-name">الزعفران</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">🍽️</div><div class="cat-name">أواني الضيافة</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">⚙️</div><div class="cat-name">محضرات القهوة</div></a>
+      <a href="javascript:void(0)" aria-disabled="true" data-alj-placeholder-link="true" class="cat-card"><div class="cat-icon-area">⛺</div><div class="cat-name">لوازم الرحلات</div></a>
+    </div>
+  </section>
 
   <!-- Best Sellers -->
-  {# V12F code-managed best sellers extraction. Safe manual include, no native engine. #}
-  {% include 'components.home.v12-best-sellers-grid' %}
+  <section class="section-padding-sm container">
+    <div class="section-header">
+      <h2 class="section-title">الأكثر مبيعاً<span class="title-accent"></span></h2>
+      <p class="section-subtitle">المنتجات المفضلة لدى عملائنا لجودتها الاستثنائية</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <span class="p-badge">الأكثر طلباً</span>
+        <div class="p-visual"><div class="art-box art-coffee-bag">☕</div></div>
+        <div class="p-info">
+          <div class="p-title">قهوة عربية فاخرة</div>
+          <div class="p-desc">مزيج من أجود أنواع البن المحمص بعناية لتقديم نكهة أصيلة.</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">١٢٠ <span>ر.ق</span></div>
+            <button type="button" class="p-add-btn">🛒 أضف</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="p-badge" style="background:var(--primary-color);">مميز</span>
+        <div class="p-visual"><div class="art-box art-dates-box">🌴</div></div>
+        <div class="p-info">
+          <div class="p-title">تمر خلاص فاخر</div>
+          <div class="p-desc">تمور منتقاة حبة بحبة، تتميز بمذاق حلو طبيعي وجودة ممتازة.</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٨٥ <span>ر.ق</span></div>
+            <button type="button" class="p-add-btn">🛒 أضف</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="p-visual"><div class="art-box art-cardamom-jar">🌿</div></div>
+        <div class="p-info">
+          <div class="p-title">هيل هندي اكسترا</div>
+          <div class="p-desc">حبات هيل خضراء كبيرة ذات رائحة نفاذة للقهوة والطبخ.</div>
+          <div class="p-rate">★★★★☆</div>
+          <div class="p-footer">
+            <div class="p-price">١٦٠ <span>ر.ق</span></div>
+            <button type="button" class="p-add-btn">🛒 أضف</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="p-badge new">نادر</span>
+        <div class="p-visual"><div class="art-box art-saffron-tin">🌺</div></div>
+        <div class="p-info">
+          <div class="p-title">زعفران نقيل مختار</div>
+          <div class="p-desc">خيوط زعفران حمراء نقية ١٠٠٪ تضفي طعماً ولوناً فريداً.</div>
+          <div class="p-rate">★★★★★</div>
+          <div class="p-footer">
+            <div class="p-price">٢٥٠ <span>ر.ق</span></div>
+            <button type="button" class="p-add-btn">🛒 أضف</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Promo Banner -->
   <div class="section-padding container">
@@ -771,3 +818,6 @@
   })();
 </script>
 {% endblock %}
+
+
+
